@@ -1,0 +1,47 @@
+
+<!DOCTYPE HTML>
+
+
+<html lang="en">
+<head>
+    <title>Stats!</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+    <script>
+
+        var data = [100, 200, 300];
+        var max = d3.max(data);
+
+        var scale = d3.scale.linear()
+            .domain([0,max])
+            .range([0, max]);
+
+        var axis = d3.svg.axis()
+            .scale(scale)
+            .orient("left");
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 1000)
+            .attr("height", 1000)
+            .append("g")
+            .attr("transform", "translate(50, 50)")
+            .call(axis);
+
+        var bars = svg.selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+            //.attr("height", function(d) {return d;} )
+            .attr("height", function(d) {return scale(d);} )
+            .attr("width", 50)
+            .attr("x", function(d, i) {return i*60;})
+            .attr("y", function(d)    {return max-d;});
+
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,27 @@
+<?php
+	//require_once "base_function.php";
+  //f_dbConnect();
+	$sit_message = $_POST['json'];
+	$sit_message = stripslashes($sit_message);
+	//Strip newlines, and backslashes
+	$sit_message = preg_replace( "/\r|\n/", "", $sit_message);
+  $sit_message = stripslashes($sit_message);
+
+	//Further compacting the message by decde and re-encode it in json
+	$json_message = json_decode($sit_message);
+  $send_msg = json_encode($json_message);
+
+	file_put_contents("json_from_sit.log", $sit_message);
+	echo "Here's what you sent: " . $sit_message . "<br>";
+
+	$host = "tc-tac01.test.ise.com";
+	$port = "18901";
+
+$socket = socket_create(AF_INET,SOCK_STREAM,0) or die("Could not create socket\n");
+$result = socket_connect($socket,$host,$port) or die("Could not connect to M.A.P. Server\n");
+socket_write($socket,$send_msg,strlen($send_msg)) or die("Could not send json data to M.A.P. Server\n");
+	$result = socket_read($socket,1024) or die("Could not read from M.A.P. Server\n");
+	socket_close($socket);
+	if(($result == 'ok')){echo 'ok';}
+	else {echo "Action unsuccessful: $result";}
+?>

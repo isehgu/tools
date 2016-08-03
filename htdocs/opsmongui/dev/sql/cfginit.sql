@@ -1,0 +1,17 @@
+INSERT INTO `cfg` (`id`, `keyA`, `keyB`, `valueA`, `valueB`, `timeA`, `timeB`, `locked`) VALUES
+(3, 'lastload', 'firm', NULL, NULL, NULL, NULL, 1),
+(4, 'lastload', 'user', NULL, NULL, NULL, NULL, 1),
+(5, 'lastload', 'adapter', NULL, NULL, NULL, NULL, 1),
+(6, 'interval', 'browserpoll', '3500', NULL, NULL, NULL, 0),
+(7, 'interval', 'backendpoll', '4', NULL, NULL, NULL, 0),
+(8, 'threshold', 'percentage', '0.25', NULL, NULL, NULL, 0),
+(9, 'threshold', 'timespan', '5', NULL, NULL, NULL, 0),
+(10, 'lastload', 'connection', '1', NULL, NULL, NULL, 1),
+(11, 'lastload', 'connection', '2', NULL, NULL, NULL, 1),
+(12, 'lastload', 'connection', '3', NULL, NULL, NULL, 1),
+(13, 'lastload', 'alert', NULL, NULL, NULL, NULL, 1),
+(14, 'threshold', 'mintime', '5', NULL, NULL, NULL, 0),
+(15, 'threshold', 'maxtime', '20', NULL, NULL, NULL, 0),
+(19, 'threshold', 'minconn', '3', NULL, NULL, NULL, 0),
+(17, 'threshold', 'marketopen', '07:30:00', NULL, NULL, NULL, 0),
+(18, 'threshold', 'marketclose', '16:15:00', NULL, NULL, NULL, 0);

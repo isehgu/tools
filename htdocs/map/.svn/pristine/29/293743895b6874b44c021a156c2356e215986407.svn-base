@@ -1,0 +1,662 @@
+<?php
+    require_once("shared.php");
+
+    ///////////////////////////////////////////////////////////////////////
+    //input: template id, read_only (0 for false, 1 for true)
+    //display entire section_wrapper for that template and all it's test history
+    //grouped by releases
+     //If read-only, approval drop down will not show
+    function f_displayTestHistoryByRelease($template_id,$read_only,$test_or_label)
+    {
+        global $db;
+        $release_id_list = f_getReleaseIdListfromTemplateId($template_id);
+        // $release_version_list = f_get_release_mapping(); //return a list of release_id=>release_version
+
+        //If $test_or_label is label, so display test history by label
+        //For the given template_id, get a hash of related release_id and test labels
+        //release_id =>[label1,label2,label3...]
+
+        //If $test_or_label is test, which means displaying test history by test
+        //For the given template_id, get a hash of related release_id and test names
+        //release_id => [test1, test2...]
+
+        // if($test_or_label == 'label')
+        // {
+        //     $label_list_by_template = f_getTestLabelListByTemplate($template_id);
+        // }
+        // else
+        // {
+        //     $test_list_by_template = f_getTEstNameListByTemplate($template_id);
+        // }
+
+        //Get a universal hash  of test_label=>[test_executionId1,test_executionId2.....] for all labels -- $label_to_teid_list
+        //Get a universal hash of test_name=>[test_executionId1,test_executionId2.....] for all tests -- $test_to_teid_list
+
+        //In the loop, for each release_id, set another loop --
+        //For each label or test name
+        //$test_label_list[label/test] = $label/test_to_teid_list[label/test]
+
+
+        foreach($release_id_list as $release_id)
+        {
+            if(f_getTestCountByReleaseByTemplate($template_id,$release_id) < 1) continue; //if there's no test, don't display the release
+
+            $release_name = f_getReleaseFromId($release_id);
+            $suffix = $template_id.'_'.$release_id;
+            echo "<div class='section_wrapper'><div class='row wide-row'>";
+            echo "<div id='section_header_$suffix' class='small-11 columns small-offset-1 section_header header_text end'>
+                    <h1 class='font_syncopate'>$release_name</h1>
+                    </div></div>";
+            //end of section header
+            //section body
+            echo "<div class='row wide-row'>";
+            echo "<div id='section_body_$suffix' class='small-11 small-offset-1 columns section_body'>";
+
+            //This part here gets all the test labels on this release
+            //in this template, and display them as section wrappers
+            if($test_or_label === 'label'){
+                //test_label_list get label => [testid1,testid2....]
+                $test_label_list = f_getTestLabelListByReleaseByTemplate($release_id,$template_id);
+                f_displayTestHistoryByLabel($test_label_list, $read_only,$suffix);
+            }
+            else if($test_or_label === 'test'){
+                $test_name_list = f_getTestNameListByReleaseByTemplate($release_id,$template_id);
+                f_displayTestHistoryByTestName($test_name_list, $read_only,$suffix);
+            }
+            //end of test label handling
+            echo "</div></div>"; //end of 1st section body (for release)
+            echo "</div>"; //end of section wrapper
+        }
+    }//end of function f_displayTestHistoryByRelease($template_id)
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //Input: none
+    //display html needed for all ongoing and pending test in all templates.
+    //If a user has permission to a certain template, cancellation button will be active
+    //The following fields should be displayed --
+    //Select checkbox, Test Name, Task ID, Status, Template Instance Name, Start Time
+    function f_displayTestsLive()
+    {
+        echo "<div class='row'><div class='small-12 columns'><h1>In Progress</h1></div></div>";
+        f_displayTestsInProgress(); //displaying ongoing tests
+
+        echo "<div class='row'><div class='small-12 columns'><!--<hr>--></div></div>";
+
+        echo "<div class='row'><div class='small-12 columns'><h1>In Queue</h1></div></div>";
+        f_displayTestsInQueue(); //displaying queued tests
+    }
+    //end of f_displayTestsLive()
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //Input: none
+    //display html needed for all pending test in all templates.
+    //If a user has permission to a certain template, cancellation button will be active
+    //The following fields should be displayed --
+    //Template Name, Template Instance Name, Test Name, Task ID, Start Time
+    function f_displayTestsInQueue()
+    {
+        $template_id_list = f_getTemplateIdList();
+
+        foreach($template_id_list as $template_id)
+        {
+           f_displayTestsInQueueSingleTemplate($template_id);
+        }
+
+    }
+    //end of f_displayTestsInQueue()
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //Input: template id
+    //display html needed for all pending tests for the specific template
+    //If a user has permission to a certain template, cancellation button will be active
+    //The following fields should be displayed --
+    //Template Name, Template Instance Name, Test Name, Task ID, Start Time
+    function f_displayTestsInQueueSingleTemplate($template_id)
+    {
+        global $db, $loggedInUser;
+        $template_name = f_getTemplateFromId($template_id);
+        //If user's not authorized, disabled should be added to buttons and checkbox for that template
+        if(f_verifyUserPermissionByTemplate($template_id)) $disabled = '';
+        else $disabled = 'disabled';
+
+        $sql_query = "select te.task_id,tc.name,te.label,te.id from test_execution as te,test_case as tc,task_queue as tq where te.task_id = tq.task_id and tq.template_id = $template_id and te.test_id = tc.test_id and te.status = 0 order by te.task_id";
+        $result = $db->query($sql_query) or die($db->error);
+
+        if($result->num_rows){
+            echo "
+                <div class='section_wrapper live_test'>
+                    <div class='row'>
+                        <div id='section_header_$template_id' class='small-8 columns small-centered section_header header_text end small-centered'>
+                            <div class='row' data-equalizer>
+                                <div class='small-10 columns' data-equalizer-watch>
+                                    <h1 class='font_syncopate'>$template_name</h1>
+                                </div>
+                                <div class='small-2 columns' data-equalizer-watch>
+                                    <h1 class='font_syncopate'>$result->num_rows</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div id='section_body_$template_id' class='small-8 columns small-centered section_body end'>
+                            <button class='alert tiny cancel_selected $disabled' data-ise-template-id='$template_id'>Cancel Selected</button>
+                            <button class='alert tiny cancel_all $disabled' data-ise-template-id='$template_id'>Cancel All</button>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width='10%'>Select</th>
+                                        <th width='15%'>Task ID</th>
+                                        <th width='35%'>Label</th>
+                                        <th width='40%'>Test Name</th>
+                                    <tr>
+                                </thead>
+                                <tbody>
+            ";
+            while ($row = $result->fetch_assoc())
+            {
+                $task_id = '';
+                $test_name = '';
+                $test_label = '';
+                $execution_id = '';
+
+                $task_id = $row['task_id'];
+                $test_name = $row['name'];
+                $test_label = $row['label'];
+                $execution_id = $row['id'];
+
+                echo "
+                    <tr class='generic_table_row'>
+                        <td class='checkbox_td'><input  class='checkbox_test' data-ise-test-execution-id='$execution_id' type='checkbox' $disabled></td>
+                        <td>$task_id</td>
+                        <td>$test_label</td>
+                        <td>$test_name</td>
+                    </tr>
+                ";
+            }//end of while
+            echo "</table></div></div></div>"; //ending the section for this template
+        }
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //Input: none
+    //display html needed for all ongoing all templates
+    //The following fields should be displayed --
+    //Template Name, Template Instance Name, Test Name, Task ID, Start Time
+    function f_displayTestsInProgress()
+    {
+        global $loggedInUser,$db;
+        $sql_query = "select te.task_id,tc.name,te.start_time,te.label,t.template_name,tq.template_instance_id from test_execution as te,template as t,task_queue as tq, test_case as tc where te.task_id = tq.task_id and tq.template_id = t.template_id and te.test_id = tc.test_id and te.status = 1 order by t.template_name,tq.template_instance_id,te.task_id";
+        $result = $db->query($sql_query) or die ($db->error);
+        echo "
+            <div class='row'>
+                <div class='small-12 small-centered columns'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width='10%'>Template</th>
+                                <th width='10%'>Instance ID</th>
+                                <th width='10%'>Task ID</th>
+                                <th width='25%'>Label</th>
+                                <th width='25%'>Test Name</th>
+                                <th width='20%'>Start Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+        ";
+
+        while($row = $result->fetch_assoc())
+        {
+            $template_name = '';
+            $instance_id = '';
+            $test_name = '';
+            $task_id = '';
+            $start_time = '';
+            $label = '';
+
+            $template_name = $row['template_name'];
+            $instance_id = $row['template_instance_id'];
+            $test_name = $row['name'];
+            $task_id = $row['task_id'];
+            $start_time = $row['start_time'];
+            $label = $row['label'];
+
+            echo "
+                <tr>
+                    <td>$template_name</td>
+                    <td>$instance_id</td>
+                    <td>$task_id</td>
+                    <td>$label</td>
+                    <td>$test_name</td>
+                    <td>$start_time</td>
+                </tr>
+            ";
+        }//End of while
+
+
+
+        echo "
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        ";
+    }
+    //end of f_displayTestsInProgress()
+    ///////////////////////////////////////////////////////////////////////
+    //input: array of label=>(test_id,test_id...), read_only flag, suffix_tree
+    //suffix_tree is for section_header and section_body's suffix
+    //THIS IS FOR DISPLAY TEST HISTORY ON MY_TEST_DISPLAY and
+    //COMPLETE_TEST_HISTORY ONLY!!!!!!!
+    //display test history by label. Due to needed css, this won't display
+    //nicely on an empty page. It assumes that it's a sub-group under the
+    //release heading already.
+    function f_displayTestHistoryByLabel($test_label_list, $read_only,$suffix_tree)
+    {
+        $counter = 1; //this for the suffix on section_header and section_body
+        foreach($test_label_list as $label => $test_execution_id_list)
+        {
+            $label_suffix = $suffix_tree."_L$counter";
+
+            //echo "<div class='row'>row</div>";
+
+
+            echo "<div class='row'><div class='section_wrapper'>";
+
+            echo "<div class='small-1 columns'></div>";
+            echo "<div id='section_header_$label_suffix' class='small-11 small-offset-1 columns section_header header_text'>";
+            echo "<h3 class='font_syncopate'>$label</h3>";
+            echo "</div>";
+
+            echo "<div class='row'>";
+            echo "<div id='section_body_$label_suffix' class='small-11 small-offset-1 columns section_body'>";
+            f_displayTestsHistoryTable($test_execution_id_list,$read_only,'label');
+            echo "</div></div>";
+
+            echo "</div></div>";
+
+            $counter++;
+        }//end of foreach loop
+    }//end f_displayTestHistoryByLabel($test_label_list, $read_only)
+    ///////////////////////////////////////////////////////////////////////
+    //input: an array of test execution id, $read_only flag
+    //Display in html, a simple table with the following heading
+    //test status, Test Name, Results, Approval, Start Time, End Time
+    //If read_only is 1, then no drop down box on approval
+    //20141114--HG--Added rerun column and button. _GET request is handled
+    //via javascript, so no link here needed
+    //20141210  HG  Link test results to TRF link, if test is for SIT.
+    //              Test history row is now clickable to display rerun history
+    function f_displayTestsHistoryTable($test_execution_id_list,$read_only,$test_or_label)
+    {
+        global $db;
+        $test_status_array = array('Queued','Running','Completed Pass','Completed Failed','Killed','System Error','Test Cancelled');
+        $approval_status_array = array(0=>'Pending Approval',1=>'Approved',2=>'Not Approved',3=>'Approval Not Required');
+
+        $test_or_label_col_name = '';
+        if($test_or_label === 'label'){
+            $test_or_label_col_name = 'Test Name';
+        }
+        elseif ($test_or_label === 'test') {
+            $test_or_label_col_name = 'Label';
+        }
+
+        echo "
+            <table>
+                <thead>
+                    <tr>
+                        <th width='15%'>Test Status</th>
+                        <th width='20%'>$test_or_label_col_name</th>
+                        <th width='13%'>Test Results</th>
+                        <th width='15%'>Approval</th>
+                        <th width='15%'>Start Time</th>
+                        <th width='15%'>End Time</th>
+        ";
+        if($read_only == 0) //if read_only is false, meaning it's read and write
+        {
+            echo "<th width='7%'>Rerun</th>";
+        }
+        echo "
+                    <tr>
+                </thead>
+                <tbody>
+        ";
+        foreach($test_execution_id_list as $eid)
+        {
+            //echo "$eid";
+            $test_status_class = '';
+            $test_id = f_getTestIdFromTestExecutionId($eid);
+            $rerun_exist = f_getRerunExist($eid); //true if this test had reruns, false if it doesn't
+            if($rerun_exist) $test_status_class = 'strong';
+
+            $sql_query = "select te.group_id,te.test_folder_path,te.status,te.report,tc.name,te.start_time,te.end_time,te.approval_status,te.label from test_execution as te,test_case as tc where tc.test_id = $test_id and te.id = $eid";
+            $result = $db->query($sql_query) or die($db->error);
+            while ($row = $result->fetch_assoc())
+            {
+                $test_status = '';
+                $test_report = '';
+                $test_name = '';
+                $start = '';
+                $end = '';
+                $approval = '';
+                $report_link = '';
+                $report_anchor ='';
+                $result_folder = '';
+                $group_id = '';
+                $label = '';
+
+                $test_status = $test_status_array[$row['status']];
+                $test_report = $row['report'];
+                $test_name = $row['name'];
+                $start = $row['start_time'];
+                $end = $row['end_time'];
+                $approval = $approval_status_array[$row['approval_status']];
+                $result_folder = $row['test_folder_path'];
+                $group_id = $row['group_id'];
+                $label = $row['label'];
+
+                if($test_report )
+                {
+                    $report_link = 'http://map/reports/'.$test_report;
+                    $report_anchor = "<a href='$report_link' target='_blank'><i data-tooltip aria-haspopup='true' title='Robot report' class='has-tip tip-bottom radius fi-page-filled test_result_icon'></i></a>";
+                }
+                else
+                {
+                    $report_anchor = "<i data-tooltip aria-haspopup='true' title='No robot report available' class='has-tip tip-bottom radius fi-page-filled test_result_icon_null'></i>";
+                }
+
+                if($result_folder )
+                {
+                    if(strpos($result_folder,'dd-ap09') === false) //if result folder doesn't have dd-ap09, thus not SIT
+                    {
+                        $result_folder = "http://map/results/".$result_folder;
+                    }
+                    //if $result_folder has dd-ap09, then no manipulation is needed
+                    $result_folder = "<a href='$result_folder' target='_blank'><i data-tooltip aria-haspopup='true' title='Test result files' class='has-tip tip-bottom radius fi-folder test_result_icon'></i>";
+                }
+                else
+                {
+                    $result_folder = "<i data-tooltip aria-haspopup='true' title='No test result files available' class='has-tip tip-bottom radius fi-folder test_result_icon_null'></i>";
+                }
+
+                $test_or_label_val = '';
+                if($test_or_label === 'label'){
+                     $test_or_label_val = $test_name;
+                }
+                elseif ($test_or_label === 'test') {
+                    $test_or_label_val = $label;
+                }
+
+                echo "<tr class='generic_table_row'>";
+                echo "<td class='$test_status_class test_history_row' data-ise-group-id='$group_id'>$test_status</td>";
+                echo "<td class='test_history_row' data-ise-group-id='$group_id'>$test_or_label_val</td>";
+                echo "<td><ul class='no_style_list'><li>$report_anchor</li><li>$result_folder</li></ul></td>";
+                echo "<td class='test_history_row' data-ise-group-id='$group_id'>$approval</td>";
+                echo "<td class='test_history_row' data-ise-group-id='$group_id'>$start</td>";
+                echo "<td class='test_history_row' data-ise-group-id='$group_id'>$end</td>";
+                if($read_only == 0) //read and write allowed
+                {
+                    echo "
+                        <td>
+                            <i data-tooltip aria-haspopup='true' title='Rerun'
+                            class='has-tip tip-top radius fi-loop test_replay' data-ise-group-id='$group_id'
+                            data-ise-test-name='$test_name'>
+                            </i>
+                        </td>
+                    ";
+                }
+                echo "</tr>";
+            }//end of while loops
+
+        }//end of foreach
+        echo "</tbody></table>";
+    }//end of f_displayTestsHistoryTable($tests,$read_only)
+    ///////////////////////////////////////////////////////////////////////
+    //input: array of test_name=>(test_id,test_id...), read_only flag, suffix_tree
+    //suffix_tree is for section_header and section_body's suffix
+    //THIS IS FOR DISPLAY TEST HISTORY ON MY_TEST_DISPLAY and
+    //COMPLETE_TEST_HISTORY ONLY!!!!!!!
+    //display test history by test name. Due to needed css, this won't display
+    //nicely on an empty page. It assumes that it's a sub-group under the
+    //release heading already.
+    function f_displayTestHistoryByTestName($test_name_list, $read_only, $suffix_tree)
+    {
+        $counter = 1; //this for the suffix on section_header and section_body
+        foreach($test_name_list as $test_name => $test_execution_id_list){
+            $label_suffix = $suffix_tree."_T$counter";
+            echo "<div class='row'><div class='section_wrapper'>";
+            echo "<div class='small-1 columns'></div>";
+            echo "<div id='section_header_$label_suffix' class='small-11 small-offset-1 columns section_header header_text'>";
+            echo "<h3 class='font_syncopate'>$test_name</h3>";
+            echo "</div>";
+            echo "<div class='row'>";
+            echo "<div id='section_body_$label_suffix' class='small-11 small-offset-1 columns section_body'>";
+            f_displayTestsHistoryTable($test_execution_id_list,$read_only,'test');
+            echo "</div></div>";
+            echo "</div></div>";
+            $counter++;
+        }
+    }
+    ///////////////////////////////////////////////////////////////////////
+    //input: none
+    //display test history in templates that the user has permission to
+    function f_displayTestsUserHistory($test_or_label)
+    {
+        $time_start = microtime_float();
+        global $loggedInUser;
+
+        if(!isUserLoggedIn()){
+            echo "
+                <div class='row' id=''>
+                    <div class='small-12 columns' id='triggers_login_message'>
+                        <p id=''>
+                            Please log in to view this page
+                        </p>
+                    </div>
+                </div>";
+            return;
+        }
+        else
+        {
+            $uid = fetchUserDetails($loggedInUser->username);
+            $uid = $uid['id'];
+            $user_template_list = f_getUserTemplates($uid);
+
+            foreach($user_template_list as $template_id=>$template_name)
+            {
+                //echo $template_id . ": " . $user_template_list[$template_id];
+                echo "
+                    <div class='row wide-row template_stying'><div class='small-12 columns'><h1>$template_name</h1></div></div>
+                ";
+                f_displayTestHistoryByRelease($template_id, 0, $test_or_label); //read_only is true(1), false(0)
+                // echo "<hr>";
+            }
+        }//end of else
+
+        echo"<br>";
+        $time_end = microtime_float();
+        $time = $time_end - $time_start;
+        echo "PHP run time is $time seconds\n";
+
+    }//end of f_displayTestsUserHistory()
+
+    ///////////////////////////////////////////////////////////////////////
+    //input: group id, by by test or by labels
+    //output: echo table display of test rerun history
+    function f_displayTestRerunHistory($group_id,$test_or_label)
+    {
+        global $db;
+        $test_execution_id_list = array();
+        $sql_query = "select id from test_execution where group_id = $group_id order by id desc";
+        $result = $db->query($sql_query) or die($db->error);
+        while($row = $result->fetch_assoc())
+        {
+            $test_execution_id_list[] = $row['id'];
+        }
+        f_displayTestsHistoryTable($test_execution_id_list,1,$test_or_label); //1 is for ready-only
+    }//end of f_displayTestRerunHistory()
+    ///////////////////////////////////////////////////////////////////////
+    //input: none
+    //display test history for all templates
+    function f_displayTestsCompleteHistory()
+    {
+        $template_id_list = f_getTemplateIdList();
+
+        foreach($template_id_list as $template_id)
+        {
+            $template_name = f_getTemplateFromId($template_id);
+            //echo $template_id . ": " . $user_template_list[$template_id];
+            echo "
+                <div class='row wide-row template_stying'><div class='small-12 columns'><h1>$template_name</h1></div></div>
+            ";
+            f_displayTestHistoryByRelease($template_id, 1,'label'); //read_only is true(1), false(0)
+            // echo "<hr>";
+        }//end of foreach
+    }//end of f_displayTestsCompleteHistory()
+
+    /****************************************************************/
+    /* Submit Test Request Page */
+    /****************************************************************/
+
+    function f_displaySubmitTestRequest()
+    {
+        global $db;
+
+        // Get count of tests
+        $sql_query = "SELECT tc.name, tc.description, tc.template_id, tm.template_name ".
+            "FROM test_case tc, template tm ".
+            "WHERE tc.status='active' and  tm.template_id=tc.template_id order by tc.name";
+        $result = $db->query($sql_query) or die($db->error);
+        $num_rows = $result->num_rows;
+
+        // Figure out if user is logged in and has permissions. Use disabled button if no permissions.
+        $btn_disable = 'disabled'; // By default it should be disabled, until tests are selected
+        $btn_tooltip = '';
+
+        if(!isUserLoggedIn()){
+            $btn_disable = 'disabled';
+            $btn_tooltip = 'You must be logged in first before submitting test requests';
+        }
+        else{
+            $btn_tooltip = 'Select tests from the table to enable this button';
+        }
+
+        // Filter row
+        echo "
+            <div class='row' id='test_request_submit_button_row'>
+                <div class='small-12 columns' id='test_request_submit_button_wrapper'>
+
+                    <div class='small-5 columns' id='test_request_search_div'>
+                        <input id='test_request_search' type='text' placeholder='Search through tests'
+                        title='The entire table will be searched for every character you type. This is a regular expression based search.' />
+                    </div>
+
+                    <div class='small-7 columns' id='test_request_submit_button_div'>
+                        <a href='#' class='button small radius $btn_disable' id='test_request_submit_button'
+                        title='$btn_tooltip'>
+                            Submit Selected Test Requests
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class='row' id='test_request_filter_row'>
+                <div class='small-12 columns' id='test_request_filter_wrapper'>
+                    <div class='small-3 columns' id='test_request_filter_label_div'>
+                        <label id='test_request_filter_label'>Filter Tests to Display</label>
+                    </div>
+                    <div class='small-7 columns test_request_checkboxes_style' id='test_request_checkboxes_div'>
+                        <input id='str_checkbox_all' type='checkbox' checked title='Show/hide all tests'>
+                            <label for='str_checkbox_all' class='str_checkbox_labels' title='Show/hide all tests'>All</label>";
+
+        // Get templates for displaying checkboxes. Don't include SIT.
+        $sql_query = "SELECT * FROM template WHERE template_id != 1 ORDER BY template_name";
+        $result = $db->query($sql_query) or die($db->error);
+
+        while($row = $result->fetch_assoc())
+        {
+            $name = $row['template_name'];
+            // str = Submit Test Request
+            echo "
+                        <input id='str_checkbox_t_$name' type='checkbox' checked title='Show/hide $name tests'>
+                            <label for='str_checkbox_t_$name' class='str_checkbox_labels' title='Show/hide $name tests'>$name</label>";
+        }
+
+        echo "
+                    </div>
+                    <div class='small-2 columns' id='test_request_table_count' title='Number of
+                        tests available for selection'>
+                        $num_rows tests
+                    </div>
+                </div>
+            </div>";
+        f_displayTestRequestTable();
+    }
+
+    function f_displayTestRequestTable()
+    {
+        global $db;
+
+        echo "
+            <div class='row' id='test_request_table_row'>
+                <div class='small-12 columns' id='test_request_table_div'>
+                    <table id='test_request_table'>
+                        <thead>
+                            <tr>
+                                <th width='46%'>Name</th>
+                                <th width='46%'>Description</th>
+                                <th width='8%'>Template</th>
+                            </tr>
+                        </thead>
+                        <tbody id='test_request_table_body' class='test_request_searchable'>";
+
+        $sql_query = "SELECT tc.test_id, tc.name, tc.description, tc.template_id, tm.template_name ".
+            "FROM test_case tc, template tm ".
+            "WHERE tc.status='active' and  tm.template_id=tc.template_id order by tc.name";
+        $result = $db->query($sql_query) or die($db->error);
+
+        while($row = $result->fetch_assoc()){
+            $test_id       = $row['test_id'];
+            $name          = $row['name'];
+            $description   = $row['description'];
+            $template_name = $row['template_name'];
+            $template_id   = $row['template_id'];
+            echo "
+                <tr class='str_row_$template_name' id='test_link'
+                data-ise-str-test-id='$test_id'
+                data-ise-str-test-name='$name'
+                data-ise-str-test-template-id='$template_id'>
+                    <td class='test_request_table_name'>$name</td>
+                    <td class='test_request_table_desc'>$description</td>
+                    <td>$template_name</td>
+                </tr>";
+        }
+
+        echo "
+            </tbody>
+        </table></div></div>";
+
+    }
+
+
+    function f_app_version_dropdown($include_label)
+    {
+        f_dbConnect();
+        global $db;
+
+        $return_content = $include_label?'<label>Version':'';
+
+        $return_content .= "
+                <select id='test_request_selected_tests_version_select'>";
+
+        $sql_query = "SELECT release_id, version FROM release_registration ORDER BY application, version DESC";
+        $result = $db->query($sql_query) or die($db->error);
+        while($row = $result->fetch_assoc()){
+            $release_id = $row['release_id'];
+            $version = $row['version'];
+            $return_content .= "
+                    <option value='$release_id'>$version</option>";
+        }
+
+        $return_content .= "  <select>";
+        $return_content .= $include_label?'</label>':'';
+
+        return $return_content;
+    }
+?>

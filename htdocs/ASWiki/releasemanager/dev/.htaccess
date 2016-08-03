@@ -1,0 +1,8 @@
+# ACCESS_DENIED-PAGE REDIRECT
+<IfModule mod_rewrite.c>
+ RewriteEngine on
+ RewriteCond %{REMOTE_ADDR} !^172\.21\.5\.230
+ RewriteCond %{REQUEST_URI} !/accessdenied.php$ [NC]
+ RewriteCond %{REQUEST_URI} !\.(gif|jpg) [NC]
+ RewriteRule .* /ASWiki/releasemanager/dev/accessdenied/accessdenied.php [R=302,L]
+</IfModule>

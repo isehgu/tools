@@ -1,0 +1,90 @@
+/****************************************************************/
+/* Submit Test Request Page */
+/****************************************************************/
+#test_request_submit_button{
+  float: right;
+  margin-bottom: 10px;
+}
+#test_request_filter_label_div, #test_request_checkboxes_div{
+  text-align: left;
+}
+#test_request_submit_button_wrapper, #test_request_filter_wrapper{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#test_request_filter_label:hover{
+  cursor: default;
+}
+.test_request_checkboxes_style{
+  margin-left: -90px;
+}
+.test_request_checkboxes_style_exp{
+  margin-left: -65px;
+  padding-right: -100px;
+  overflow: none;
+}
+
+.str_checkbox_labels{
+  margin-left: 0px !important;
+}
+
+#test_request_table_count{
+  float: right;
+  text-align: right;
+  max-width: 100px;
+}
+
+#test_request_table tr:hover {
+  /*background-color: #DADADA;*/
+  background-color: rgba(0,140,186,0.6);;
+}
+#test_request_table td:hover {
+  cursor: pointer;
+}
+.test_request_highlight{
+  background-color: #66DF56 !important;
+}
+
+.test_request_table_shift{
+  max-width: 90%;
+}
+
+.test_request_table_name{
+  font-size: 1rem;
+}
+
+.str_panel_animation, .str_panel_li_animation{
+  display: none;
+}
+
+#test_request_selected_tests_panel_heading{
+  text-align: center;
+}
+
+#test_request_selected_tests_panel_ul{
+  /*font-size: 1vw;*/
+  font-size: 0.8rem;
+
+}
+
+#success_message_div{
+  text-align: center;
+  border: 1px solid #17BD00;
+  background-color: #CDFCC7;
+  min-width: 483px;
+}
+#test_request_submit_button_div{
+  padding-left: 0px;
+  margin-left: -30px;
+  /*max-width: 255px;*/
+}
+
+#selected_tests_button{
+  padding-left:  5px;
+  padding-right: 5px;
+  margin-bottom: 0px;
+}
+
+#test_request_selected_tests_panel_div{
+  opacity: 1 !important;
+}

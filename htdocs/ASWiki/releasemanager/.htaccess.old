@@ -1,0 +1,8 @@
+# MAINTENANCE-PAGE REDIRECT
+<IfModule mod_rewrite.c>
+ RewriteEngine on
+ RewriteCond %{REMOTE_ADDR} !^172\.21\.5\.230
+ RewriteCond %{REQUEST_URI} !/maintenance.php$ [NC]
+ RewriteCond %{REQUEST_URI} !\.(gif) [NC]
+ RewriteRule .* /ASWiki/releasemanager/maintenance/maintenance.php [R=302,L]
+</IfModule>

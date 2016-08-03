@@ -1,0 +1,661 @@
+
+2013-10-15 17:29:42
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-15 17:29:42
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-25 16:12:20
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-25 16:12:20
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:00:54
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:00:55
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:01:17
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:01:17
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:02:08
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:04:28
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:04:28
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:04:31
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:04:31
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:35
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:35
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:38
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:38
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:39
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:39
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:39
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:39
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:39
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:39
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:40
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:40
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:40
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:40
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:33:42
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:24
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:24
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:25
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:25
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:26
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:26
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:26
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:26
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:26
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:27
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:28
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:28
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:28
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:28
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:28
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:28
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:28
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:28
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:29
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:30
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:31
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:31
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:31
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:31
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:39
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:39
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:40
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:40
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:40
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:42
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:42
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:42
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:42
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:42
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:43
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:43
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:43
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:43
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:43
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:43
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:44
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:44
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:44
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:44
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:45
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:45
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:45
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:45
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:45
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:45
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:45
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:46
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:46
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:46
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:46
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:46
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:46
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:35:46
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:39
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:39
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:40
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:40
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:40
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:40
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:40
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:41
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-10-26 18:38:41
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-11-01 15:17:32
+SELECT name, symbol FROM firm f GROUP BY symbol ORDER BY symbol;
+Access denied for user 'opsmongui'@'localhost' (using password: YES)
+
+2013-11-01 15:17:33
+COULD NOT READ INTERVAL VALUES FROM CFG DATABASE...
+SELECT keyB, valueA FROM cfg WHERE keyA IN ('interval');
+Access denied for user 'opsmongui'@'localhost' (using password: YES)

@@ -1,0 +1,118 @@
+<link rel="stylesheet" type="text/css" href="/skins/common/editor/html/html-skin.css"/>
+<script>
+$(document).ready(function()	{	
+	$("#html").jTagEditor({		
+		tagSet:"/skins/common/editor/html/html-tags.js",
+		tagMask:"",
+		insertOnShiftEnter:"\n\n",
+		insertOnCtrlEnter:"" 
+	});
+});
+</script>
+<h2><span class="editsection">[<a href="<?php echo $this->listUrl; ?>"><?php echo wfMsg('back'); ?></a>]</span> <span class="mw-headline">Edit Server</span></h2>
+<?php if (isset($this->errors)): ?>
+<p class="error"><?php echo $this->errors; ?></p>
+<?php endif; ?>
+<form name="bt_add_form" method="post" action="<?php echo $this->listUrl; ?>">
+  <input type="hidden" name="bt_action" value="<?php echo $this->action; ?>" />
+  <input type="hidden" name="title" value="<?php echo $this->pageKey; ?>" />
+  <input type="hidden" name="bt_serverid" value="<?php echo $this->serverId; ?>" />
+  <table width="530" border="0">
+    <tr>
+      <td width="130" align="left" valign="top"><strong><?php echo wfMsg('nodename'); ?>:</strong></td>
+      <td width="400"><input name="bt_node" tabindex="1" size="50" maxlength="100" id="bt_node" style="width: 415px" value="<?php echo (isset($_POST['bt_node'])) ? $_POST['bt_node'] : ''; ?>" /></td>
+    </tr>
+	
+    <tr>
+      <td width="130" align="left" valign="top"><strong><?php echo wfMsg('ip'); ?>:</strong></td>
+      <td width="800"><input name="bt_ip" tabindex="1" size="50" maxlength="100" id="bt_ip" style="width: 830px" value="<?php echo (isset($_POST['bt_ip'])) ? $_POST['bt_ip'] : ''; ?>" /></td>
+    </tr>
+	
+    <tr>
+      <td align="left" valign="top"><strong><?php echo wfMsg('status'); ?>:</strong></td>
+      <td>
+      <select name="bt_status" id="bt_status" tabindex="4" style="width: 415px">
+      <?php foreach ($this->statusArray as $name => $status): ?>  
+          <option value="<?php echo $name; ?>"<?php echo (isset($_POST['bt_status']) && $_POST['bt_status'] == $name) ? ' selected="true"' : ''; ?>><?php echo $status['name']; ?></option>
+         <?php endforeach; ?>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top"><strong><?php echo wfMsg('application'); ?>:</strong></td>
+      <td>
+      <select name="bt_application" id="bt_application" tabindex="4" style="width: 415px">
+      <?php foreach ($this->applicationArray as $name => $application): ?>  
+          <option value="<?php echo $name; ?>"<?php echo (isset($_POST['bt_application']) && $_POST['bt_application'] == $name) ? ' selected="true"' : ''; ?>><?php echo $application['name']; ?></option>
+         <?php endforeach; ?>
+      </select>
+      </td>
+    </tr>
+	
+    <tr>
+      <td align="left" valign="top"><strong><?php echo wfMsg('service'); ?>:</strong></td>
+      <td><textarea rows="10" cols="20" tabindex="2" id="html" class="jTagEditor" accesskey="," name="bt_service"><?php echo (isset($_POST['bt_service'])) ? $_POST['bt_service'] : ''; ?></textarea></td>
+    </tr>
+    
+	
+	<tr>
+      <td align="left" valign="top"><strong><?php echo wfMsg('description'); ?>:</strong></td>
+      <td><textarea rows="10" cols="20" tabindex="2" id="html" class="jTagEditor" accesskey="," name="bt_description"><?php echo (isset($_POST['bt_description'])) ? $_POST['bt_description'] : ''; ?></textarea></td>
+    </tr>
+    <tr>
+      <td width="130" align="left" valign="top"><strong><?php echo wfMsg('backup_node'); ?>:</strong></td>
+      <td width="400"><input name="bt_backupnode" tabindex="1" size="50" maxlength="100" id="bt_backupnode" style="width: 415px" value="<?php echo (isset($_POST['bt_backupnode'])) ? $_POST['bt_backupnode'] : ''; ?>" /></td>
+    </tr>
+	
+    <tr>	
+      <td align="left" valign="top"><strong><?php echo wfMsg('os'); ?>:</strong></td>
+      <td><select name="bt_os" id="bt_os" tabindex="3" style="width: 415px">
+      <?php foreach ($this->osArray as $name => $os): ?>  
+          <option value="<?php echo $name; ?>"<?php echo (isset($_POST['bt_os']) && $_POST['bt_os'] == $name) ? ' selected="true"' : ''; ?>><?php echo $os['name']; ?></option>
+         <?php endforeach; ?>
+        </select></td>
+    </tr>
+    <tr>	
+      <td align="left" valign="top"><strong><?php echo wfMsg('processor'); ?>:</strong></td>
+      <td><select name="bt_processor" id="bt_processor" tabindex="3" style="width: 415px">
+      <?php foreach ($this->processorArray as $name => $processor): ?>  
+          <option value="<?php echo $name; ?>"<?php echo (isset($_POST['bt_processor']) && $_POST['bt_processor'] == $name) ? ' selected="true"' : ''; ?>><?php echo $processor['name']; ?></option>
+         <?php endforeach; ?>
+        </select></td>
+    </tr>
+    <tr>	
+      <td align="left" valign="top"><strong><?php echo wfMsg('memory'); ?>:</strong></td>
+      <td><select name="bt_memory" id="bt_memory" tabindex="3" style="width: 415px">
+      <?php foreach ($this->memoryArray as $name => $memory): ?>  
+          <option value="<?php echo $name; ?>"<?php echo (isset($_POST['bt_memory']) && $_POST['bt_memory'] == $name) ? ' selected="true"' : ''; ?>><?php echo $memory['name']; ?></option>
+         <?php endforeach; ?>
+        </select></td>
+    </tr>
+    <tr>	
+      <td align="left" valign="top"><strong><?php echo wfMsg('net'); ?>:</strong></td>
+      <td><select name="bt_net" id="bt_net" tabindex="3" style="width: 415px">
+      <?php foreach ($this->netArray as $name => $net): ?>  
+          <option value="<?php echo $name; ?>"<?php echo (isset($_POST['bt_net']) && $_POST['bt_net'] == $name) ? ' selected="true"' : ''; ?>><?php echo $net['name']; ?></option>
+         <?php endforeach; ?>
+        </select></td>
+    </tr>
+    <tr>	
+      <td align="left" valign="top"><strong><?php echo wfMsg('cpp'); ?>:</strong></td>
+      <td><select name="bt_cpp" id="bt_cpp" tabindex="3" style="width: 415px">
+      <?php foreach ($this->cppArray as $name => $cpp): ?>  
+          <option value="<?php echo $name; ?>"<?php echo (isset($_POST['bt_cpp']) && $_POST['bt_cpp'] == $name) ? ' selected="true"' : ''; ?>><?php echo $cpp['name']; ?></option>
+         <?php endforeach; ?>
+        </select></td>
+    </tr>
+	<tr>
+      <td width="130" align="left" valign="top"><strong><?php echo wfMsg('serial'); ?>:</strong></td>
+      <td width="400"><input name="bt_serial" tabindex="1" size="50" maxlength="100" id="bt_serial" style="width: 415px" value="<?php echo (isset($_POST['bt_serial'])) ? $_POST['bt_serial'] : ''; ?>" /></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top" style="padding-top: 20px">&nbsp;</td>
+      <td><input type="submit" name="bt_submit" id="bt_submit" value="<?php echo wfMsg('form_submit'); ?>" />
+      <input type="submit" name="bt_cancel" id="bt_cancel" value="<?php echo ucfirst(wfMsg('cancel')); ?>" onClick="this.form.bt_action.value='list'" /></td>
+    </tr>
+  </table>
+</form>

@@ -1,0 +1,1390 @@
+// Global Settings
+var STYLE = 2;
+var selected_tests_panel_button_added = false;
+
+$(document).ready(function(){
+
+  if(STYLE == 2){
+    $('#data-ise-username').addClass('input-styling');
+    $('#data-ise-password').addClass('input-styling');
+  }
+  // Set the focus on the login box, if it exists
+  // $('#data-ise-username').focus();
+  //Global variable
+  var second_bar_active = "";
+
+  //End of global constant
+
+  //For shrinking
+  /*
+      function init() {
+    window.addEventListener('scroll', function(e){
+        var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+            shrinkOn = 500,
+            section_header = document.querySelector(".section_header");
+            header_h1 = document.querySelector(".header_text");
+            header_stats = document.querySelector(".header_stats");
+        if (distanceY > shrinkOn) {
+            classie.add(section_header,"shrink");
+            classie.add(header_text,"shrink");
+            classie.add(header_stats,"shrink");
+        } else {
+            if (classie.has(header,"smaller")) {
+                classie.remove(header,"smaller");
+            }
+        }
+    });
+  }
+
+
+  $(window).on('scroll','#content',function(){
+    console.log("Yay, scrolled");
+  });
+  $(document).scroll(function(){
+    //var bottom = $('#slidebar').offset().top + $('#slidebar').outerHeight(true);
+    //var top = $('.section_header').offset().top;
+    //console.log(top);
+  });
+  $("#slidebar").bind('scroll', function(){
+    var bottom = $('#slidebar').offset().top + $('#slidebar').outerHeight(true);
+    if(bottom > 100)
+    {
+      console.log(bottom);
+    }
+  });
+*/
+  ////////////////////////////////////////////////////////////////////////////
+  //////////////////////////// Task ///////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////
+  //cancel function
+  $('div').on('click','.cancel_cross',function(){
+    var task_id = $(this).attr('data-ise-task-id');
+    var current_selector = $(this);
+    $.ajax({
+          type: 'post',
+          url:  'task_action.php',
+          data: 'action=cancel&task_id='+task_id,
+          success: function(data){
+            //console.log(data);
+            if(data.trim() == 'ok') //If tests are canceled, then remove those rows
+            {
+              //console.log('removing');
+              $(current_selector).parents('tr').hide();
+            }//end of if(ok)
+            else
+            {
+              console.log(data);
+            }
+          }//end of success function
+      });//end of ajax call
+  });
+
+  ////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////Test History///////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////
+  //test replay function
+  $('div').on('click','.test_replay',function(){
+    var group_id = $(this).attr('data-ise-group-id');
+    $.ajax({
+          type: 'get',
+          url:  'test_request_resubmit.php',
+          data: 'group_id='+group_id,
+          success: function(data){
+            //console.log(data);
+            if(data.trim() == 'ok') //If tests are canceled, then remove those rows
+            {
+              //do nothing yet. May add stuff here in the future
+              console.log('Received');
+            }//end of if(ok)
+            else
+            {
+              console.log(data);
+            }
+          }//end of success function
+      });//end of ajax ca
+  });
+  ////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////Live Test///////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////
+  //10/20/14 -- we don't yet handle cases where multiple tests are to be canceled, but only part of them are canceled
+  //successfully. If backend server's response is NOT ok. No test will be removed from this page. Of course on
+  //manual reload, the page will reflect whatever's in the database.
+
+
+  //cancel_selected button
+  $('div').on('click','.cancel_selected',function(){
+    var template_id = $(this).attr('data-ise-template-id');
+    var section_body_id = 'section_body_'+template_id;
+    var is_disabled = $(this).hasClass('disabled');
+    if(!is_disabled) //If this button is not disabled
+    {
+      var execution_id_list = $('#'+section_body_id).find('.checkbox_test').map(function(){
+        if($(this).is(":checked")) //If the check box is checked
+        {
+          var execution_id = $(this).attr('data-ise-test-execution-id');
+          //console.log(test_id);
+          return execution_id;
+        }//end of if($(this).is(":checked"))
+      }).get();//end of map(function())
+      //sending data to php
+      if(execution_id_list.length >0) //if there's actual tests to be canceled
+      {
+
+
+
+
+        $.ajax({
+          type: 'post',
+          url:  'test_action.php',
+          data: 'action=cancel&execution_ids='+execution_id_list,
+          success: function(data){
+            //console.log(data);
+            if(data.trim() == 'ok') //If tests are canceled, then remove those rows
+            {
+              for(i=0; i<execution_id_list.length;i++)
+              { //hiding the parent tr of the ones that are canceled
+                var temp = execution_id_list[i];
+                var full_selector = "[data-ise-test-execution-id='"+temp+"']";
+                $(full_selector).parents('tr').hide();
+              } //end of for loops
+            }//end of if(ok)
+          }//end of success function
+        });//end of ajax call
+        //console.log(execution_id_list);
+        //console.log(section_body_id);
+        //console.log('there');
+
+      }//end of if(execution_id_list.length >0)
+    } //end of if(!is_disabled)
+  });//end of cancel_selected button
+
+  //cancel_all button
+  $('div').on('click','.cancel_all',function(){
+    var template_id = $(this).attr('data-ise-template-id');
+    var section_body_id = 'section_body_'+template_id;
+    var is_disabled = $(this).hasClass('disabled');
+    if(!is_disabled)
+    {
+      var execution_id_list = $('#'+section_body_id).find('.checkbox_test').map(function(){
+        var execution_id = $(this).attr('data-ise-test-execution-id');
+        //console.log(test_id);
+        return execution_id;
+      }).get();//end of map(function())
+
+      if(execution_id_list.length >0) //if there's actual tests to be canceled
+      {
+        //sending data to php
+        $.ajax({
+          type: 'post',
+          url:  'test_action.php',
+          data: 'action=cancel&execution_ids='+execution_id_list,
+          success: function(data){
+            //console.log(data);
+            if(data.trim() == 'ok') //If tests are canceled, then remove those rows
+            {
+              for(i=0; i<execution_id_list.length;i++)
+              { //hiding the parent tr of the ones that are canceled
+                var temp = execution_id_list[i];
+                var full_selector = "[data-ise-test-execution-id='"+temp+"']";
+                $(full_selector).parents('tr').hide();
+              } //end of for loops
+            }//end of if(ok)
+          }//end of success function
+        });//end of ajax call
+
+        //console.log(execution_id_list);
+        //console.log(section_body_id);
+        //console.log('there');
+      }//end of if(execution_id_list.length >0)
+    }//end of if(!is_disabled)
+  }); //end of cancel_all button
+
+  //Top bar link's active class handling
+  $('.top_nav_link').click(function(){
+    $(this).parent('li').siblings('li').removeClass('active');
+    $(this).parent('li').addClass('active');
+    return false;
+  });
+
+  //End of Top bar link's active class handling
+
+  //2nd top bar slide
+  var history_slide = "<dd><a class='second_bar_link' id='history_by_release' href='#'>Events By Release</a></dd> \
+                     <dd><a class='second_bar_link' id='history_by_template' href='#'>Events By Template</a></dd>";
+
+  var task_slide = "<dd><a class='second_bar_link' id='tasks_by_template' href='#'>Tasks By Template</a></dd>";
+
+  var test_slide = "<dd><a class='second_bar_link' id='test_live' href='#'>Live Tests</a></dd> \
+                    <dd><a class='second_bar_link' id='test_user_history' href='#'>My Test History</a></dd> \
+                    <dd><a class='second_bar_link' id='test_complete_history' href='complete_test_history.php' target='_blank'>Complete Test History</a></dd> \
+                    <dd><a class='second_bar_link' id='test_request' href='#'>New Test Request</a></dd>";
+
+  var trigger_slide = "<dd><a class='second_bar_link' id='manage_my_triggers' href='#'>Manage My Triggers</a></dd> \
+                       <dd><a class='second_bar_link' id='view_all_triggers' href='#'>View All Triggers</a></dd>";
+
+  $('#history_btn').click(function(){
+    $('#slidebar').hide();
+    $('#slidebar').html(history_slide);
+    if(second_bar_active) {
+      $('#'+second_bar_active).parent('dd').addClass('active');
+    }
+    $('#slidebar').slideDown("slow");
+    //console.log("here");
+  });
+
+  $('#task_btn').click(function(){
+    $('#slidebar').hide();
+    $('#slidebar').html(task_slide);
+    if(second_bar_active) {
+      $('#'+second_bar_active).parent('dd').addClass('active');
+    }
+    $('#slidebar').slideDown("slow");
+    //console.log("here");
+  });
+
+  //This is special for Templates, no 2nd bar, just change the whole page
+  $('#template_btn').click(function(){
+    //Need to hide the 2nd bar because template link doesn't have 2nd bar
+    $('#slidebar').hide();
+    //Need to reset the 2nd bar active link because page content changed
+    second_bar_active = "";
+    var link_id = "templates_display";
+    $.ajax({
+      type: 'post',
+      url:  'content_display.php',
+      data: 'link_id='+link_id,
+      success: function(data){
+        $('#content').html(data);
+        //console.log(data);
+      }
+    });//end of ajax call
+    return false;
+
+  });
+
+  $('#test_btn').click(function(){
+    $('#slidebar').hide();
+    $('#slidebar').html(test_slide);
+    if(second_bar_active) {
+      $('#'+second_bar_active).parent('dd').addClass('active');
+    }
+    $('#slidebar').slideDown("slow");
+    //console.log("here");
+  });
+
+  $('#trigger_btn').click(function(){
+    $('#slidebar').hide();
+    $('#slidebar').html(trigger_slide);
+    if(second_bar_active) {
+      $('#'+second_bar_active).parent('dd').addClass('active');
+    }
+    $('#slidebar').slideDown("slow", function(){
+      // $('#manage_my_triggers').trigger('click');
+    });
+  });
+
+  //End of 2nd top bar slide
+
+  //2nd top bar link click
+  $('div').on('click','.second_bar_link',function(){
+    var link_id = $(this).attr('id');
+
+    //Remove other active link
+    $(this).parent('dd').siblings('dd').removeClass('active');
+    $(this).parent('dd').addClass('active');
+
+    second_bar_active = link_id; //Remember the active 2nd bar link in the global var
+
+    //console.log("click detected");
+    $.ajax({
+      type: 'post',
+      url:  'content_display.php',
+      data: 'link_id='+link_id,
+      success: function(data){
+        $('#content').html(data);
+        //Important -- zurb's content like tooltip only applies to static content
+        //For dynamic content -- ajax, hidden then shown element -- you will
+        //need to call $(document).foundation() again to re-apply zurb
+        $(document).foundation();
+        //console.log(data);
+      }//end of success function inside ajax call
+    });//end of ajax call
+    return false;
+  });
+
+  //End of 2nd top bar link click
+
+  //Toggle section body
+  $('div').on('click','.section_header',function(){
+    var header_id = $(this).attr('id');
+    var temp = header_id.split("header_");
+    var section_id = 'section_body_'+temp[1];
+    $("#"+section_id).slideToggle('slow');
+
+    //Important -- zurb's content like tooltip only applies to static content
+    //For dynamic content -- ajax, hidden then shown element -- you will
+    //need to call $(document).foundation() again to re-apply zurb
+    $(document).foundation();
+    //console.log(section_id);
+
+  });
+
+  //Detail Modal Control
+  $('div').on('click','.event_history_template_row',function(){
+    //console.log('Calling modal');
+    var release_id = $(this).attr('data-ise-release-id');
+    var template_id = $(this).attr('data-ise-template-id');
+    $.ajax({
+      type: 'post',
+      url:  'modal_content.php',
+      data: 'caller=templaterow&release_id='+release_id+'&template_id='+template_id,
+      success: function(data){
+        $('#detail_modal').html(data);
+        //console.log(data);
+      }
+    });//end of ajax call
+
+    $('#detail_modal').foundation('reveal','open');
+  });
+
+  $('div').on('click','.event_history_release_row',function(){
+    //console.log('Calling modal');
+    var release_id = $(this).attr('data-ise-release-id');
+    var template_id = $(this).attr('data-ise-template-id');
+    $.ajax({
+      type: 'post',
+      url:  'modal_content.php',
+      data: 'caller=releaserow&release_id='+release_id+'&template_id='+template_id,
+      success: function(data){
+        $('#detail_modal').html(data);
+        //console.log(data);
+      }
+    });//end of ajax call
+
+    $('#detail_modal').foundation('reveal','open');
+  });
+  //End of Detail Modal Control
+
+  //Template suspend and unsuspend
+  /*using btn
+  $('div').on('click','.suspend_btn',function(){
+    $(this).removeClass('suspend_btn alert').addClass('unsuspend_btn').text('Unsuspend');
+  });
+
+  $('div').on('click','.unsuspend_btn',function(){
+    $(this).removeClass('unsuspend_btn').addClass('suspend_btn alert').text('Suspend');
+  });
+  */
+  //The following replace using btns. Somehow, since button in Zurb is a <a>,
+  //once it's pressed, firefox considered it depress/having focus. Thus
+  //it's color is in the depressed state. Chrome works fine.
+  //So I had to swap out the entire html code to have it work correctly.
+  $('div').on('click','.suspend_td',function(){
+    var current_element = $(this);
+    var template_id = $(this).attr('data-ise-template-id');
+    $.ajax({
+      type: 'get',
+      url:  'template_action.php',
+      data: 'type=template&action=suspend&template_id='+template_id,
+      success: function(data){
+        if(data.trim() == 'ok'){
+          current_element.removeClass('suspend_td').addClass('unsuspend_td').html("<a href='#' class='button small radius'>Unsuspend</a>");
+          //console.log('inside');
+        }//end of if
+        //console.log(data);
+      }//end of success function
+    });//end of ajax call
+    return false;
+  });
+
+  $('div').on('click','.unsuspend_td',function(){
+    var current_selector = $(this);
+    var template_id = $(this).attr('data-ise-template-id');
+    $.ajax({
+      type: 'get',
+      url:  'template_action.php',
+      data: 'type=template&action=unsuspend&template_id='+template_id,
+      success: function(data){
+        if(data.trim() == 'ok'){
+          current_selector.removeClass('unsuspend_td').addClass('suspend_td').html("<a href='#' class='button alert small radius'>Suspend</a>");
+          //console.log('inside');
+        }//end of if
+        //console.log(data);
+      }//end of success function
+    });//end of ajax call
+    return false;
+  });
+  //End of template suspend and unsuspend
+
+
+  /****************************************************************/
+  /* User Section in top-bar */
+  /****************************************************************/
+  $('#login_button').click(function(){
+    var username = $('#data-ise-username').val();
+    var password = $('#data-ise-password').val();
+    $.ajax({
+      type: 'post',
+      url:  'uc_login.php',
+      data: 'username='+username+'&password='+password,
+
+      success: function(data){
+        return_data = JSON.parse(data);
+        return_value = return_data[0];
+        return_contents = return_data[1];
+        if(return_value.slice(0,5) == 'ERROR'){
+          // $('#id_top_bar_error').html(return_contents);
+          if(return_value == 'ERROR_USER'){
+            $('#data-ise-username').focus();
+            $('#id_top_bar_error').addClass('top_bar_error');
+            $('#data-ise-username').removeClass('input-styling');
+            $('#data-ise-username').addClass('input-validation-error'+STYLE);
+            $('#data-ise-password').removeClass('input-validation-error'+STYLE);
+            if(STYLE == 2){
+              $('#data-ise-password').addClass('input-styling');
+            }
+          }
+          if(return_value == 'ERROR_INVALID'){
+            $('#data-ise-username').focus();
+            $('#id_top_bar_error').addClass('top_bar_error');
+            $('#data-ise-username').removeClass('input-styling');
+            $('#data-ise-password').removeClass('input-styling');
+            $('#data-ise-username').addClass('input-validation-error'+STYLE);
+            $('#data-ise-password').addClass('input-validation-error'+STYLE);
+          }
+          if(return_value == 'ERROR_PASSWORD'){
+            $('#data-ise-password').focus();
+            $('#id_top_bar_error').removeClass('top_bar_error');
+            $('#data-ise-password').removeClass('input-styling');
+            $('#data-ise-password').addClass('input-validation-error'+STYLE);
+            $('#data-ise-username').removeClass('input-validation-error'+STYLE);
+            if(STYLE == 2){
+              $('#data-ise-username').addClass('input-styling');
+            }
+          }
+        }
+        else if(return_value == 'SUCCESS'){
+          location.reload();
+        }
+        console.log(return_data);
+      }
+
+    });//end of ajax call
+  });
+
+  /****************************************************************/
+  /* Submit Test Request Page */
+  /****************************************************************/
+
+  $('div').on('click', '[id^=str_checkbox_t_]', function () {
+
+    t_name = $("label[for='" + this.id + "']").text();
+
+    if($('#str_checkbox_all').attr('checked')){
+      $('[class^=str_row_]').hide();
+      $('#str_checkbox_all').prop('checked', false);
+    }
+
+    if($('[id^=str_checkbox_t_'+t_name+']').is(':checked')){
+      $('.str_row_'+t_name).show();
+      temp_are_all_checked = true;
+      $('[id^=str_checkbox_t_]').each(function(){
+        if(!$(this).is(':checked')){
+          temp_are_all_checked = false;
+        }
+      });
+      if(temp_are_all_checked){
+        $('#str_checkbox_all').prop('checked', true);
+      }
+      $('input:checked').each(function(){
+        $( '.str_row_' + $("label[for='" + this.id + "']").text() ).show();
+      });
+    }
+    else{
+      $('.str_row_'+t_name).hide();
+      $('.str_row_'+t_name).prop('checked', false);
+      $('input:checked').each(function(){
+        $( '.str_row_' + $("label[for='" + this.id + "']").text() ).show();
+      });
+    }
+    update_test_count();
+  });
+
+  // If all is selected then check all of the other checkboxes
+  // Hide all or show all depending on all selection
+  $('div').on('click', '#str_checkbox_all', function () {
+    if($('#str_checkbox_all').is(':checked')){
+      $('[class^=str_row_]').show();
+      $('[id^=str_checkbox_t_]').prop('checked', true);
+    }
+    else{
+      $('[class^=str_row_]').hide();
+      $('[id^=str_checkbox_t_]').prop('checked', false);
+    }
+    update_test_count();
+  });
+
+
+  var requested_test_ids  = [];
+  var requested_suite_ids = [];
+  var test_requests_label = '';
+  var test_template_id    = ''; // This assumes that all requested tests are for the same template
+  var remove_size  = 12;
+  var new_col_size = 9;
+  var panel_size   = 3;
+  $('div').on('click', '#test_link', function () {
+    // Get the test id
+    cur_test_id      = $(this).attr('data-ise-str-test-id');
+    cur_test_name    = $(this).attr('data-ise-str-test-name');
+    test_template_id = $(this).attr('data-ise-str-test-template-id');
+    cur_test_id = parseInt(cur_test_id);
+    // inArray returns index of element. So if -1, then it wasnt found
+    found_id = jQuery.inArray(cur_test_id, requested_test_ids)
+    // Add the test id to the array and highlight the row
+    if(found_id == -1){
+      requested_test_ids.push(cur_test_id);
+      console.log( requested_test_ids + ': just added ' + cur_test_name);
+      $(this).addClass('test_request_highlight');
+    }
+    // Remove the test id from the array and remove highlight
+    else{
+      requested_test_ids.splice(found_id, 1);
+      console.log( requested_test_ids + ': just added ' + cur_test_name);
+      $(this).removeClass('test_request_highlight');
+    }
+
+    if(requested_test_ids.length){
+
+      if(requested_test_ids.length == 1){
+        // If its already listed then remove it
+        if(found_id == -1){
+          grow_test_request_content_sizing(remove_size, new_col_size);
+          create_selected_tests_panel(panel_size);
+          append_li_selected_tests_panel(cur_test_id, cur_test_name);
+          close_selected_tests_panel();
+          show_selected_tests_panel();
+          show_selected_tests_panel_li();
+        }
+        else{
+          remove_li_selected_tests_panel(cur_test_id)
+        }
+      }
+      else{
+        if(found_id == -1){
+          append_li_selected_tests_panel(cur_test_id, cur_test_name);
+          show_selected_tests_panel_li();
+        }
+        else{
+          remove_li_selected_tests_panel(cur_test_id)
+        }
+      }
+      // Activate the submission button if the user is logged in
+      enable_test_request_submit_button(requested_test_ids.length);
+      jQuery('.test_request_selected_tests_panel_div_class').stickyfloat({ duration: 0, startOffset:100, lockBottom:false });
+    }
+    else{
+      jQuery('.test_request_selected_tests_panel_div_class').stickyfloat('destroy');
+      remove_selected_tests_panel(new_col_size, remove_size, false, 0);
+    }
+
+  });
+
+  $('div').on('click', '#selected_tests_button', function(){
+    $('#test_request_submit_button').trigger('click');
+  });
+
+  $('div').on('keydown', '#test_requests_label', function(){
+    if (event.keyCode == 13){
+      $('#test_request_submit_button').trigger('click');
+    }
+  });
+
+  $('div').on('click', '#test_request_submit_button', function(){
+
+    var is_disabled = $('#test_request_submit_button').hasClass('disabled');
+    if(!is_disabled){
+      num_tests_suites = requested_test_ids.length + requested_suite_ids.length;
+      console.log('Test IDs: ' + requested_test_ids);
+      console.log('Suite IDs: ' + requested_suite_ids);
+      json_requested_test_ids  = JSON.stringify(requested_test_ids);
+      json_requested_suite_ids = JSON.stringify(requested_suite_ids);
+      test_requests_label = $('#test_requests_label').val();
+      test_requests_release_id = $('#test_request_selected_tests_version_select').val();
+      if(!test_requests_label){
+        alert('Please provide a label for the test submission');
+        return false;
+      }
+      $.ajax({
+        type: 'get',
+        url:  'test_request.php',
+        data: 'test_ids='+json_requested_test_ids+'&suite_ids='+json_requested_suite_ids+
+          '&label='+test_requests_label+'&release_id='+test_requests_release_id+'&template_id='+test_template_id,
+        success: function(data){
+          if(data.trim() == 'ok'){
+            remove_selected_tests_panel(new_col_size, remove_size, true, num_tests_suites);
+          }
+          else{
+            alert(data);
+          }
+        }
+      });
+      // Fastest way to clear an array in Javascript
+      while(requested_test_ids.length > 0){
+        requested_test_ids.pop();
+      }
+    }
+  });
+
+  // Add the secondary submit tests button into the panel, if it hasn't already been added
+  $(document).on('scroll', function(){
+    add_selected_tests_button();
+  });
+
+  //Filtering all test request table
+  $('div').on('keyup', '#test_request_search', function () {
+    var rex = new RegExp($(this).val(),'i');
+    $('.test_request_searchable tr').hide();
+    $('.test_request_searchable tr').filter(function(){
+      return rex.test($(this).text());
+    }).show();
+    update_test_count();
+    // Disable the checkboxes if characters in search box; Enable otherwise
+    if($(this).val()){
+      $('#str_checkbox_all').prop('disabled', true);
+      $('[id^=str_checkbox_t_]').each(function(){
+        $('#'+$(this)[0].id).prop('disabled', true);
+        // $(this).addClass('disabled');
+      });
+    }
+    else{
+      $('#str_checkbox_all').prop('disabled', false);
+      $('[id^=str_checkbox_t_]').each(function(){
+        $('#'+$(this)[0].id).prop('disabled', false);
+        // $(this).addClass('disabled');
+      });
+    }
+  });
+
+  /****************************************************************/
+  /* Triggers Page */
+  /****************************************************************/
+
+  $('div').on('click', '.view_triggers_row', function () {
+
+    // var trigger_already_selected = false;
+    // $('.view_triggers_row').each(function(){
+    //   if($(this).hasClass('view_triggers_table_highlight')){
+    //     trigger_already_selected = true;
+    //   }
+    // });
+    // if(trigger_already_selected){
+    //   return;
+    // }
+
+    // If any other row is being edited then reject this click event
+    var already_editing_a_trigger = false;
+    $('.view_triggers_row').each(function(){
+      if($(this).attr('data-ise-trigger-editing') == 'true'){
+        already_editing_a_trigger = true;
+        return;
+      }
+    });
+    if(already_editing_a_trigger){
+      return;
+    }
+
+    if(!$(this).hasClass('view_triggers_table_highlight')){
+      $(this).addClass('view_triggers_table_highlight');
+    }
+    else{
+      $(this).removeClass('view_triggers_table_highlight');
+    }
+
+    var any_triggers_selected = false;
+    $('.view_triggers_row').each(function(){
+      if($(this).hasClass('view_triggers_table_highlight')){
+        any_triggers_selected = true;
+        enable_trigger_edit_button();
+        return;
+      }
+    });
+    if(!any_triggers_selected){
+      disable_trigger_edit_button('Select a trigger from the table to enable this edit button');
+    }
+  });
+
+  $('div').on('click', '#trigger_tests_view_only_table_cell', function () {
+    var temp_trigger_id = $(this).parent('tr').attr('data-ise-trigger-id');
+    $.ajax({
+      type: 'post',
+      url:  'modal_content_trigger_tests.php',
+      data: 'trigger_id='+temp_trigger_id+'&view_only=true',
+      success: function(data){
+        $('#trigger_tests_modal').html(data);
+      }
+    });//end of ajax call
+    $('#trigger_tests_modal').foundation('reveal','open');
+  });
+
+  $('div').on('click', '[id^=trigger_data_test_]', function () {
+    var cur_trigger_id = $(this).parent('tr').attr('data-ise-trigger-id');
+    var view_only = $(this).parent('tr').attr('data-ise-trigger-editing') == 'true' ? 'false':'true';
+    // Show the modal for managing the tests
+    $.ajax({
+      type: 'post',
+      url:  'modal_content_trigger_tests.php',
+      data: 'trigger_id='+cur_trigger_id+'&view_only='+view_only,
+      success: function(data){
+        $('#trigger_tests_modal').html(data);
+      }
+    });//end of ajax call
+    $('#trigger_tests_modal').foundation('reveal','open');
+
+  });
+
+  var new_row_created = false;
+  $('div').on('click', '#manage_triggers_create_button', function(){
+    var is_disabled = $('#manage_triggers_create_button').hasClass('disabled');
+    if(!is_disabled && !new_row_created){
+      new_row_created = true;
+      $('.view_triggers_row').each(function(){
+        if($(this).hasClass('view_triggers_table_highlight')){
+          $(this).removeClass('view_triggers_table_highlight');
+        }
+      });
+      disable_trigger_edit_button('Complete the new trigger before trying to edit another trigger')
+      enable_trigger_cancel_button('Click to cancel this new trigger');
+      enable_trigger_submit_button('Click to submit this new trigger');
+      disable_trigger_create_button('Complete the creation of this new trigger before creating another new one');
+      $('table > tbody > tr:first').before(
+        "<tr class='view_triggers_row' id='view_triggers_row_new' "+
+        "data-ise-trigger-editing='true' data-ise-trigger-id='new'>"+
+        "<td id='trigger_new_gb' data-ise-trigger-field='git_branch'></td>"+
+        "<td id='trigger_new_ct' data-ise-trigger-field='code_track'></td>"+
+        "<td id='trigger_new_tt' data-ise-trigger-field='trigger_template'></td>"+
+        "<td id='trigger_new_te' data-ise-trigger-field='trigger_event'></td>"+
+        "<td id='trigger_new_ta' data-ise-trigger-field='target_template'></td>"+
+        "<td id='trigger_new_de' data-ise-trigger-field='deploy'></td>"+
+        "<td id='trigger_data_test_new' data-ise-trigger-field='test'></td>"+
+        "</tr>");
+      var table_data = [
+        {field: 'git_branch',       id: 'trigger_new_gb', val: ''},
+        {field: 'code_track',       id: 'trigger_new_ct', val: ''},
+        {field: 'trigger_template', id: 'trigger_new_tt', val: ''},
+        {field: 'trigger_event',    id: 'trigger_new_te', val: ''},
+        {field: 'target_template',  id: 'trigger_new_ta', val: ''},
+        {field: 'deploy',           id: 'trigger_new_de', val: 'Yes'},
+        {field: 'test',             id: 'trigger_data_test_new', val: ''}
+      ];
+      $('#view_triggers_row_new').addClass('view_triggers_table_highlight');
+      triggers_new_fields(table_data);
+    }
+  });
+
+  var global_table_data = [];
+  var trigger_test_ids_list = [];
+  $('div').on('click', '#manage_triggers_edit_button', function(){
+    var is_disabled = $('#manage_triggers_edit_button').hasClass('disabled');
+    if(!is_disabled){
+      $('.view_triggers_row').each(function(){
+        if($(this).hasClass('view_triggers_table_highlight')){
+          var cur_trigger_id = $(this).attr('data-ise-trigger-id');
+
+          // Get the list of test IDs for this trigger if its editable
+          $.ajax({
+            type: 'post',
+            url:  'triggers_get_test_ids.php',
+            data: 'trigger_id='+cur_trigger_id,
+            success: function(data){
+              console.log(data);
+              return_data = JSON.parse(data);
+              return_data.forEach(function(element){
+                trigger_test_ids_list.push(element);
+              });
+            }
+          });//end of ajax call
+
+          table_data = $('#view_triggers_row_'+cur_trigger_id).children("td").map(function() {
+            var temp_field = $(this).attr('data-ise-trigger-field');
+            var temp_id = $(this).attr('id');
+            var temp_val = $(this).html().trim();
+            return { field:temp_field, id:temp_id, val:temp_val };
+          }).get();
+          global_table_data.push(table_data);
+          triggers_open_fields(table_data);
+          $(this).attr('data-ise-trigger-editing', 'true');
+        }
+      });
+      disable_trigger_create_button('Complete the current edit before trying to create a new trigger')
+      disable_trigger_edit_button('Submit or cancel the current edit to enable this button again');
+      enable_trigger_cancel_button('Click to cancel all edits to triggers');
+      enable_trigger_submit_button('Click to submit all edits to triggers');
+    }
+  });
+
+  $('div').on('click', '#manage_triggers_cancel_button', function(){
+    var is_disabled = $('#manage_triggers_cancel_button').hasClass('disabled');
+    if(!is_disabled){
+      triggers_close_fields(global_table_data);
+      remove_new_trigger_row();
+      $('.view_triggers_row').each(function(){
+        $(this).removeClass('view_triggers_table_highlight');
+        $(this).attr('data-ise-trigger-editing', 'false');
+      });
+      disable_trigger_edit_button('Select a trigger from the table to enable this edit button');
+      disable_trigger_cancel_button('This button will be enabled if a trigger is being edited');
+      disable_trigger_submit_button('This button will be enabled if a trigger is being edited');
+      enable_trigger_create_button('Click to create a new trigger');
+      new_row_created = false;
+
+      while(global_table_data.length > 0) {
+        global_table_data.pop();
+      }
+      while(trigger_test_ids_list.length > 0){
+        trigger_test_ids_list.pop();
+      }
+    }
+  });
+
+  $('div').on('click', '#manage_triggers_submit_button', function(){
+    var is_disabled = $('#manage_triggers_submit_button').hasClass('disabled');
+    if(!is_disabled){
+      $('.view_triggers_row').each(function(){
+          if($(this).attr('data-ise-trigger-editing') == 'true'){
+              triggers_submit_update($(this), trigger_test_ids_list);
+              $(this).removeClass('view_triggers_table_highlight');
+              $(this).attr('data-ise-trigger-editing', 'false');
+          }
+      });
+      disable_trigger_edit_button('Select a trigger from the table to enable this edit button');
+      disable_trigger_cancel_button('This button will be enabled if a trigger is being edited');
+      disable_trigger_submit_button('This button will be enabled if a trigger is being edited');
+      enable_trigger_create_button('Create new trigger');
+      new_row_created = false;
+
+      // Fastest way to clear an array in Javascript
+      while(global_table_data.length > 0){
+        global_table_data.pop();
+      }
+      while(trigger_test_ids_list.length > 0){
+        trigger_test_ids_list.pop();
+      }
+    }
+  });
+
+  $('div').on('change', '#triggers_add_test_select', function(){
+    // Add test ID to list if its not already selected
+    var new_test_id = $('option:selected', this).attr('data-ise-triggers-add-test-id');
+    new_test_id = parseInt(new_test_id);
+    found_id = jQuery.inArray(new_test_id, trigger_test_ids_list);
+    // Add the test id to the array
+    if(found_id == -1){
+      trigger_test_ids_list.push(new_test_id);
+      // Add the new item to the list
+      $('#triggers_tests_add_intro_text_id').hide();
+      var new_test = $('#triggers_add_test_select').val();
+      $('#triggers_add_test_ol').append("<li>"+new_test+"</li>");
+    }
+    console.log(trigger_test_ids_list);
+  });
+
+  $('div').on('click', '#triggers_tests_listing_remove_button', function(){
+    var new_test_id = $(this).parent('td').attr('data-ise-triggers-test-id');
+    new_test_id = parseInt(new_test_id);
+    found_id = jQuery.inArray(new_test_id, trigger_test_ids_list);
+    // Remove from the array if its in it
+    if(found_id != -1){
+      trigger_test_ids_list.splice(found_id, 1);
+    }
+    console.log(trigger_test_ids_list);
+
+    // Add highlighting and list item
+    $('#triggers_tests_remove_intro_text_id').hide();
+    $(this).parent('td').parent('tr').addClass('view_triggers_table_highlight');
+    var temp_test_name = $(this).parent('td').attr('data-ise-triggers-test-name');
+    $('#triggers_remove_tests_ol').append("<li>"+temp_test_name+"</li>");
+  });
+
+  // Automatically move focus to next textbox in code track cell
+  // as soon as user has provided three characters
+  $('div').on('keyup', '[id^=code_track_textbox]', function() {
+    if($(this).val().length == 3){
+      if( !(event.keyCode == 16 || event.keyCode == 9) ){
+        var cur_id = $(this)[0].id;
+        if(cur_id == 'code_track_textbox1')
+          $('#code_track_textbox2').focus();
+        else if(cur_id == 'code_track_textbox2')
+          $('#code_track_textbox3').focus();
+      }
+    }
+    // Prevent values if Release Branch has data
+    if($('#git_branch_textbox').val().length > 0){
+      $('#code_track_textbox1').prop('value', '');
+      $('#code_track_textbox2').prop('value', '');
+      $('#code_track_textbox3').prop('value', '');
+      alert('Either \'Release Branch\' or \'Code Track\' may have a value. If you would like '+
+        'to provide a value for \'Code Track\', please first empty the textbox for '+
+        '\'Release Branch.\'');
+      return;
+    }
+    if($(this).val().length > 0){
+      $('[id^=git_branch_textbox]').prop('disabled', true);
+    }
+    else{
+      $('[id^=git_branch_textbox]').prop('disabled', false);
+    }
+  });
+
+  // Prevent both release branch and code track in triggers column from having values.
+  // They are mutually exclusive
+  $('div').on('keyup', '#git_branch_textbox', function() {
+
+    if($('#code_track_textbox1').val().length > 0 ||
+       $('#code_track_textbox2').val().length > 0 ||
+       $('#code_track_textbox3').val().length > 0){
+      $('#git_branch_textbox').prop('value', '');
+      alert('Either \'Release Branch\' or \'Code Track\' may have a value. If you would like '+
+        'to provide a value for \'Release Branch\', please first empty the textboxes for '+
+        '\'Code Track.\'');
+      return;
+    }
+
+    if($(this).val().length > 0){
+      $('[id^=code_track_textbox]').prop('disabled', true);
+    }
+    else{
+      $('[id^=code_track_textbox]').prop('disabled', false);
+    }
+  });
+
+  /****************************************************************/
+  /* Tasks Page */
+  /****************************************************************/
+
+  $('div').on('click', '[id^=task_db_conv_button_]', function () {
+    var button_element = $(this);
+    var cur_task_id = $(this).parent('td').parent('tr').attr('data-ise-task-id');
+    console.log(cur_task_id);
+    if(!$(this).hasClass('disabled')){
+      $.ajax({
+        type: 'post',
+        url:  'db_conv_complete.php',
+        data: 'task_id='+cur_task_id,
+        success: function(data){
+          if(data.trim() == 'ok'){
+            console.log('ok');
+            button_element.addClass('disabled');
+            console.log(button_element);
+          }
+          else{
+            console.log('error');
+          }
+        }
+      });//end of ajax call
+    }
+    else{
+      console.log('button is disabled');
+    }
+  });
+
+}); // end of document ready function
+
+
+function grow_test_request_content_sizing(remove_size, new_col_size)
+{
+  $('#test_request_table_row').addClass('test_request_table_shift');
+  $('#test_request_table_div').removeClass('small-'+remove_size);
+  $('#test_request_table_div').addClass('small-'+new_col_size);
+
+  $('#test_request_filter_row').addClass('test_request_table_shift');
+  $('#test_request_checkboxes_div').removeClass('small-7');
+  $('#test_request_checkboxes_div').addClass('small-8');
+  $('#test_request_checkboxes_div').removeClass('test_request_checkboxes_style');
+  $('#test_request_checkboxes_div').addClass('test_request_checkboxes_style_exp');
+
+  $('#test_request_filter_wrapper').removeClass('small-'+remove_size);
+  $('#test_request_filter_wrapper').addClass('small-'+new_col_size);
+
+  $('#test_request_submit_button_row').addClass('test_request_table_shift');
+  $('#test_request_submit_button_wrapper').removeClass('small-'+remove_size);
+  $('#test_request_submit_button_wrapper').addClass('small-'+new_col_size);
+}
+
+function shrink_test_request_content_sizing(remove_size, new_col_size)
+{
+  $('#test_request_table_row').removeClass('test_request_table_shift');
+  $('#test_request_table_div').addClass('small-'+new_col_size);
+  $('#test_request_table_div').removeClass('small-'+remove_size);
+
+  $('#test_request_filter_row').removeClass('test_request_table_shift');
+  $('#test_request_checkboxes_div').addClass('small-7');
+  $('#test_request_checkboxes_div').removeClass('small-8');
+  $('#test_request_checkboxes_div').addClass('test_request_checkboxes_style');
+  $('#test_request_checkboxes_div').removeClass('test_request_checkboxes_style_exp');
+
+  $('#test_request_filter_wrapper').addClass('small-'+new_col_size);
+  $('#test_request_filter_wrapper').removeClass('small-'+remove_size);
+
+  $('#test_request_submit_button_row').removeClass('test_request_table_shift');
+  $('#test_request_submit_button_wrapper').addClass('small-'+new_col_size);
+  $('#test_request_submit_button_wrapper').removeClass('small-'+remove_size);
+}
+
+function create_selected_tests_panel(col_size, cur_test_name)
+{
+  $('#test_request_table_row').append("<div class='small-"+col_size+" columns str_panel_animation test_request_selected_tests_panel_div_class' id='test_request_selected_tests_panel_div'>");
+  $('#test_request_selected_tests_panel_div').append("<div class='panel' id='test_request_selected_tests_panel'>");
+  $('#test_request_selected_tests_panel').append("<h5 id='test_request_selected_tests_panel_heading'>Selected Tests</h5>");
+  $('#test_request_selected_tests_panel').append("<ol id='test_request_selected_tests_panel_ul'>");
+}
+
+function append_li_selected_tests_panel(cur_test_id, cur_test_name)
+{
+  $('#test_request_selected_tests_panel_ul').append("<li id='str_panel_"+cur_test_id+"' class='str_panel_li_animation'>"+cur_test_name+"</li>");
+}
+
+function remove_li_selected_tests_panel(cur_test_id)
+{
+  $('#str_panel_'+cur_test_id).fadeOut(100, function(){
+    $('#str_panel_'+cur_test_id).remove();
+  });
+}
+
+function close_selected_tests_panel()
+{
+  $('#test_request_selected_tests_panel').append("</ol>");
+  add_selected_tests_label_textbox();
+  add_selected_tests_version_dropdown();
+  $('#test_request_selected_tests_panel').append("</div>");
+  $('#test_request_table_row').append("</div>");
+}
+
+function add_selected_tests_label_textbox(){
+  var label_textbox_title = "This label should describe why these tests are being run. "+
+    "For example: \"R11.0.0 Regression Rerun\"";
+  var selected_tests_label_textbox = "<input id='test_requests_label' type='text' " +
+    " placeholder='Provide a label' title='"+label_textbox_title+"'/>";
+  $('#test_request_selected_tests_panel').append(selected_tests_label_textbox);
+}
+
+function add_selected_tests_version_dropdown(){
+  var version_dropdown = "<div id='test_request_selected_tests_version_select_div'></div>";
+  $('#test_request_selected_tests_panel').append(version_dropdown);
+  $.ajax({
+    type: 'get',
+    url:  'get_app_version_dropdown.php',
+    success: function(data){
+      data = data.trim();
+      $('#test_request_selected_tests_version_select_div').html(data);
+    }
+  });
+}
+
+function add_selected_tests_button(){
+  if(!selected_tests_panel_button_added){
+    if(!$('#test_request_submit_button').visible()){
+      var btn_disable = $('#test_request_submit_button').hasClass('disabled')?'disabled':'';
+      var btn_title = $('#test_request_submit_button').attr('title');
+      var selected_tests_button = "<a href='#' class='button small radius "+btn_disable+"' id='selected_tests_button'"+
+        "title='"+btn_title+"'>Submit Selected Test Requests</a>";
+      $('#test_request_selected_tests_panel').append(selected_tests_button);
+      selected_tests_panel_button_added = true;
+    }
+  }
+  else{
+    if($('#test_request_submit_button').visible()){
+      $('#selected_tests_button').remove();
+      selected_tests_panel_button_added = false;
+    }
+  }
+}
+
+function show_selected_tests_panel(){
+  $('.str_panel_animation').fadeIn('fast');
+}
+
+function show_selected_tests_panel_li(){
+  $('.str_panel_li_animation').fadeIn('fast');
+}
+
+function remove_selected_tests_panel(remove_size, new_col_size, success, num_tests_suites)
+{
+  $('#test_request_selected_tests_panel_div').fadeOut(100, function(){
+    $('#test_request_selected_tests_panel_div').remove();
+    shrink_test_request_content_sizing(remove_size, new_col_size);
+    var is_disabled = $('#test_request_submit_button').hasClass('disabled');
+    if(!is_disabled){
+      $('#test_request_submit_button').addClass('disabled');
+    }
+    $('#test_request_submit_button').attr('title', 'Select tests from the table to enable this button');
+
+    $('tr').each(function(){
+      $(this).removeClass('test_request_highlight');
+    });
+    if(success){
+      test_request_show_success(num_tests_suites);
+    }
+  });
+}
+
+function update_test_count()
+{
+  visible_test_count = $('tr:visible').not(':first').length;
+  $('#test_request_table_count').html(visible_test_count + ' tests');
+}
+
+function test_request_show_success(num_tests_suites){
+  $('#test_request_submit_button_div').removeClass('small-9');
+  $('#test_request_submit_button_div').addClass('small-4');
+  var success_message = num_tests_suites+' tests or suites successfully submitted.'+
+    ' Go to the \'Live Tests\' page to view progress.';
+  var success_message_div = "<div class='small-5 columns' "+
+    "id='success_message_div'>"+success_message+"</div>"
+  $('#test_request_search_div').after(success_message_div);
+
+  $('#success_message_div').delay(7000).fadeOut(1000, function(){
+    $('#success_message_div').remove();
+    $('#test_request_submit_button_div').removeClass('small-4');
+    $('#test_request_submit_button_div').addClass('small-9');
+  });
+}
+
+function submit_user_login(myfield, e)
+{
+  $('#login_button').trigger('click');
+}
+
+function enable_test_request_submit_button(num_tests){
+  $.ajax({
+    type: 'get',
+    url:  'check_if_user_logged_in.php',
+    success: function(data){
+      if(data.trim() == 'ok'){
+        $('#test_request_submit_button').removeClass('disabled');
+        $('#test_request_submit_button').attr('title', 'Click to submit test'+(num_tests>1?'s':''));
+      }
+    }
+  });
+}
+
+function enable_trigger_edit_button(){
+  $.ajax({
+    type: 'get',
+    url:  'check_if_user_logged_in.php',
+    success: function(data){
+      if(data.trim() == 'ok'){
+        $('#manage_triggers_edit_button').removeClass('disabled');
+        $('#manage_triggers_edit_button').attr('title', 'Click to enable editing of selected trigger');
+      }
+    }
+  });
+}
+
+function enable_trigger_cancel_button(button_title){
+  $.ajax({
+    type: 'get',
+    url:  'check_if_user_logged_in.php',
+    success: function(data){
+      if(data.trim() == 'ok'){
+        $('#manage_triggers_cancel_button').removeClass('disabled');
+        $('#manage_triggers_cancel_button').attr('title', button_title);
+      }
+    }
+  });
+}
+
+function enable_trigger_submit_button(button_title){
+  $.ajax({
+    type: 'get',
+    url:  'check_if_user_logged_in.php',
+    success: function(data){
+      if(data.trim() == 'ok'){
+        $('#manage_triggers_submit_button').removeClass('disabled');
+        $('#manage_triggers_submit_button').attr('title', button_title);
+      }
+    }
+  });
+}
+
+function enable_trigger_create_button(button_title){
+  $.ajax({
+    type: 'get',
+    url:  'check_if_user_logged_in.php',
+    success: function(data){
+      if(data.trim() == 'ok'){
+        $('#manage_triggers_create_button').removeClass('disabled');
+        $('#manage_triggers_create_button').attr('title', button_title);
+      }
+    }
+  });
+}
+
+function disable_trigger_edit_button(button_title){
+  $('#manage_triggers_edit_button').addClass('disabled');
+  $('#manage_triggers_edit_button').attr('title', button_title);
+}
+
+function disable_trigger_cancel_button(button_title){
+  $('#manage_triggers_cancel_button').addClass('disabled');
+  $('#manage_triggers_cancel_button').attr('title', button_title);
+}
+
+function disable_trigger_submit_button(button_title){
+  $('#manage_triggers_submit_button').addClass('disabled');
+  $('#manage_triggers_submit_button').attr('title', button_title);
+}
+
+function disable_trigger_create_button(button_title){
+  $('#manage_triggers_create_button').addClass('disabled');
+  $('#manage_triggers_create_button').attr('title', button_title);
+}
+
+function triggers_new_fields(table_data)
+{
+  console.log(table_data);
+  table_data.forEach(function(element) {
+    $.ajax({
+      type: 'get',
+      url:  'trigger_mod_get_values.php',
+      data: 'field='+element.field+'&def_value='+element.val.trim(),
+      success: function(data){
+        $('#'+element.id).html(data);
+        $('#'+element.id).addClass('triggers_open_fields_styling');
+        $('#'+element.id).children('select').each(function() {
+          $(this).addClass('triggers_open_fields_selects_styling');
+        });
+      }
+    });
+  });
+}
+
+function triggers_open_fields(table_data)
+{
+  var num_tests = 0;
+  table_data.forEach(function(element) {
+    if(element.field == 'test'){
+      num_tests = element.val.trim();
+    }
+  });
+  table_data.forEach(function(element) {
+    $.ajax({
+      type: 'get',
+      url:  'trigger_mod_get_values.php',
+      data: 'field='+element.field+'&def_value='+element.val.trim(),
+      success: function(data){
+        $('#'+element.id).html(data);
+        $('#'+element.id).addClass('triggers_open_fields_styling');
+        $('#'+element.id).children('select').each(function() {
+          $(this).addClass('triggers_open_fields_selects_styling');
+        });
+      }
+    });
+  });
+}
+
+function triggers_close_fields(global_table_data)
+{
+  global_table_data.forEach(function(row){
+    row.forEach(function(element){
+      $('#'+element.id).html(element.val);
+      $('#'+element.id).removeClass('triggers_open_fields_styling');
+    });
+  });
+}
+
+function remove_new_trigger_row()
+{
+  $('#view_triggers_row_new').remove();
+}
+
+// Take in a row object and look through all of the td's for the info
+// needed to update the trigger
+function triggers_submit_update(trigger_row, trigger_test_ids_list)
+{
+  var cur_trigger_id        = trigger_row.attr('data-ise-trigger-id');
+  var temp_git_branch       = '';
+  var temp_code_track       = '';
+  var temp_trigger_template = '';
+  var temp_trigger_event    = '';
+  var temp_target_template  = '';
+  var ct1, ct2, ct3         = '';
+
+  trigger_row.children("td").each(function() {
+    if($(this).attr('data-ise-trigger-field') == 'git_branch'){
+      $(this).find("input").each(function() {
+        temp_git_branch = $(this).val();
+      });
+      console.log('found git branch: '+temp_git_branch);
+    }
+    else if($(this).attr('data-ise-trigger-field') == 'code_track'){
+      var cntr = 1;
+      $(this).find("input").each(function() {
+        if(cntr == 1) ct1 = $(this).val();
+        if(cntr == 2) ct2 = $(this).val();
+        if(cntr == 3) ct3 = $(this).val();
+        cntr += 1;
+      });
+      temp_code_track = ct1+'.'+ct2+'.'+ct3;
+      console.log('found code track: '+temp_code_track);
+    }
+    else if($(this).attr('data-ise-trigger-field') == 'trigger_template'){
+      temp_trigger_template = $(this).children('select').val();
+      console.log('found trigger template: '+temp_trigger_template);
+    }
+    else if($(this).attr('data-ise-trigger-field') == 'trigger_event'){
+      temp_trigger_event = $(this).children('select').val();
+      console.log('found trigger event: '+temp_trigger_event);
+    }
+    else if($(this).attr('data-ise-trigger-field') == 'target_template'){
+      temp_target_template = $(this).children('select').val();
+      console.log('found target template: '+temp_target_template);
+    }
+  });
+  data_to_send  = 'trigger_id='+cur_trigger_id;
+  data_to_send += '&new_code_track=' + temp_code_track
+  data_to_send += '&new_git_branch=' + temp_git_branch
+  data_to_send += '&new_trigger_template=' + temp_trigger_template
+  data_to_send += '&new_trigger_event=' + temp_trigger_event
+  data_to_send += '&new_target_template=' + temp_target_template
+
+  console.log('Submitting this list:');
+  console.log(trigger_test_ids_list);
+  data_to_send += '&new_test_list='+JSON.stringify(trigger_test_ids_list);
+
+  $.ajax({
+    type: 'get',
+    url:  'trigger_update_values.php',
+    data: data_to_send,
+    success: function(data){
+      if(data.trim() == 'ok'){
+        // Now update the cells with the new values
+        $.ajax({
+          type: 'get',
+          url:  'trigger_get_row.php',
+          data: 'trigger_id='+cur_trigger_id,
+          success: function(data){
+            console.log(data);
+            trigger_row.replaceWith(data);
+          }
+        });
+      }
+      else{
+        console.log(data);
+        var err_message = '';
+        if(data.indexOf('Could not connect to MAP Server') > -1)
+          err_message = 'Could not connect to MAP Server';
+        if(data.indexOf('Could not create socket') > -1)
+          err_message = 'Could not create socket';
+        if(data.indexOf('Could not send json data to MAP Server') > -1)
+          err_message = 'Could not send json data to MAP Server';
+        if(data.indexOf('Could not read from MAP Server') > -1)
+          err_message = 'Could not read from MAP Server';
+        if(data.indexOf('Action unsuccessful') > -1)
+          err_message = 'Action unsuccessful';
+        alert("Oh no, something went wrong :(\nPlease refresh the page and try again.\n"+
+          "If failures persist, please contact the MAP Administrators.\n\n"+
+          "Error: "+err_message);
+      }
+    }
+  });
+}

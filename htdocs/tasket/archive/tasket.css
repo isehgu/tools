@@ -1,0 +1,56 @@
+body {
+    font-weight:200;
+}
+#logo{
+    color:white;
+    font-size:32px;
+    margin-left:10px;
+    margin-top:-2px;
+}
+#top {
+    background: black;
+    padding-top:20px;
+    padding-bottom:10px;
+
+}
+#newsubmitbtn{
+    margin-top:0px;
+}
+
+#mid {
+	margin-top:100px;
+}
+input.large-font{
+    font-size:120%; 
+}
+
+#top,#mid {
+    text-align:center;
+}
+.task_wrapper:hover {
+    background-color:#F7F6F6;
+    cursor:pointer;
+}
+
+#taskmodal {
+    max-height:95%;
+    overflow-y: auto;
+    width: 600px;
+    margin-left: -300px !important;
+    margin-top: -50px !important;
+}
+.modal-body {
+    max-height:none;
+}
+label {
+    font-weight: bold;
+}
+#tasklabel{
+    display:inline;
+}
+#completebtn{
+    margin-right:5px;
+}
+#deletebtn{
+    margin-right:8px;
+}

@@ -1,0 +1,11 @@
+/****************************************************************/
+/* Modals */
+/****************************************************************/
+.reveal-modal{
+  top: 100px !important;
+  max-height: 80%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position : fixed;
+  border-radius: 3px;
+}

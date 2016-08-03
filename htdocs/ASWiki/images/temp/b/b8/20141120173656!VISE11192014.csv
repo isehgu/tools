@@ -1,0 +1,634 @@
+Cycle,Exch ID,Root Opt Symbol,Strike,Call Code,Expire Date,Type of Change,Effective Date,Underlying Opt Sym,Underlying Stk Sym,Description of Change,Time Entered,PC/Last Stk Price,Product Type
+FEB,I,AAL,55,,20141128,A,20141120,,AAL,Weekly options expiration violation,,,E
+JAN,I,AAPL,150,,20141128,A,20141120,,AAPL,,,,E
+JAN,I,AAPL,145,,20141128,A,20141120,,AAPL,,,,E
+JAN,I,AAPL,140,,20141128,A,20141120,,AAPL,,,,E
+JAN,I,AAPL,135,,20141128,A,20141120,,AAPL,,,,E
+JAN,I,AAPL,155,,20141128,A,20141120,,AAPL,,,,E
+FEB,I,ABBV,80,,20141128,A,20141120,,ABBV,Weekly options expiration violation,,,E
+FEB,I,ABBV,85,,20141128,A,20141120,,ABBV,Weekly options expiration violation,,,E
+FEB,I,ACN,100,,20141128,A,20141120,,ACN,Weekly options expiration violation,,,E
+FEB,I,ACN,105,,20141128,A,20141120,,ACN,Weekly options expiration violation,,,E
+FEB,I,ACT,315,,20141128,A,20141120,,ACT,,,,E
+FEB,I,ACT,325,,20141128,A,20141120,,ACT,,,,E
+FEB,I,ACT,320,,20141128,A,20141120,,ACT,,,,E
+FEB,I,ACT,340,,20141128,A,20141120,,ACT,Weekly options expiration violation,,,E
+FEB,I,ACT,335,,20141128,A,20141120,,ACT,Weekly options expiration violation,,,E
+FEB,I,ACT,330,,20141128,A,20141120,,ACT,,,,E
+JAN,I,AET,105,,20141128,A,20141120,,AET,Weekly options expiration violation,,,E
+JAN,I,AET,110,,20141128,A,20141120,,AET,Weekly options expiration violation,,,E
+JAN,I,AGN,255,,20141128,A,20141120,,AGN,,,,E
+JAN,I,AGN,265,,20141128,A,20141120,,AGN,,,,E
+JAN,I,AGN,260,,20141128,A,20141120,,AGN,,,,E
+JAN,I,AGN,275,,20141128,A,20141120,,AGN,,,,E
+JAN,I,AGN,270,,20141128,A,20141120,,AGN,,,,E
+MAR,I,AGQ,29,,20141128,A,20141120,,AGQ,Weekly options expiration violation,,,E
+MAR,I,AGQ,28,,20141128,A,20141120,,AGQ,Weekly options expiration violation,,,E
+JAN,I,AGU,130,,20141128,A,20141120,,AGU,Weekly options expiration violation,,,E
+JAN,I,AGU,125,,20141128,A,20141120,,AGU,Weekly options expiration violation,,,E
+JAN,I,AGU,120,,20141128,A,20141120,,AGU,Weekly options expiration violation,,,E
+FEB,I,AIG,65,,20141128,A,20141120,,AIG,Weekly options expiration violation,,,E
+FEB,I,AIG,70,,20141128,A,20141120,,AIG,Weekly options expiration violation,,,E
+FEB,I,AKAM,75,,20141128,A,20141120,,AKAM,Weekly options expiration violation,,,E
+FEB,I,AKAM,80,,20141128,A,20141120,,AKAM,Weekly options expiration violation,,,E
+FEB,I,ALKS,70,,20141220,A,20141120,,ALKS,,,,E
+FEB,I,ALKS,80,,20141220,A,20141120,,ALKS,,,,E
+FEB,I,ALKS,75,,20150515,A,20141120,,ALKS,,,,E
+FEB,I,ALKS,75,,20141220,A,20141120,,ALKS,,,,E
+FEB,I,ALKS,70,,20150515,A,20141120,,ALKS,,,,E
+FEB,I,ALKS,80,,20150515,A,20141120,,ALKS,,,,E
+FEB,I,ALXN,235,,20141128,A,20141120,,ALXN,,,,E
+FEB,I,ALXN,250,,20141128,A,20141120,,ALXN,,,,E
+FEB,I,ALXN,245,,20141128,A,20141120,,ALXN,,,,E
+FEB,I,ALXN,255,,20141128,A,20141120,,ALXN,,,,E
+JAN,I,AMGN,205,,20141128,A,20141120,,AMGN,,,,E
+JAN,I,AMGN,215,,20141128,A,20141120,,AMGN,,,,E
+JAN,I,AMGN,210,,20141128,A,20141120,,AMGN,,,,E
+JAN,I,AMGN,225,,20141128,A,20141120,,AMGN,,,,E
+JAN,I,AMGN,220,,20141128,A,20141120,,AMGN,,,,E
+MAR,I,AMRN,3,,20141128,A,20141120,,AMRN,,,,E
+MAR,I,AMRN,2.5,,20141128,A,20141120,,AMRN,,,,E
+JAN,I,AMT,130,,20141128,A,20141120,,AMT,Weekly options expiration violation,,,E
+JAN,I,AMT,125,,20141128,A,20141120,,AMT,Weekly options expiration violation,,,E
+JAN,I,AMT,120,,20141128,A,20141120,,AMT,Weekly options expiration violation,,,E
+JAN,I,AMZN7,370,,20141128,A,20141120,,AMZN,,,,E
+JAN,I,AMZN7,385,,20141128,A,20141120,,AMZN,,,,E
+JAN,I,AMZN7,380,,20141128,A,20141120,,AMZN,,,,E
+JAN,I,AMZN7,375,,20141128,A,20141120,,AMZN,,,,E
+FEB,I,ANF,21,,20141128,A,20141120,,ANF,Weekly options expiration violation,,,E
+MAR,I,ATHN,155,,20141128,A,20141120,,ATHN,Weekly options expiration violation,,,E
+MAR,I,ATHN,150,,20141128,A,20141120,,ATHN,Weekly options expiration violation,,,E
+JAN,I,AVP,3,,20150417,A,20141120,,AVP,,,,E
+JAN,I,AXP,110,,20141128,A,20141120,,AXP,Weekly options expiration violation,,,E
+JAN,I,AXP,115,,20141128,A,20141120,,AXP,Weekly options expiration violation,,,E
+FEB,I,BA,155,,20141128,A,20141120,,BA,Weekly options expiration violation,,,E
+FEB,I,BA,165,,20141128,A,20141120,,BA,Weekly options expiration violation,,,E
+FEB,I,BA,160,,20141128,A,20141120,,BA,Weekly options expiration violation,,,E
+FEB,I,BA,170,,20141128,A,20141120,,BA,Weekly options expiration violation,,,E
+FEB,I,BAX,85,,20141128,A,20141120,,BAX,Weekly options expiration violation,,,E
+FEB,I,BAX,90,,20141128,A,20141120,,BAX,Weekly options expiration violation,,,E
+FEB,I,BBBY,85,,20141128,A,20141120,,BBBY,Weekly options expiration violation,,,E
+FEB,I,BBBY,90,,20141128,A,20141120,,BBBY,Weekly options expiration violation,,,E
+JAN,I,BHI,80,,20141128,A,20141120,,BHI,Weekly options expiration violation,,,E
+MAR,I,BIDU,295,,20141128,A,20141120,,BIDU,,,,E
+MAR,I,BIDU,290,,20141128,A,20141120,,BIDU,,,,E
+MAR,I,BIDU,310,,20141128,A,20141120,,BIDU,Weekly options expiration violation,,,E
+MAR,I,BIDU,300,,20141128,A,20141120,,BIDU,,,,E
+MAR,I,BK,50,,20141128,A,20141120,,BK,Weekly options expiration violation,,,E
+MAR,I,BK,49,,20141128,A,20141120,,BK,Series is less than one point from an existing series in ENCORE,,,E
+JAN,I,BP,29,,20141128,A,20141120,,BP,Weekly options expiration violation,,,E
+FEB,I,BRCM,31,,20141128,A,20141120,,BRCM,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,BRKB,185,,20141128,A,20141120,,BRKB,,,,E
+MAR,I,BRKB,180,,20141128,A,20141120,,BRKB,,,,E
+MAR,I,BX,42,,20141128,A,20141120,,BX,Weekly options expiration violation,,,E
+MAR,I,BX,41,,20141128,A,20141120,,BX,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,C,65,,20141128,A,20141120,,C,Weekly options expiration violation,,,E
+FEB,I,CAT,120,,20141128,A,20141120,,CAT,Weekly options expiration violation,,,E
+FEB,I,CAT,130,,20141128,A,20141120,,CAT,Weekly options expiration violation,,,E
+FEB,I,CAT,125,,20141128,A,20141120,,CAT,Weekly options expiration violation,,,E
+MAR,I,CBSO,20,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,19,,20141128,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,20,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,20,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,20,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21,,20150320,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21,,20150117,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21,,20141220,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,35,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,35,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,35,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,35,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,35,,20141128,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,34.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,34.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,34.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,34.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,34,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,34,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,34,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,34,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33,,20150619,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33,,20150320,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33,,20150117,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33,,20141220,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,33,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32,,20150320,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32,,20150117,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32,,20141220,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,32,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,31.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,31.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,31.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,31.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,31,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,31,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,31,,20141220,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,31,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,31,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,30.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,30.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,30.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,30.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,30,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,30,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,30,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,30,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,29.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,29.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,29.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,29.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,29,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,29,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,29,,20141220,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,29,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,29,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,28.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,28.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,28.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,28.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,28,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,28,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,28,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,28,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,27.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,27.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,27.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,27.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,27,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,27,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,27,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,27,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,26.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,26.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,26.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,26.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,26,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,26,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,26,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,26,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,25.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,25.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,25.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,25.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,25,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,25,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,25,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,25,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,24.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,24.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,24.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,24.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,24,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,24,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,24,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,24,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,23.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,23.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,23.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,23.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,23,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,23,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,23,,20141220,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,23,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,23,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22.5,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22.5,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22.5,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22,,20150117,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22,,20141226,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22,,20141220,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22,,20141212,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,22,,20141205,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21.5,,20150102,A,20141120,,CBSO,,,,E
+MAR,I,CBSO,21.5,,20141226,A,20141120,,CBSO,,,,E
+JAN,I,CELG,125,,20141128,A,20141120,,CELG,Weekly options expiration violation,,,E
+JAN,I,CELG,135,,20141128,A,20141120,,CELG,Weekly options expiration violation,,,E
+JAN,I,CELG,130,,20141128,A,20141120,,CELG,Weekly options expiration violation,,,E
+FEB,I,CF,345,,20141128,A,20141120,,CF,Weekly options expiration violation,,,E
+FEB,I,CF,340,,20141128,A,20141120,,CF,Weekly options expiration violation,,,E
+FEB,I,CL,85,,20141128,A,20141120,,CL,Weekly options expiration violation,,,E
+FEB,I,CL,80,,20141128,A,20141120,,CL,Weekly options expiration violation,,,E
+JAN,I,CMCSA,70,,20141128,A,20141120,,CMCSA,Weekly options expiration violation,,,E
+MAR,I,CME,105,,20141128,A,20141120,,CME,Weekly options expiration violation,,,E
+MAR,I,CMI,185,,20141128,A,20141120,,CMI,Weekly options expiration violation,,,E
+MAR,I,CMI,180,,20141128,A,20141120,,CMI,Weekly options expiration violation,,,E
+MAR,I,CMI,175,,20141128,A,20141120,,CMI,,,,E
+FEB,I,COP,90,,20141128,A,20141120,,COP,Weekly options expiration violation,,,E
+JAN,I,COST,180,,20141128,A,20141120,,COST,Weekly options expiration violation,,,E
+JAN,I,COST,175,,20141128,A,20141120,,COST,Weekly options expiration violation,,,E
+JAN,I,COST,170,,20141128,A,20141120,,COST,Weekly options expiration violation,,,E
+JAN,I,COST,165,,20141128,A,20141120,,COST,Weekly options expiration violation,,,E
+FEB,I,CVEO,6,,20150220,A,20141120,,CVEO,,,,E
+FEB,I,CVEO,6,,20141220,A,20141120,,CVEO,,,,E
+FEB,I,CVS,110,,20141128,A,20141120,,CVS,Weekly options expiration violation,,,E
+FEB,I,CVS,105,,20141128,A,20141120,,CVS,Weekly options expiration violation,,,E
+FEB,I,CVS,115,,20141128,A,20141120,,CVS,Weekly options expiration violation,,,E
+MAR,I,CVX,145,,20141128,A,20141120,,CVX,Weekly options expiration violation,,,E
+MAR,I,CVX,150,,20141128,A,20141120,,CVX,Weekly options expiration violation,,,E
+MAR,I,DAL,55,,20141128,A,20141120,,DAL,Weekly options expiration violation,,,E
+JAN,I,DD,90,,20141128,A,20141120,,DD,Weekly options expiration violation,,,E
+JAN,I,DD,85,,20141128,A,20141120,,DD,Weekly options expiration violation,,,E
+JAN,I,DD,50,,20141128,A,20141120,,DD,Weekly options expiration violation,,,E
+MAR,I,DE,105,,20141128,A,20141120,,DE,Weekly options expiration violation,,,E
+MAR,I,DE,110,,20141128,A,20141120,,DE,Weekly options expiration violation,,,E
+MAR,I,DECK,120,,20141128,A,20141120,,DECK,Weekly options expiration violation,,,E
+JAN,I,DFS,45,,20141128,A,20141120,,DFS,Weekly options expiration violation,,,E
+MAR,I,DIA,189,,20141128,A,20141120,,DIA,,,,E
+MAR,I,DIA,187,,20141128,A,20141120,,DIA,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,DIA,186,,20141128,A,20141120,,DIA,,,,E
+JAN,I,DIS,110,,20141128,A,20141120,,DIS,Weekly options expiration violation,,,E
+JAN,I,DIS,115,,20141128,A,20141120,,DIS,Weekly options expiration violation,,,E
+MAR,I,DISH,90,,20141128,A,20141120,,DISH,Weekly options expiration violation,,,E
+MAR,I,DISH,95,,20141128,A,20141120,,DISH,Weekly options expiration violation,,,E
+MAR,I,DOW,65,,20141128,A,20141120,,DOW,Weekly options expiration violation,,,E
+MAR,I,DTV,110,,20141128,A,20141120,,DTV,Weekly options expiration violation,,,E
+MAR,I,DTV,105,,20141128,A,20141120,,DTV,Weekly options expiration violation,,,E
+MAR,I,DTV,70,,20141128,A,20141120,,DTV,Weekly options expiration violation,,,E
+MAR,I,DTV,65,,20141128,A,20141120,,DTV,Weekly options expiration violation,,,E
+JAN,I,DVN,80,,20141128,A,20141120,,DVN,Weekly options expiration violation,,,E
+FEB,I,DXJ,63,,20141128,A,20141120,,DXJ,Weekly options expiration violation,,,E
+FEB,I,DXJ,65,,20141128,A,20141120,,DXJ,Weekly options expiration violation,,,E
+FEB,I,DXJ,64,,20141128,A,20141120,,DXJ,Weekly options expiration violation,,,E
+FEB,I,DXJ,66,,20141128,A,20141120,,DXJ,Weekly options expiration violation,,,E
+MAR,I,EA,55,,20141128,A,20141120,,EA,Weekly options expiration violation,,,E
+JAN,I,EBAY,70,,20141128,A,20141120,,EBAY,Weekly options expiration violation,,,E
+JAN,I,EBAY,65,,20141128,A,20141120,,EBAY,Weekly options expiration violation,,,E
+MAR,I,EEM,52,,20141128,A,20141120,,EEM,Weekly options expiration violation,,,E
+MAR,I,EEM,51,,20141128,A,20141120,,EEM,Weekly options expiration violation,,,E
+MAR,I,EFA,74,,20141128,A,20141120,,EFA,Weekly options expiration violation,,,E
+MAR,I,EFA,73,,20141128,A,20141120,,EFA,Weekly options expiration violation,,,E
+MAR,I,EFA,72,,20141128,A,20141120,,EFA,Weekly options expiration violation,,,E
+JAN,I,EOG,125,,20141128,A,20141120,,EOG,Weekly options expiration violation,,,E
+FEB,I,ESRX,100,,20141128,A,20141120,,ESRX,Weekly options expiration violation,,,E
+FEB,I,ESRX,95,,20141128,A,20141120,,ESRX,Weekly options expiration violation,,,E
+JAN,I,ETN,85,,20141128,A,20141120,,ETN,Weekly options expiration violation,,,E
+JAN,I,EXPE,110,,20141128,A,20141120,,EXPE,Weekly options expiration violation,,,E
+JAN,I,FAS,129,,20141128,A,20141120,,FAS,,,,E
+JAN,I,FDO,55,,20141128,A,20141120,,FDO,Weekly options expiration violation,,,E
+JAN,I,FDO,100,,20141128,A,20141120,,FDO,Weekly options expiration violation,,,E
+JAN,I,FDO,95,,20141128,A,20141120,,FDO,Weekly options expiration violation,,,E
+JAN,I,FDO,65,,20141128,A,20141120,,FDO,Weekly options expiration violation,,,E
+JAN,I,FDO,60,,20141128,A,20141120,,FDO,Weekly options expiration violation,,,E
+JAN,I,FDX,230,,20141128,A,20141120,,FDX,,,,E
+JAN,I,FDX,225,,20141128,A,20141120,,FDX,,,,E
+JAN,I,FDX,220,,20141128,A,20141120,,FDX,,,,E
+JAN,I,FFIV,155,,20141128,A,20141120,,FFIV,Weekly options expiration violation,,,E
+JAN,I,FFIV,160,,20141128,A,20141120,,FFIV,Weekly options expiration violation,,,E
+JAN,I,FLR,80,,20141128,A,20141120,,FLR,Weekly options expiration violation,,,E
+JAN,I,FLR,85,,20141128,A,20141120,,FLR,Weekly options expiration violation,,,E
+MAR,I,FOSL,135,,20141128,A,20141120,,FOSL,Weekly options expiration violation,,,E
+MAR,I,FSLR,35,,20141128,A,20141120,,FSLR,Weekly options expiration violation,,,E
+FEB,I,FXI,49,,20141128,A,20141120,,FXI,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,FXY,73,,20141128,A,20141120,,FXY,,,,E
+MAR,I,FXY,72,,20141128,A,20141120,,FXY,Weekly options expiration violation,,,E
+MAR,I,FXY,75,,20141128,A,20141120,,FXY,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,FXY,74.5,,20141128,A,20141120,,FXY,,,,E
+MAR,I,FXY,74,,20141128,A,20141120,,FXY,,,,E
+MAR,I,FXY,73.5,,20141128,A,20141120,,FXY,,,,E
+MAR,I,GMCR,200,,20141128,A,20141120,,GMCR,,,,E
+MAR,I,GMCR,210,,20141128,A,20141120,,GMCR,,,,E
+MAR,I,GMCR,205,,20141128,A,20141120,,GMCR,,,,E
+MAR,I,GMCR,215,,20141128,A,20141120,,GMCR,,,,E
+JAN,I,GS,240,,20141128,A,20141120,,GS,,,,E
+JAN,I,GS,250,,20141128,A,20141120,,GS,,,,E
+JAN,I,GS,245,,20141128,A,20141120,,GS,,,,E
+JAN,I,HAL,35,,20141128,A,20141120,,HAL,Weekly options expiration violation,,,E
+FEB,I,HD,115,,20141128,A,20141120,,HD,Weekly options expiration violation,,,E
+FEB,I,HD,125,,20141128,A,20141120,,HD,Weekly options expiration violation,,,E
+FEB,I,HD,120,,20141128,A,20141120,,HD,Weekly options expiration violation,,,E
+MAR,I,HFC,55,,20141128,A,20141120,,HFC,Weekly options expiration violation,,,E
+MAR,I,HIG,49,,20141128,A,20141120,,HIG,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,HIG,50,,20141128,A,20141120,,HIG,Weekly options expiration violation,,,E
+FEB,I,HLF,27.5,,20141128,A,20141120,,HLF,Weekly options expiration violation,,,E
+FEB,I,HPQ,48,,20141128,A,20141120,,HPQ,Weekly options expiration violation,,,E
+FEB,I,HPQ,47,,20141128,A,20141120,,HPQ,Weekly options expiration violation,,,E
+FEB,I,HPQ,46,,20141128,A,20141120,,HPQ,Weekly options expiration violation,,,E
+FEB,I,HPQ,45,,20141128,A,20141120,,HPQ,Weekly options expiration violation,,,E
+FEB,I,HUM,175,,20141128,A,20141120,,HUM,Weekly options expiration violation,,,E
+FEB,I,HUM,170,,20141128,A,20141120,,HUM,Weekly options expiration violation,,,E
+MAR,I,HYG,79,,20141128,A,20141120,,HYG,,,,E
+MAR,I,IBB,355,,20141128,A,20141120,,IBB,,,,E
+JAN,I,IBM,115,,20141128,A,20141120,,IBM,,,,E
+JAN,I,IBM,110,,20141128,A,20141120,,IBM,,,,E
+JAN,I,IBM,105,,20141128,A,20141120,,IBM,,,,E
+JAN,I,IBM,100,,20141128,A,20141120,,IBM,,,,E
+MAR,I,ICPT,95,,20141128,A,20141120,,ICPT,,,,E
+MAR,I,ILMN,245,,20141128,A,20141120,,ILMN,,,,E
+MAR,I,ILMN,250,,20141128,A,20141120,,ILMN,,,,E
+JAN,I,IP,65,,20141128,A,20141120,,IP,Weekly options expiration violation,,,E
+JAN,I,IP,70,,20141128,A,20141120,,IP,Weekly options expiration violation,,,E
+MAR,I,IYR,87,,20141128,A,20141120,,IYR,,,,E
+MAR,I,IYR,86,,20141128,A,20141120,,IYR,,,,E
+MAR,I,IYR,85,,20141128,A,20141120,,IYR,,,,E
+MAR,I,IYR,84,,20141128,A,20141120,,IYR,,,,E
+MAR,I,IYR,83,,20141128,A,20141120,,IYR,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,JAZZ,220,,20141128,A,20141120,,JAZZ,,,,E
+MAR,I,JAZZ,230,,20141128,A,20141120,,JAZZ,,,,E
+MAR,I,JAZZ,225,,20141128,A,20141120,,JAZZ,,,,E
+JAN,I,JNJ,140,,20141128,A,20141120,,JNJ,Weekly options expiration violation,,,E
+JAN,I,JNJ,135,,20141128,A,20141120,,JNJ,Weekly options expiration violation,,,E
+JAN,I,JNJ,130,,20141128,A,20141120,,JNJ,Weekly options expiration violation,,,E
+MAR,I,JPM,75,,20141128,A,20141120,,JPM,Weekly options expiration violation,,,E
+FEB,I,KO,55,,20141128,A,20141120,,KO,Weekly options expiration violation,,,E
+MAR,I,KRE,29,,20141128,A,20141120,,KRE,Weekly options expiration violation,,,E
+MAR,I,KRE,51,,20141128,A,20141120,,KRE,Weekly options expiration violation,,,E
+MAR,I,KRE,50,,20141128,A,20141120,,KRE,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,KRFT,67.5,,20170120,A,20141120,,KRFT,,,,E
+MAR,I,KSU,155,,20141128,A,20141120,,KSU,Weekly options expiration violation,,,E
+JAN,I,LLY,85,,20141128,A,20141120,,LLY,Weekly options expiration violation,,,E
+JAN,I,LLY,80,,20141128,A,20141120,,LLY,Weekly options expiration violation,,,E
+FEB,I,LNKD,280,,20141128,A,20141120,,LNKD,,,,E
+MAR,I,LO,45,,20141128,A,20141120,,LO,Weekly options expiration violation,,,E
+MAR,I,LO,75,,20141128,A,20141120,,LO,Weekly options expiration violation,,,E
+MAR,I,LO,50,,20141128,A,20141120,,LO,Weekly options expiration violation,,,E
+MAR,I,LO,80,,20141128,A,20141120,,LO,Weekly options expiration violation,,,E
+MAR,I,LOCO,22,,20141128,A,20141120,,LOCO,Weekly options expiration violation,,,E
+MAR,I,LOCO,23,,20141128,A,20141120,,LOCO,Weekly options expiration violation,,,E
+MAR,I,LULU,32.5,,20141128,A,20141120,,LULU,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,LULU,55,,20141128,A,20141120,,LULU,Weekly options expiration violation,,,E
+MAR,I,LUV,28,,20141128,A,20141120,,LUV,Weekly options expiration violation,,,E
+MAR,I,LUV,48,,20141128,A,20141120,,LUV,Weekly options expiration violation,,,E
+MAR,I,LUV,47,,20141128,A,20141120,,LUV,Weekly options expiration violation,,,E
+MAR,I,LUV,50,,20141128,A,20141120,,LUV,Weekly options expiration violation,,,E
+MAR,I,LUV,49,,20141128,A,20141120,,LUV,Weekly options expiration violation,,,E
+MAR,I,LVS,45,,20141128,A,20141120,,LVS,Weekly options expiration violation,,,E
+JAN,I,MA,100,,20141128,A,20141120,,MA,Weekly options expiration violation,,,E
+JAN,I,MA,105,,20141128,A,20141120,,MA,Weekly options expiration violation,,,E
+MAR,I,MCD,115,,20141128,A,20141120,,MCD,Weekly options expiration violation,,,E
+MAR,I,MCD,125,,20141128,A,20141120,,MCD,Weekly options expiration violation,,,E
+MAR,I,MCD,120,,20141128,A,20141120,,MCD,Weekly options expiration violation,,,E
+FEB,I,MDT,90,,20141128,A,20141120,,MDT,Weekly options expiration violation,,,E
+FEB,I,MDT,85,,20141128,A,20141120,,MDT,Weekly options expiration violation,,,E
+MAR,I,MDY,320,,20141128,A,20141120,,MDY,,,,E
+MAR,I,MET,65,,20141128,A,20141120,,MET,Weekly options expiration violation,,,E
+MAR,I,MET,70,,20141128,A,20141120,,MET,Weekly options expiration violation,,,E
+JAN,I,MMM,200,,20141128,A,20141120,,MMM,,,,E
+JAN,I,MMM,210,,20141128,A,20141120,,MMM,,,,E
+JAN,I,MMM,205,,20141128,A,20141120,,MMM,,,,E
+JAN,I,MMM,220,,20141128,A,20141120,,MMM,,,,E
+JAN,I,MMM,215,,20141128,A,20141120,,MMM,,,,E
+MAR,I,MNST,140,,20141128,A,20141120,,MNST,Weekly options expiration violation,,,E
+MAR,I,MNST,135,,20141128,A,20141120,,MNST,Weekly options expiration violation,,,E
+MAR,I,MNST,130,,20141128,A,20141120,,MNST,Weekly options expiration violation,,,E
+MAR,I,MO,60,,20141128,A,20141120,,MO,Weekly options expiration violation,,,E
+JAN,I,MON,150,,20141128,A,20141120,,MON,Weekly options expiration violation,,,E
+JAN,I,MON,145,,20141128,A,20141120,,MON,Weekly options expiration violation,,,E
+JAN,I,MON,140,,20141128,A,20141120,,MON,Weekly options expiration violation,,,E
+MAR,I,MOS,60,,20141128,A,20141120,,MOS,Weekly options expiration violation,,,E
+JAN,I,MPC,120,,20141128,A,20141120,,MPC,Weekly options expiration violation,,,E
+JAN,I,MPC,115,,20141128,A,20141120,,MPC,Weekly options expiration violation,,,E
+JAN,I,MRK,75,,20141128,A,20141120,,MRK,Weekly options expiration violation,,,E
+JAN,I,MRK,70,,20141128,A,20141120,,MRK,Weekly options expiration violation,,,E
+JAN,I,MRO,23,,20141128,A,20141120,,MRO,Weekly options expiration violation,,,E
+JAN,I,MS,26,,20141128,A,20141120,,MS,Series is less than one point from an existing series in ENCORE,,,E
+JAN,I,MS,45,,20141128,A,20141120,,MS,Weekly options expiration violation,,,E
+JAN,I,MSFT,60,,20141128,A,20141120,,MSFT,Weekly options expiration violation,,,E
+FEB,I,MYGN,24,,20141128,A,20141120,,MYGN,Weekly options expiration violation,,,E
+FEB,I,MYGN,23,,20141128,A,20141120,,MYGN,Weekly options expiration violation,,,E
+JAN,I,NKE,115,,20141128,A,20141120,,NKE,Weekly options expiration violation,,,E
+JAN,I,NKE,125,,20141128,A,20141120,,NKE,Weekly options expiration violation,,,E
+JAN,I,NKE,120,,20141128,A,20141120,,NKE,Weekly options expiration violation,,,E
+MAR,I,NSC,140,,20141128,A,20141120,,NSC,Weekly options expiration violation,,,E
+MAR,I,NSC,135,,20141128,A,20141120,,NSC,Weekly options expiration violation,,,E
+MAR,I,NSC,145,,20141128,A,20141120,,NSC,Weekly options expiration violation,,,E
+MAR,I,NTAP,32,,20141128,A,20141120,,NTAP,Series is less than one point from an existing series in ENCORE,,,E
+JAN,I,NUE,65,,20141128,A,20141120,,NUE,Weekly options expiration violation,,,E
+MAR,I,NUS,32.5,,20141128,A,20141120,,NUS,Series is less than one point from an existing series in ENCORE,,,E
+JAN,I,OIH,34,,20141128,A,20141120,,OIH,Weekly options expiration violation,,,E
+JAN,I,OIH,33,,20141128,A,20141120,,OIH,Weekly options expiration violation,,,E
+JAN,I,OIH,32,,20141128,A,20141120,,OIH,Weekly options expiration violation,,,E
+MAR,I,ORCL,29,,20141128,A,20141120,,ORCL,Weekly options expiration violation,,,E
+MAR,I,ORCL,50,,20141128,A,20141120,,ORCL,Weekly options expiration violation,,,E
+MAR,I,ORCL,49,,20141128,A,20141120,,ORCL,Series is less than one point from an existing series in ENCORE,,,E
+JAN,I,OUTR,80,,20141128,A,20141120,,OUTR,Weekly options expiration violation,,,E
+JAN,I,OUTR,75,,20141128,A,20141120,,OUTR,,,,E
+MAR,I,PDS,1,,20150320,A,20141120,,PDS,,,,E
+MAR,I,PDS,1,,20141220,A,20141120,,PDS,,,,E
+JAN,I,PEP,115,,20141128,A,20141120,,PEP,Weekly options expiration violation,,,E
+JAN,I,PEP,70,,20141128,A,20141120,,PEP,Weekly options expiration violation,,,E
+JAN,I,PEP,125,,20141128,A,20141120,,PEP,Weekly options expiration violation,,,E
+JAN,I,PEP,120,,20141128,A,20141120,,PEP,Weekly options expiration violation,,,E
+JAN,I,PG,105,,20141128,A,20141120,,PG,Weekly options expiration violation,,,E
+JAN,I,PG,65,,20141128,A,20141120,,PG,Weekly options expiration violation,,,E
+JAN,I,PG,115,,20141128,A,20141120,,PG,Weekly options expiration violation,,,E
+JAN,I,PG,110,,20141128,A,20141120,,PG,Weekly options expiration violation,,,E
+MAR,I,PM,110,,20141128,A,20141120,,PM,Weekly options expiration violation,,,E
+MAR,I,POT,45,,20141128,A,20141120,,POT,Weekly options expiration violation,,,E
+MAR,I,POT,47,,20141128,A,20141120,,POT,Weekly options expiration violation,,,E
+MAR,I,POT,46,,20141128,A,20141120,,POT,Weekly options expiration violation,,,E
+MAR,I,PXD,115,,20141128,A,20141120,,PXD,,,,E
+MAR,I,PXD,110,,20141128,A,20141120,,PXD,,,,E
+JAN,I,QCOM,50,,20141128,A,20141120,,QCOM,Weekly options expiration violation,,,E
+MAR,I,QQQ,115,,20141128,A,20141120,,QQQ,,,,E
+MAR,I,QQQ,114,,20141128,A,20141120,,QQQ,,,,E
+MAR,I,QQQ,113,,20141128,A,20141120,,QQQ,,,,E
+MAR,I,RAX,55,,20141128,A,20141120,,RAX,Weekly options expiration violation,,,E
+JAN,I,SBUX,100,,20141128,A,20141120,,SBUX,Weekly options expiration violation,,,E
+JAN,I,SBUX,95,,20141128,A,20141120,,SBUX,Weekly options expiration violation,,,E
+JAN,I,SCO,54,,20141128,A,20141120,,SCO,Weekly options expiration violation,,,E
+JAN,I,SCO,53,,20141128,A,20141120,,SCO,Weekly options expiration violation,,,E
+MAR,I,SINA,27.5,,20141128,A,20141120,,SINA,Weekly options expiration violation,,,E
+JAN,I,SLV,18.5,,20150117,A,20141120,,SLV,,,,E
+JAN,I,SLV,18.5,,20141220,A,20141120,,SLV,,,,E
+JAN,I,SLV,17.5,,20150117,A,20141120,,SLV,,,,E
+JAN,I,SLV,17.5,,20141220,A,20141120,,SLV,,,,E
+JAN,I,SLV,16.5,,20150117,A,20141120,,SLV,,,,E
+JAN,I,SLV,16.5,,20141220,A,20141120,,SLV,,,,E
+JAN,I,SLV,15.5,,20150117,A,20141120,,SLV,,,,E
+JAN,I,SLV,15.5,,20141220,A,20141120,,SLV,,,,E
+JAN,I,SLV,14.5,,20150117,A,20141120,,SLV,,,,E
+JAN,I,SLV,14.5,,20141220,A,20141120,,SLV,,,,E
+JAN,I,SLV,19.5,,20150117,A,20141120,,SLV,,,,E
+JAN,I,SLV,19.5,,20141220,A,20141120,,SLV,,,,E
+JAN,I,SNDK,115,,20141128,A,20141120,,SNDK,Weekly options expiration violation,,,E
+JAN,I,SNDK,125,,20141128,A,20141120,,SNDK,Weekly options expiration violation,,,E
+JAN,I,SNDK,120,,20141128,A,20141120,,SNDK,Weekly options expiration violation,,,E
+MAR,I,SPY,265,,20141128,A,20141120,,SPY,,,,E
+MAR,I,SPY,260,,20141128,A,20141120,,SPY,,,,E
+MAR,I,SPY,255,,20141128,A,20141120,,SPY,,,,E
+MAR,I,SPY7,265,,20141128,A,20141120,,SPY,,,,E
+MAR,I,SSO,137,,20141128,A,20141120,,SSO,,,,E
+MAR,I,SSO,136,,20141128,A,20141120,,SSO,,,,E
+MAR,I,SSO,139,,20141128,A,20141120,,SSO,,,,E
+MAR,I,SSO,138,,20141128,A,20141120,,SSO,,,,E
+MAR,I,SSYS,75,,20141128,A,20141120,,SSYS,Weekly options expiration violation,,,E
+MAR,I,STX,80,,20141128,A,20141120,,STX,Weekly options expiration violation,,,E
+MAR,I,STX,75,,20141128,A,20141120,,STX,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,SWY,26,,20141128,A,20141120,,SWY,Weekly options expiration violation,,,E
+MAR,I,SWY,25,,20141128,A,20141120,,SWY,Weekly options expiration violation,,,E
+MAR,I,SWY,45,,20141128,A,20141120,,SWY,Weekly options expiration violation,,,E
+JAN,I,T,45,,20141128,A,20141120,,T,Weekly options expiration violation,,,E
+JAN,I,T,46,,20141128,A,20141120,,T,Weekly options expiration violation,,,E
+MAR,I,TEVA,70,,20141128,A,20141120,,TEVA,Weekly options expiration violation,,,E
+JAN,I,TGT,90,,20150417,A,20141120,,TGT,,,,E
+JAN,I,TGT,90,,20141128,A,20141120,,TGT,Weekly options expiration violation,,,E
+JAN,I,TGT,85,,20150417,A,20141120,,TGT,,,,E
+JAN,I,TGT,85,,20141128,A,20141120,,TGT,Weekly options expiration violation,,,E
+JAN,I,TGT,105,,20150417,A,20141120,,TGT,,,,E
+JAN,I,TGT,100,,20150417,A,20141120,,TGT,,,,E
+JAN,I,TGT,95,,20150417,A,20141120,,TGT,,,,E
+MAR,I,TOL,42,,20141128,A,20141120,,TOL,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,TOL,43,,20141128,A,20141120,,TOL,Weekly options expiration violation,,,E
+MAR,I,TQQQ,108,,20141128,A,20141120,,TQQQ,,,,E
+MAR,I,TQQQ,109,,20141128,A,20141120,,TQQQ,,,,E
+MAR,I,TRIP,50,,20141128,A,20141120,,TRIP,Weekly options expiration violation,,,E
+MAR,I,TRIP,55,,20141128,A,20141120,,TRIP,Weekly options expiration violation,,,E
+MAR,I,TSLA,315,,20141128,A,20141120,,TSLA,Weekly options expiration violation,,,E
+MAR,I,TSLA,320,,20141128,A,20141120,,TSLA,Weekly options expiration violation,,,E
+FEB,I,TSO,90,,20141128,A,20141120,,TSO,Weekly options expiration violation,,,E
+FEB,I,TSU,12.5,,20150515,A,20141120,,TSU,,,,E
+FEB,I,TSU,12.5,,20150220,A,20141120,,TSU,,,,E
+MAR,I,TWTR,29,,20141128,A,20141120,,TWTR,Weekly options expiration violation,,,E
+MAR,I,TWTR,28,,20141128,A,20141120,,TWTR,Weekly options expiration violation,,,E
+MAR,I,TWTR,32,,20141128,A,20141120,,TWTR,Weekly options expiration violation,,,E
+MAR,I,TWTR,31,,20141128,A,20141120,,TWTR,Weekly options expiration violation,,,E
+JAN,I,TXN,65,,20141128,A,20141120,,TXN,Weekly options expiration violation,,,E
+JAN,I,TXN,60,,20141128,A,20141120,,TXN,,,,E
+JAN,I,UA,85,,20141128,A,20141120,,UA,Weekly options expiration violation,,,E
+MAR,I,UAL,70,,20141128,A,20141120,,UAL,Weekly options expiration violation,,,E
+MAR,I,UNH,120,,20141128,A,20141120,,UNH,Weekly options expiration violation,,,E
+MAR,I,UNH,115,,20141128,A,20141120,,UNH,Weekly options expiration violation,,,E
+MAR,I,UNH,125,,20141128,A,20141120,,UNH,Weekly options expiration violation,,,E
+FEB,I,UNP,140,,20141128,A,20141120,,UNP,Weekly options expiration violation,,,E
+FEB,I,UNP,150,,20141128,A,20141120,,UNP,Weekly options expiration violation,,,E
+FEB,I,UNP,145,,20141128,A,20141120,,UNP,Weekly options expiration violation,,,E
+FEB,I,UNP,155,,20141128,A,20141120,,UNP,Weekly options expiration violation,,,E
+MAR,I,UPRO,141,,20141128,A,20141120,,UPRO,,,,E
+MAR,I,UPRO,143,,20141128,A,20141120,,UPRO,,,,E
+MAR,I,UPRO,142,,20141128,A,20141120,,UPRO,,,,E
+JAN,I,UPS,135,,20141128,A,20141120,,UPS,Weekly options expiration violation,,,E
+JAN,I,UPS,130,,20141128,A,20141120,,UPS,Weekly options expiration violation,,,E
+MAR,I,URI,145,,20141128,A,20141120,,URI,Weekly options expiration violation,,,E
+MAR,I,URI,140,,20141128,A,20141120,,URI,Weekly options expiration violation,,,E
+MAR,I,USB,55,,20141128,A,20141120,,USB,Weekly options expiration violation,,,E
+FEB,I,UTX,135,,20141128,A,20141120,,UTX,Weekly options expiration violation,,,E
+FEB,I,UTX,130,,20141128,A,20141120,,UTX,Weekly options expiration violation,,,E
+FEB,I,UTX,140,,20141128,A,20141120,,UTX,Weekly options expiration violation,,,E
+MAR,I,V,290,,20141128,A,20141120,,V,,,,E
+MAR,I,V,300,,20141128,A,20141120,,V,,,,E
+MAR,I,V,295,,20141128,A,20141120,,V,,,,E
+MAR,I,V,320,,20141128,A,20141120,,V,Weekly options expiration violation,,,E
+MAR,I,V,315,,20141128,A,20141120,,V,Weekly options expiration violation,,,E
+MAR,I,V,310,,20141128,A,20141120,,V,,,,E
+MAR,I,V,305,,20141128,A,20141120,,V,,,,E
+MAR,I,VLO,37.5,,20141128,A,20141120,,VLO,Series is less than one point from an existing series in ENCORE,,,E
+JAN,I,VMW,60,,20141128,A,20141120,,VMW,Weekly options expiration violation,,,E
+JAN,I,VOD,45,,20141128,A,20141120,,VOD,Weekly options expiration violation,,,E
+JAN,I,VOD,46,,20141128,A,20141120,,VOD,Weekly options expiration violation,,,E
+JAN,I,VRX,170,,20141128,A,20141120,,VRX,,,,E
+JAN,I,VRX,180,,20141128,A,20141120,,VRX,Weekly options expiration violation,,,E
+JAN,I,VRX,175,,20141128,A,20141120,,VRX,Weekly options expiration violation,,,E
+JAN,I,VSLR,1,,20150117,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,1,,20141220,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,2,,20150417,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,2,,20150117,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,2,,20141220,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,1,,20150417,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,8,,20141220,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,7,,20141220,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,6,,20141220,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,4,,20150417,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,4,,20150117,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,4,,20141220,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,3,,20150417,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,3,,20150117,A,20141120,,VSLR,,,,E
+JAN,I,VSLR,3,,20141220,A,20141120,,VSLR,,,,E
+MAR,I,VWO,31,,20141128,A,20141120,,VWO,Weekly options expiration violation,,,E
+MAR,I,VWO,32,,20141128,A,20141120,,VWO,Weekly options expiration violation,,,E
+MAR,I,VWO,53,,20141128,A,20141120,,VWO,Weekly options expiration violation,,,E
+MAR,I,VWO,52,,20141128,A,20141120,,VWO,Weekly options expiration violation,,,E
+MAR,I,VXX,21,,20141128,A,20141120,,VXX,Weekly options expiration violation,,,E
+JAN,I,VZ,65,,20141128,A,20141120,,VZ,Weekly options expiration violation,,,E
+JAN,I,VZ,60,,20141128,A,20141120,,VZ,Weekly options expiration violation,,,E
+JAN,I,WAG,85,,20141128,A,20141120,,WAG,Weekly options expiration violation,,,E
+JAN,I,WAG,80,,20141128,A,20141120,,WAG,Weekly options expiration violation,,,E
+MAR,I,WDAY,115,,20141128,A,20141120,,WDAY,Weekly options expiration violation,,,E
+JAN,I,WDC,120,,20141128,A,20141120,,WDC,Weekly options expiration violation,,,E
+JAN,I,WDC,125,,20141128,A,20141120,,WDC,Weekly options expiration violation,,,E
+JAN,I,WFC,65,,20141128,A,20141120,,WFC,Weekly options expiration violation,,,E
+FEB,I,WFM,60,,20141128,A,20141120,,WFM,Weekly options expiration violation,,,E
+MAR,I,WLP,155,,20141128,A,20141120,,WLP,Weekly options expiration violation,,,E
+MAR,I,WLP,160,,20141128,A,20141120,,WLP,Weekly options expiration violation,,,E
+MAR,I,WMT,105,,20141128,A,20141120,,WMT,Weekly options expiration violation,,,E
+MAR,I,WMT,110,,20141128,A,20141120,,WMT,Weekly options expiration violation,,,E
+MAR,I,WYNN,120,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,130,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,125,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,220,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,145,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,140,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,135,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,240,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,235,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,230,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,WYNN,225,,20141128,A,20141120,,WYNN,,,,E
+MAR,I,XLB,60,,20141128,A,20141120,,XLB,Weekly options expiration violation,,,E
+MAR,I,XLB,59,,20141128,A,20141120,,XLB,Weekly options expiration violation,,,E
+MAR,I,XLB,58,,20141128,A,20141120,,XLB,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,XLB,39,,20141128,A,20141120,,XLB,Weekly options expiration violation,,,E
+MAR,I,XLB,61,,20141128,A,20141120,,XLB,Weekly options expiration violation,,,E
+MAR,I,XLI,64,,20141128,A,20141120,,XLI,Weekly options expiration violation,,,E
+MAR,I,XLI,66,,20141128,A,20141120,,XLI,Weekly options expiration violation,,,E
+MAR,I,XLI,65,,20141128,A,20141120,,XLI,Weekly options expiration violation,,,E
+MAR,I,XLI,67,,20141128,A,20141120,,XLI,Weekly options expiration violation,,,E
+MAR,I,XLK,30,,20141128,A,20141120,,XLK,Weekly options expiration violation,,,E
+MAR,I,XLK,50,,20141128,A,20141120,,XLK,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,XLK,31,,20141128,A,20141120,,XLK,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,XLK,52,,20141128,A,20141120,,XLK,Weekly options expiration violation,,,E
+MAR,I,XLK,51,,20141128,A,20141120,,XLK,Weekly options expiration violation,,,E
+MAR,I,XLP,57,,20141128,A,20141120,,XLP,Weekly options expiration violation,,,E
+MAR,I,XLP,56,,20141128,A,20141120,,XLP,Series is less than one point from an existing series in ENCORE,,,E
+MAR,I,XLP,59,,20141128,A,20141120,,XLP,Weekly options expiration violation,,,E
+MAR,I,XLP,58,,20141128,A,20141120,,XLP,Weekly options expiration violation,,,E
+MAR,I,XLU,56,,20141128,A,20141120,,XLU,Weekly options expiration violation,,,E
+MAR,I,XLU,55,,20141128,A,20141120,,XLU,Weekly options expiration violation,,,E
+MAR,I,XLU,57,,20141128,A,20141120,,XLU,Weekly options expiration violation,,,E
+MAR,I,XLV,76,,20141128,A,20141120,,XLV,Weekly options expiration violation,,,E
+MAR,I,XLV,78,,20141128,A,20141120,,XLV,Weekly options expiration violation,,,E
+MAR,I,XLV,77,,20141128,A,20141120,,XLV,Weekly options expiration violation,,,E
+MAR,I,XLV,79,,20141128,A,20141120,,XLV,Weekly options expiration violation,,,E
+MAR,I,XLY,78,,20141128,A,20141120,,XLY,Weekly options expiration violation,,,E
+MAR,I,XLY,80,,20141128,A,20141120,,XLY,Weekly options expiration violation,,,E
+MAR,I,XLY,79,,20141128,A,20141120,,XLY,Weekly options expiration violation,,,E
+MAR,I,XME,26,,20141128,A,20141120,,XME,Series is less than one point from an existing series in ENCORE,,,E
+JAN,I,XOM,120,,20141128,A,20141120,,XOM,Weekly options expiration violation,,,E
+MAR,I,XRT,103,,20141128,A,20141120,,XRT,,,,E
+FEB,I,YDLE,10,,20141220,A,20141120,,YDLE,,,,E
+FEB,I,YDLE,10,,20150515,A,20141120,,YDLE,,,,E
+FEB,I,YDLE,10,,20150220,A,20141120,,YDLE,,,,E
+FEB,I,YELP,40,,20141128,A,20141120,,YELP,Weekly options expiration violation,,,E
+JAN,I,YHOO,65,,20141128,A,20141120,,YHOO,Weekly options expiration violation,,,E
+FEB,I,YNDX,18,,20141128,A,20141120,,YNDX,Series is less than one point from an existing series in ENCORE,,,E
+JAN,I,YUM,90,,20141128,A,20141120,,YUM,Weekly options expiration violation,,,E
+JAN,I,YUM,95,,20141128,A,20141120,,YUM,Weekly options expiration violation,,,E
+FEB,I,Z,155,,20141128,A,20141120,,Z,Weekly options expiration violation,,,E
+FEB,I,Z,160,,20141128,A,20141120,,Z,Weekly options expiration violation,,,E
+JAN,I,ZTS,55,,20141128,A,20141120,,ZTS,Weekly options expiration violation,,,E
+FEB,I,AAL,55,,20141128,A,20141120,,AAL,Weekly options expiration violation,,,E
+JAN,I,AAPL,150,,20141128,A,20141120,,AAPL,,,,E
+JAN,I,AAPL,145,,20141128,A,20141120,,AAPL,,,,E
+JAN,I,AAPL,140,,20141128,A,20141120,,AAPL,,,,E
+JAN,I,AAPL,135,,20141128,A,20141120,,AAPL,,,,E
+JAN,I,AAPL,155,,20141128,A,20141120,,AAPL,,,,E

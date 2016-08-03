@@ -1,0 +1,1091 @@
+object-group network FTP_IAB_THI
+ description Interactive & TimberHill
+ network-object host 206.106.137.7
+ network-object host 206.106.137.5
+ network-object 206.106.137.0 255.255.255.0
+ 
+object-group network FTP_BARUCH
+ description Baruch Hot Data FTP
+ network-object host 150.210.160.245
+ network-object 150.210.0.0 255.255.0.0
+ network-object host 71.187.185.120
+ network-object host 163.238.128.124
+ 
+object-group network FTP_UBS
+ description UBSNYC
+ network-object 151.191.175.0 255.255.255.0
+ network-object 146.180.106.0 255.255.255.0
+ network-object 162.66.52.192 255.255.255.192
+ network-object 162.66.143.64 255.255.255.240
+ network-object 139.149.0.0 255.255.0.0
+ network-object host 65.127.167.114
+ network-object host 65.127.167.115
+ network-object host 65.127.167.116
+ network-object host 65.127.167.117
+ network-object host 65.127.167.118
+ network-object host 162.66.73.156
+ 
+object-group network FTP_ASE
+ description Tradition Asiel Securities
+ network-object 66.151.192.0 255.255.254.0
+ 
+object-group network FTP_BCA
+ description Barclays Capital
+ network-object 192.147.56.0 255.255.248.0
+ network-object 192.147.64.0 255.255.255.0
+ network-object host 146.127.253.12
+ network-object host 146.127.253.13
+ network-object host 146.127.253.14
+ network-object host 146.127.253.44
+ network-object host 146.127.253.45
+ network-object host 141.228.106.147
+ network-object host 141.228.106.148
+ network-object host 141.228.106.149
+ network-object host 141.228.106.150
+ network-object host 141.228.106.151
+ network-object host 141.228.106.152
+ network-object host 141.228.250.141
+ network-object host 141.228.250.142
+ network-object host 167.203.234.106
+ 
+object-group network FTP_CAN
+ description Cantor Fitzgerald
+ network-object 148.106.0.0 255.255.0.0
+ 
+object-group network FTP_CDL
+ description Citigroup
+ network-object 64.22.160.0 255.255.240.0
+ 
+object-group network FTP_CDM
+ description Citigroup
+ network-object 209.99.240.0 255.255.240.0
+ network-object 204.153.72.0 255.255.254.0
+ 
+object-group network FTP_DBK
+ description Deutsche Bank
+ network-object 160.83.0.0 255.255.0.0
+ 
+object-group network FTP_EBS
+ description Electronic Brokerage Systems (Dash Fianacial)
+ network-object 74.213.162.0 255.255.255.0
+ network-object 64.74.229.0 255.255.255.0
+ network-object 108.201.248.40 255.255.255.248
+ network-object 65.107.87.32 255.255.255.224
+ network-object 24.241.103.32 255.255.255.240
+ network-object 205.197.188.120 255.255.255.248
+ 
+object-group network FTP_ENG
+ description IA Englander and Co
+ network-object 63.119.50.0 255.255.255.0
+ network-object 63.85.161.0 255.255.255.0
+ network-object host 162.68.25.206
+ network-object host 63.118.69.254
+ network-object host 199.165.13.237
+ network-object host 162.68.1.12
+ network-object host 162.68.1.11
+ network-object host 63.84.79.254
+ network-object host 162.69.18.226
+ network-object host 159.125.50.33
+ network-object host 159.125.50.29
+ 
+object-group network FTP_IAB
+ description Interactive Brokers
+ network-object 12.233.151.0 255.255.255.0
+ network-object host 206.106.137.7
+ 
+object-group network FTP_JEF
+ description Jefferies and Co
+ network-object 169.196.0.0 255.255.0.0
+ 
+object-group network FTP_JPM
+ description JP Morgan Clearing
+ network-object 159.53.0.0 255.255.0.0
+ network-object host 169.70.234.28
+ 
+object-group network FTP_NIT
+ description Knight Capital Group
+ network-object 209.191.224.0 255.255.224.0
+ network-object host 209.191.246.3
+ network-object host 209.191.228.130
+ 
+object-group network FTP_LEK_LCS
+ description Lek (LEK LSC) Securities
+ network-object 65.112.109.96 255.255.255.224
+ 
+object-group network FTP_MGS
+ description Morgan Stanley
+ network-object 205.228.0.0 255.255.128.0
+ network-object 199.89.64.0 255.255.192.0
+ network-object host 205.228.53.14
+ network-object host 205.228.53.15
+ network-object host 199.89.103.14
+ network-object host 199.89.103.15
+ network-object 144.14.0.0 255.255.0.0
+ network-object 170.74.55.64 255.255.255.192
+ network-object 170.74.56.64 255.255.255.192
+ 
+object-group network FTP_MLP
+ description Millenium Partners
+ network-object 204.212.175.0 255.255.255.0
+ network-object 63.118.113.128 255.255.255.192
+ network-object 67.43.80.0 255.255.240.0
+ 
+object-group network FTP_RBC
+ description RBC Capital Markets, LLC
+ network-object 192.234.99.0 255.255.255.0
+ 
+object-group network FTP_RON
+ description Ronin Capital
+ network-object 64.95.232.0 255.255.255.0
+ 
+object-group network FTP_GLD_SLK_FOC
+ description Goldman Ex and Clearing
+ network-object 206.230.48.0 255.255.248.0
+ network-object 12.47.208.0 255.255.248.0
+ network-object host 199.99.24.21
+ network-object host 204.4.187.56
+ network-object host 139.172.141.121
+ network-object host 148.86.135.167
+ network-object host 207.17.46.42
+ 
+object-group network FTP_SIG
+ description Susquehanna Investment 
+ network-object 141.162.0.0 255.255.0.0
+ 
+object-group network FTP_SUN
+ description Sun Trading
+ network-object 204.152.180.0 255.255.252.0
+ 
+object-group network FTP_THI
+ description TimberHill 
+ network-object 206.106.137.0 255.255.255.0
+ 
+object-group network FTP_WAL
+ description Wall Street Access
+ network-object 208.47.251.0 255.255.255.0
+ network-object host 100.1.13.75
+ network-object host 100.1.13.114
+ network-object host 100.1.13.115
+ 
+object-group network FTP_ALB
+ description Alliance Berstein
+ network-object 206.218.192.0 255.255.192.0
+object-group network FTP_NYU
+ description NYU Hot Data FTP
+ network-object 128.122.0.0 255.255.0.0
+ 
+object-group network FTP_HAN
+ description Hanweck Assoc Hot FTP
+ network-object 50.74.13.0 255.255.255.0
+ network-object 38.122.34.0 255.255.255.0
+ network-object 38.104.103.128 255.255.255.248
+ network-object 67.220.150.176 255.255.255.240
+ network-object 38.122.10.104 255.255.255.248
+ 
+object-group network FTP_BNP
+ network-object 170.19.0.0 255.255.0.0
+ 
+object-group network FTP_CTC
+ description Chicago Trading Company
+ network-object 216.241.64.0 255.255.240.0
+ 
+object-group network FTP_CSB
+ description <<Credit Suisse>>
+ network-object host 198.240.130.164
+ network-object host 198.240.130.75
+ 
+object-group network FTP_BAML
+ description Bank America Merrill
+ network-object 199.43.8.0 255.255.248.0
+ network-object 199.43.96.0 255.255.248.0
+ network-object 199.43.16.0 255.255.240.0
+ network-object 199.43.32.0 255.255.224.0
+ network-object 199.43.64.0 255.255.224.0
+ network-object 199.43.104.0 255.255.252.0
+ network-object 171.128.0.0 255.192.0.0
+ network-object 171.206.0.0 255.255.0.0
+ network-object 171.204.0.0 255.254.0.0
+ network-object 171.192.0.0 255.248.0.0
+ network-object 171.200.0.0 255.252.0.0
+ network-object host 170.61.51.129
+ network-object host 209.65.19.96
+ network-object host 199.43.34.44
+ network-object host 171.141.204.20
+ network-object host 209.65.19.77
+ network-object host 209.65.19.91
+ 
+object-group network FTP_OPV
+ description Optiver
+ network-object 204.91.48.0 255.255.255.0
+ 
+object-group network FTP_SCH
+ description Soule's customer lltan2001@gmail.com
+ network-object 216.206.32.0 255.255.255.0
+ 
+object-group network FTP_SAC
+ description SAC CAPITAL ADVISORS
+ network-object 208.68.196.0 255.255.252.0
+ 
+object-group network FTP_LCM
+ description LAURION CAPITAL MANAGEMENT
+ network-object 63.116.254.0 255.255.255.0
+ network-object host 216.182.171.182
+ network-object host 38.76.9.12
+ 
+object-group network FTP_ILT
+ description Illuminati Trader
+ network-object 83.170.114.0 255.255.255.0
+ 
+object-group network FTP_SHAW
+ description DE Shaw
+ network-object 205.231.96.0 255.255.240.0
+ 
+object-group network FTP_AIA
+ description AI Analytics 
+ network-object 66.45.236.0 255.255.255.0
+ 
+object-group network FTP_SIR
+ description SIR Inc Open/Close
+ network-object host 24.106.95.243
+ 
+object-group network FTP_SIGMA
+ description Two Sigma open/close
+ network-object 38.117.134.0 255.255.255.0
+ network-object 208.77.212.0 255.255.252.0
+ 
+object-group network FTP_REM
+ description INC Remisc Open Close
+ network-object 75.127.238.168 255.255.255.248
+ 
+object-group network FTP_PEAK6
+ description Peak 6 
+ network-object 38.98.137.0 255.255.255.0
+ 
+object-group network FTP_RGM
+ description RGM Advisors
+ network-object 67.220.154.238 255.255.255.255
+ network-object 83.167.34.86 255.255.255.255
+ network-object host 173.227.92.65
+ network-object host 207.71.26.250
+ 
+object-group network FTP_GUS
+ description GusGus Capital Ltd., Hungary
+ network-object host 212.24.174.221
+ network-object 212.24.174.0 255.255.255.0
+ 
+object-group network FTP_FID
+ description Fidelity
+ network-object 192.223.128.0 255.255.128.0
+ 
+object-group network FTP_SEC
+ description SEC Gov
+ network-object host 162.138.182.2
+ network-object host 162.138.187.10
+ 
+object-group network FTP_FTS
+ description Liquid Point
+ network-object host 66.54.155.61
+ 
+object-group network FTP_SPN
+ description SPN Spensieri
+ network-object host 69.193.120.159
+ 
+object-group network FTP_ONP
+ description ONP OnPoint
+ network-object host 162.68.27.140
+ network-object host 208.95.110.189
+ network-object host 24.253.17.170
+ network-object host 24.234.167.34
+ 
+object-group network FTP_BTI
+ description BTIG 
+ network-object 64.166.128.0 255.255.255.0
+ network-object 207.237.189.0 255.255.255.0
+ 
+object-group network FTP_MCI
+ description MCI_Macquarie_Securities
+ network-object host 204.8.148.32
+ network-object host 204.8.150.32
+ 
+object-group network FTP_HTH
+ description Holland_Trading_House
+ network-object host 199.168.44.129
+ network-object host 199.168.44.4
+ 
+object-group network FTP_WLV
+ description Wolverine
+ network-object host 8.18.85.7
+ network-object host 192.243.218.7
+ 
+object-group network FTP_GET
+ description Getco
+ network-object host 66.119.225.244
+ network-object host 66.250.141.2
+ network-object host 66.250.141.150
+ network-object host 66.119.226.5
+ network-object host 66.119.232.13
+ network-object host 66.119.232.14
+ network-object host 66.119.232.15
+ network-object host 64.39.43.240
+ 
+object-group network FTP_OXP
+ description OptionsXpress
+ network-object host 69.25.159.5
+ network-object host 74.201.3.19
+ 
+object-group network FTP_LIQ01
+ description LIQ01 LiquidPoint
+ network-object host 66.54.155.61
+ network-object host 65.89.19.2
+ network-object host 205.159.88.1
+ network-object host 205.159.88.2
+ network-object host 205.159.88.3
+ network-object host 205.159.88.4
+ network-object host 64.74.106.98
+ 
+object-group network FTP_MEB
+ description MEB Options
+ network-object host 4.71.246.58
+ network-object host 216.1.124.97
+ network-object host 209.117.163.202
+ 
+object-group network FTP_ABN
+ description ABN Amaro
+ network-object host 209.249.90.10
+ network-object host 64.29.100.117
+ network-object host 64.29.96.7
+ 
+object-group network FTP_TRD
+ description TRD Trade Alert
+ network-object host 160.79.172.178
+ network-object host 65.175.5.12
+ network-object host 66.54.186.123
+ network-object host 65.175.5.14
+ network-object host 66.54.186.124
+ network-object host 65.175.5.10
+ network-object host 38.122.35.42
+ 
+object-group network FTP_INE
+ description Instinet
+ network-object 198.58.17.0 255.255.255.0
+ network-object host 198.58.21.237
+ network-object host 198.58.18.12
+ network-object host 198.58.22.12
+ 
+object-group network FTP_PKS
+ network-object host 38.98.137.29
+ 
+object-group network FTP_PER1
+ description PER1 
+ network-object host 170.61.13.129
+ network-object host 170.61.20.129
+ network-object host 167.113.27.163
+ 
+object-group network FTP_OTR
+ description OTR Global 
+ network-object 129.77.132.0 255.255.255.0
+ 
+object-group network FTP_ARC
+ network-object host 76.8.80.171
+ 
+object-group network FTP_NewEdge
+ network-object host 208.75.238.1
+ network-object host 208.75.238.10
+ network-object host 208.75.239.1
+ network-object host 208.75.239.10
+ 
+object-group network FTP_SAL
+ network-object host 12.237.43.10
+ 
+object-group network FTP_VND
+ network-object host 64.206.48.141
+ network-object host 160.79.87.49
+ 
+object-group network FTP_TAG
+ network-object host 69.64.195.130
+ 
+object-group network FTP_HRD
+ description HRD Hard Castle Trading
+ network-object host 38.104.42.26
+ network-object host 62.2.107.166
+ network-object host 62.2.85.126
+ 
+object-group network FTP_WBC
+ description WallachBeth
+ network-object host 204.93.141.69
+ network-object host 202.69.59.147
+ network-object host 74.101.52.50
+ network-object host 208.86.119.7
+ 
+object-group network FTP_CAS
+ description Casey
+ network-object host 67.98.105.254
+ network-object host 38.103.113.254
+ network-object host 63.250.229.74
+ 
+object-group network FTP_PRE1
+ description OptionsXpress
+ network-object host 198.177.152.75
+ network-object host 192.149.224.1
+ network-object host 192.251.15.75
+ 
+object-group network FTP_ITG
+ description ITG Derivatives
+ network-object host 67.200.126.4
+ 
+object-group network FTP_LBD
+ description Link Brokerages
+ network-object host 12.45.8.132
+ network-object host 65.206.16.35
+ network-object host 65.206.17.35
+ network-object host 65.206.16.225
+ network-object host 65.206.17.225
+ 
+object-group network FTP_DBS
+ description Deutsche Boerse
+ network-object host 193.29.77.19
+ network-object host 193.29.76.37
+ 
+object-group network FTP_COW
+ description Cowen
+ network-object host 63.232.239.29
+ network-object host 63.232.238.29
+ network-object host 207.45.240.159
+ network-object host 207.45.240.29
+ network-object host 207.45.240.30
+ network-object host 207.45.251.50
+ 
+object-group network FTP_DRK1
+ description Commerz Bank
+ network-object host 193.108.158.80
+ network-object host 193.108.158.81
+ 
+object-group network FTP_EYE1
+ description Walleye
+ network-object host 38.96.140.189
+ network-object 64.20.172.64 255.255.255.248
+ network-object 67.91.189.160 255.255.255.240
+ network-object 74.94.102.240 255.255.255.248
+ network-object 70.99.252.48 255.255.255.240
+ network-object host 66.216.1.54
+ network-object 209.148.61.0 255.255.255.0
+ network-object 74.212.174.0 255.255.255.0
+ network-object 74.95.102.240 255.255.255.248
+ network-object 67.130.189.224 255.255.255.240
+ network-object 66.216.8.176 255.255.255.248
+ network-object 209.8.108.136 255.255.255.248
+ 
+object-group network FTP_RBC1
+ description RBC
+ network-object host 10.10.96.74
+ 
+object-group network FTP_ICTI01
+ description ICTI
+ network-object host 12.180.135.186
+ network-object host 12.180.135.190
+ network-object host 12.180.135.194
+ network-object host 12.180.135.214
+ network-object host 12.180.135.198
+ network-object host 12.180.135.184
+ network-object host 12.180.135.197
+ network-object host 12.180.135.199
+ network-object host 12.180.135.238
+ network-object host 12.180.135.205
+ network-object host 12.180.135.210
+ network-object host 12.180.135.170
+ network-object host 108.53.64.82
+ network-object host 108.53.64.83
+ network-object host 108.53.64.84
+ network-object host 108.53.64.85
+ network-object host 108.53.64.86
+ 
+object-group network FTP_NYFIX
+ description NYFIX
+ network-object host 65.164.53.18
+ 
+object-group network FTP_NHA1
+ description Jeff Soule Temp
+ network-object host 209.191.144.41
+ network-object host 209.191.144.42
+ network-object host 209.191.144.12
+ network-object host 147.62.110.10
+ network-object host 147.62.110.11
+ network-object host 147.62.110.6
+ network-object host 72.5.193.74
+ 
+object-group network FTP_BGC1
+ description BGC Financial
+ network-object host 148.106.4.6
+ network-object host 148.106.2.6
+ 
+object-group network FTP_IMC
+ description IMC_Financial_Markets 
+ network-object host 199.168.44.4
+ network-object host 199.168.44.192
+ 
+object-group network FTP_SFP
+ description Santa_Fe_Partners
+ network-object host 63.233.77.103
+ network-object host 63.233.77.104
+ network-object host 63.233.77.105
+ network-object host 64.65.47.32
+ network-object 63.233.77.96 255.255.255.248
+ network-object 70.90.204.80 255.255.255.248
+ network-object 70.90.202.144 255.255.255.248
+ network-object 63.233.87.36 255.255.255.252
+ 
+object-group network FTP_JLK
+ description Mr_Jim_Kohnen
+ network-object host 70.110.31.27
+ 
+object-group network FTP_QBH
+ description Quantbench
+ network-object host 184.72.119.7
+ network-object host 184.72.119.91
+ 
+object-group network FTP_REN1
+ description RENCAP SECURITIES
+ network-object host 38.121.143.164
+ 
+object-group network FTP_WLF
+ description Wells_Fargo
+ network-object host 161.231.1.122
+ network-object host 161.231.1.121
+ 
+object-group network FTP_NF1
+ description Neural_Futures
+ network-object host 86.6.235.169
+ 
+object-group network FTP_EQT
+ description Equitec
+ network-object host 64.94.157.1
+ 
+object-group network FTP_RJB
+ description FTP_RJACOB
+ network-object host 71.176.104.185
+ 
+object-group network FTP_PEI
+ description Prince Edward Isle Investment
+ network-object host 71.176.80.35
+ 
+object-group network FTP_BLM
+ description Bloomberg
+ network-object host 205.216.112.9
+ network-object host 208.22.57.166
+ 
+object-group network FTP_EXA1
+ description EXA
+ network-object host 64.61.65.19
+ network-object host 151.202.125.130
+ 
+object-group network FTP_PFS
+ description Penson Financial Service
+ network-object host 216.52.180.252
+ 
+object-group network FTP_LCM1
+ description Louis Capital
+ network-object host 76.74.108.248
+ network-object host 84.14.231.10
+ network-object host 91.198.241.252
+ 
+object-group network FTP_TJM01
+ description TJM Brokers
+ network-object host 173.14.111.69
+ network-object host 38.106.154.4
+ 
+object-group network FTP_ALT
+ description Austin Trading
+ network-object host 160.79.132.254
+ network-object host 67.200.32.2
+ network-object host 76.74.30.50
+ 
+object-group network FTP_FBR
+ description FRIEDMAN BILLINGS RAMSEY
+ network-object host 152.178.1.10
+ 
+object-group network FTP_PTR
+ description PTR
+ network-object host 162.68.28.2
+ network-object host 162.68.28.7
+ 
+object-group network FTP_HMX
+ description Firm 58
+ network-object 67.98.105.0 255.255.255.0
+ 
+object-group network FTP_VRT
+ description Virtu Financial
+ network-object host 209.160.81.1
+ 
+object-group network FTP_CUNY
+ description CUNY
+ network-object host 128.228.164.46
+ 
+object-group network FTP_VTG01
+ description Verition Group LLC 
+ network-object host 167.206.209.132
+ 
+object-group network FTP_VIP
+ description Vivace Investment Partners
+ network-object host 50.78.61.218
+ network-object host 50.78.61.219
+ 
+object-group network FTP_COH1
+ description Institutional Financial Markets
+ network-object 38.121.135.0 255.255.255.0
+ 
+object-group network FTP_AND01
+ description Andrie Trading LLC
+ network-object host 208.92.148.18
+ 
+object-group network FTP_CON01
+ description Consolidated Trading
+ network-object host 208.78.39.106
+ 
+object-group network FTP_TTA01
+ description Tibra Trading
+ network-object host 64.124.183.4
+ network-object host 93.174.208.4
+ network-object host 93.174.210.4
+ network-object host 203.175.120.250
+ network-object host 84.75.200.64
+ 
+object-group network FTP_TFS01
+ description TFS 
+ network-object host 94.142.186.1
+ 
+object-group network FTP_GFI01
+ description GFI Group
+ network-object host 209.191.171.10
+ network-object host 209.191.171.11
+ network-object host 75.98.77.72
+ network-object host 79.98.87.254
+ 
+object-group network FTP_SIT1
+ description Stevens_Institute_of_Tech 
+ network-object host 155.246.90.208
+ network-object host 155.246.69.223
+ network-object host 155.246.103.71
+ network-object host 155.246.46.232
+ network-object host 155.246.136.219
+ 
+object-group network FTP_VOL01
+ description Volant trading
+ network-object host 64.20.169.138
+ 
+object-group network FTP_QLB01
+ description QuantLabs
+ network-object host 208.185.6.7
+ 
+object-group network FTP_BLV01
+ description belvedere 
+ network-object host 24.103.124.34
+ network-object host 64.124.65.162
+ network-object host 64.125.188.126
+ network-object host 24.103.80.194
+ 
+object-group network FTP_HRT1
+ description Hudson River Trading
+ network-object 38.105.238.0 255.255.255.0
+ network-object 209.249.190.0 255.255.255.0
+ 
+object-group network FTP_IMM01
+ description IMM Execution Services
+ network-object host 38.106.247.83
+ 
+object-group network FTP_MPS1
+ description MPS Global Securities
+ network-object 70.42.219.0 255.255.255.0
+ network-object host 69.25.242.43
+ network-object host 69.25.242.44
+ network-object host 108.179.37.43
+ network-object host 108.179.37.44
+ 
+object-group network FTP_LIM01
+ description LIME Brokerage
+ network-object 74.120.48.0 255.255.252.0
+ network-object host 12.189.151.194
+ 
+object-group network FTP_QED
+ description Quantum Edge Derivatives Trading 
+ network-object host 38.105.174.154
+ network-object host 207.251.103.6
+ 
+object-group network FTP_GFG01
+ description GraceFG
+ network-object host 108.58.58.202
+ network-object host 108.58.58.203
+ network-object host 108.58.58.204
+ network-object host 108.58.58.205
+ network-object host 108.58.58.206
+ 
+object-group network FTP_BAY01
+ description Baycrest partners
+ network-object host 38.125.86.5
+ network-object host 38.125.86.205
+ 
+object-group network FTP_FOX01
+ description Fox Run Alpha
+ network-object host 69.74.234.219
+ network-object host 69.74.126.126
+ network-object host 142.54.96.210
+ network-object host 47.19.68.146
+ 
+object-group network FTP_MOMIN
+ description Momin HomePC Test
+ network-object host 100.1.111.157
+ network-object host 74.120.84.62
+ network-object host 108.53.20.223
+ 
+object-group network FTP_UOL01
+ description University of Illinoise at Urbana-Champaign
+ network-object host 130.126.234.62
+ 
+object-group network FTP_TMP01
+ description Temp ACT for Chris Preston
+ network-object host 50.18.110.219
+ 
+object-group network FTP_CPS01
+ description New Albion - Rosenblatt 
+ network-object host 38.122.13.58
+ network-object 208.16.18.0 255.255.255.0
+ 
+object-group network FTP_RBL01
+ description Rosenblatt Securities
+ network-object host 38.112.182.5
+ network-object host 184.75.22.157
+ network-object host 71.190.247.156
+ 
+object-group network FTP_FLX
+ description Flextrade/Dervix 
+ network-object host 173.68.151.26
+ network-object host 50.57.84.95
+ 
+object-group network FTP_JEFF
+ network-object host 24.47.246.45
+ 
+object-group network FTP_STARCOMPLIANCE
+ description Star Compliance reporting
+ network-object host 173.245.103.14
+ 
+object-group network FTP_FIDELITY_ETI
+ description Fidely Employee reporting
+ network-object host 155.199.204.69
+ network-object host 155.199.19.69
+ 
+object-group network FTP_TDR
+ description Tudor Investments
+ network-object host 167.206.29.162
+ network-object host 74.116.96.4
+ 
+object-group network FTP_DRUM
+ description Daren Drummond
+ network-object host 174.62.80.168
+ 
+object-group network FTP_NBB
+ description Neuberger Berman
+ network-object host 75.98.36.3
+ network-object host 63.117.8.3
+ 
+object-group network FTP_JUM1
+ description Jump Trading 
+ network-object host 38.98.147.133
+ network-object host 205.197.160.101
+ network-object host 208.78.215.133
+ 
+object-group network FTP_CUT1
+ description Cutler Group 
+ network-object host 38.122.6.86
+ network-object host 38.104.99.30
+ network-object host 207.239.19.122
+ 
+object-group network FTP_BLKR
+ description BlackRock
+ network-object host 111.87.83.105
+ network-object host 122.200.37.205
+ network-object host 149.7.44.241
+ network-object host 199.242.0.29
+ network-object host 199.242.6.29
+ network-object host 206.169.31.250
+ network-object host 38.99.14.218
+ network-object host 66.162.69.22
+ network-object host 69.52.32.36
+ network-object host 69.52.32.38
+ network-object host 203.94.153.212
+ network-object host 69.52.10.36
+ network-object host 69.52.10.38
+ network-object host 69.52.144.36
+ network-object host 69.52.69.36
+ network-object host 69.52.69.38
+ 
+object-group network FTP_NTX1
+ description Natixis Financial
+ network-object host 64.20.168.21
+ network-object host 64.20.168.22
+ network-object host 24.38.29.63
+ network-object host 24.38.29.73
+ 
+object-group network FTP_FLEVELING
+ description Francois Leveling
+ network-object host 193.29.76.37
+ network-object host 193.29.77.19
+ 
+object-group network FTP_FGC1
+ description FGC Securities
+ network-object host 38.121.135.4
+ network-object host 216.236.147.149
+ network-object host 54.236.169.48
+ network-object host 198.179.91.218
+ 
+object-group network FTP_USC
+ description University of South Carolina
+ network-object host 129.252.52.153
+ 
+object-group network FTP_EPF1
+ description Ecole Polytechnique Fdrale de Lausanne
+ network-object host 130.223.178.85
+ 
+object-group network FTP_ICU1
+ description University of Urbana Champaign
+ network-object host 130.126.234.2
+ 
+object-group network FTP_ER1
+ description Risk Evolution
+ network-object host 86.161.135.87
+ network-object host 81.149.63.1
+ network-object host 89.240.156.37
+ 
+object-group network FTP_LIVEVOL
+ description LiveVol 
+ network-object host 69.181.18.139
+ 
+object-group network FTP_PE01
+ description Pantor Engineering
+ network-object host 62.109.60.237
+ 
+object-group network FTP_BNC01
+ description BNC
+ network-object host 38.117.138.4
+ network-object 96.88.177.232 255.255.255.248
+ 
+object-group network FTP_AKU01
+ description Akuna
+ network-object host 4.30.5.50
+ network-object host 4.30.8.50
+ network-object 184.75.202.128 255.255.255.240
+ 
+object-group network FTP_APX
+ description Apex clearing 158 and 111
+ network-object 199.83.14.0 255.255.255.0
+ 
+object-group network FTP_CIB01
+ description CIBC World Markets
+ network-object host 199.198.250.35
+ network-object host 199.198.250.100
+ network-object host 162.68.25.206
+ network-object host 199.198.225.36
+ network-object 199.198.223.96 255.255.255.240
+ network-object 199.198.251.96 255.255.255.240
+ network-object host 206.47.220.230
+ network-object host 206.47.220.198
+ 
+object-group network FTP_FCC00396
+ description Fortis Clearing Chicago LLC
+ network-object 64.29.96.0 255.255.255.0
+ 
+object-group network FTP_RJA1
+ description Raymond James Financials
+ network-object host 170.12.69.25
+ 
+object-group network FTP_MULT
+ description Multi Media 
+ network-object host 72.43.114.2
+ network-object host 130.94.64.142
+ network-object host 128.242.246.157
+ 
+object-group network FTP_ONE
+ network-object host 38.106.198.234
+ network-object host 38.101.168.210
+ network-object host 50.200.234.34
+ 
+object-group network FTP_CCP
+ description Cipher Capital Partners
+ network-object host 65.116.170.6
+ network-object host 65.116.170.7
+ network-object host 69.193.143.180
+ network-object 104.247.35.120 255.255.255.248
+ network-object host 104.247.35.128
+ network-object host 104.247.35.129
+ network-object host 69.193.143.182
+ 
+object-group network FTP_VSI01
+ description Vision Financial Markets
+ network-object host 173.251.120.196
+ network-object host 204.75.11.54
+ network-object host 38.122.8.122
+ network-object host 50.74.124.82
+ 
+object-group network FTP_DYNAMIC_TECH
+ network-object host 204.52.175.1
+ 
+object-group network FTP_FSU1
+ description FSU Florida State University
+ network-object host 128.186.36.57
+ 
+object-group network FTP_PRG1
+ description PRG McGill University
+ network-object host 132.206.137.98
+ network-object host 142.1.10.6
+ 
+object-group network FTP_SPT01
+ description Spot Trading
+ network-object host 76.74.120.12
+ 
+object-group network FTP_XFA01
+ description X-FA
+ network-object host 38.126.20.106
+ 
+object-group network FTP_LSQ
+ description "Lightsquare LLC"
+ network-object host 24.234.9.78
+ network-object host 209.170.203.68
+ 
+object-group network FTP_ONETICK
+ description One Tick
+ network-object host 31.47.198.42
+ network-object host 81.16.15.67
+ 
+object-group network FTP_BEN1
+ description Bengal Captial Trading 
+ network-object host 75.102.26.40
+ network-object host 38.106.169.134
+ 
+object-group network FTP_CHV01
+ description Cheevers
+ network-object host 198.62.250.120
+ 
+object-group network FTP_OSU1
+ description OHIO STATE UNIVERSITY 
+ network-object host 164.107.70.13
+ 
+object-group network FTP_HKU
+ description HONG KONG UNIVERSITY 
+ network-object host 143.89.188.2
+ network-object host 143.89.58.91
+ 
+object-group network FTP_SED1
+ description Scripted Edge
+ network-object host 172.8.60.57
+ 
+object-group network FTP_AFC1
+ network-object 162.209.31.144 255.255.255.252
+ network-object host 198.80.165.99
+ network-object host 162.254.176.70
+ network-object host 162.254.176.71
+ network-object host 162.254.176.75
+ network-object host 162.254.176.68
+ 
+object-group network FTP_XRT01
+ description XR Trading
+ network-object host 38.106.189.12
+ network-object host 38.106.189.34
+ 
+object-group network FTP_RENNIS
+ description Rich Ennis rwennis@gmail.com
+ network-object host 198.57.247.165
+ 
+object-group network FTP_GRS01
+ description g-Research
+ network-object host 80.169.201.66
+ 
+object-group network FTP_MAK01
+ description Makace
+ network-object host 92.8.97.158
+ 
+object-group network FTP_MYD
+ network-object host 69.193.166.130
+ 
+object-group network FTP_WCM01
+ description Wells Fargo Securities
+ network-object host 162.111.195.38
+ network-object host 169.200.173.37
+ network-object host 159.45.15.132
+ network-object host 159.45.85.36
+ 
+object-group network FTP_CST1
+ description Collin Stewart LLC
+ network-object host 66.150.91.70
+ network-object host 38.111.5.1
+ network-object host 192.48.239.1
+ 
+object-group network FTP_JohnW_TEST
+ network-object host 207.237.128.114
+ 
+object-group network FTP_SIR_ISEE
+ description ISEE Index data
+ network-object host 108.53.19.7
+ network-object host 38.86.162.130
+ network-object host 38.86.162.131
+ network-object host 73.53.7.120
+ 
+object-group network FTP_SDR
+ description SpiderRock
+ network-object host 173.161.47.69
+ 
+object-group network FTP_NYLH
+ description New York Lever House
+ network-object host 8.12.52.2
+ 
+object-group network FTP_QUA
+ description Quantheta
+ network-object host 54.86.124.230
+ 
+object-group network FTP_QTH
+ network-object host 54.86.197.8
+ 
+object-group network FTP_RWB01
+ description RW_Baird
+ network-object host 12.155.246.10
+ 
+object-group network FTP_WDN1
+ description Weeden & Co
+ network-object 74.118.208.0 255.255.252.0
+ 
+object-group network FTP_ISEE01
+ description ISEE
+ network-object host 64.53.237.137
+ network-object host 98.203.228.152
+ network-object host 174.89.159.51
+ network-object host 63.246.135.194
+ network-object host 70.31.14.248
+ network-object host 31.164.210.125
+ network-object host 192.193.171.150
+ network-object host 74.141.243.16
+ network-object host 71.195.182.181
+ 
+object-group network FTP_UCLA
+ description UCLA
+ network-object host 76.170.135.244
+ 
+object-group network FTP_HKJC
+ description Hong Kong Jockey Club
+ network-object host 210.0.224.23
+ network-object host 210.0.224.142
+ network-object host 58.64.251.210
+ network-object host 58.64.251.110
+ 
+object-group network FTP_LST
+ description Leroy Stone
+ network-object host 69.157.22.157
+ 
+object-group network FTP_SFI
+ description SWISS FINANCE INSTITUTE
+ network-object host 130.223.178.125
+ network-object host 130.223.178.127
+ 
+object-group network FTP_TBEA
+ description Tyler Beason
+ network-object host 76.23.77.157
+ 
+object-group network FTP_FINAM
+ description FINAM
+ network-object host 173.3.78.206

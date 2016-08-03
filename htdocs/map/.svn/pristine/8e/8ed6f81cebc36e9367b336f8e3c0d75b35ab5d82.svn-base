@@ -1,0 +1,155 @@
+<?php
+    require_once "base_function.php";
+    f_dbConnect();
+    global $db;
+    $trigger_id = $_POST['trigger_id'];
+    $view_only  = $_POST['view_only'];
+
+    // $view_only = $view_only=='true'?true:false;
+
+    if($view_only=='true'){
+        echo "
+            <div class='row'>
+                <div class='small-6 columns small-offset-3' id=''>
+                    <h4>Tests Assigned to this Trigger</h4>
+                    <table id=''>
+                        <tbody>
+        ";
+
+        $sql_query = "SELECT ttt.trigger_id, tc.test_id, tc.app, tc.name, tc.description ".
+                     "FROM trigger_to_test ttt, test_case tc where ".
+                     "ttt.test_id=tc.test_id and  trigger_id=$trigger_id";
+        $result = $db->query($sql_query) or die($db->error);
+        while($row = $result->fetch_assoc()){
+            $test_name = $row['name'];
+            $test_id   = $row['test_id'];
+            echo "          <tr class=''>
+                                <td>
+                                    $test_name
+                                </td>
+                            </tr>
+            ";
+        }
+        echo "
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a class='close-reveal-modal' id='triggers_tests_modal_close_button'>&#215;</a>";
+        return;
+    }
+
+
+    else
+    {
+        echo "
+            <div class='row'>
+                <div class='small-12 columns'>
+                    <h1 class='font_syncopate'>Tests</h1>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='small-6 columns' id='triggers_tests_modal_display'>
+                    <h4>Tests Assigned to this Trigger</h4>
+                    <table id='triggers_test_table'>
+                        <tbody>
+        ";
+
+        $sql_query = "SELECT ttt.trigger_id, tc.test_id, tc.app, tc.name, tc.description ".
+                     "FROM trigger_to_test ttt, test_case tc where ".
+                     "ttt.test_id=tc.test_id and  trigger_id=$trigger_id";
+        $result = $db->query($sql_query) or die($db->error);
+        while($row = $result->fetch_assoc()){
+            $test_name = $row['name'];
+            $test_id   = $row['test_id'];
+            echo "          <tr class='triggers_tests_modal_table_row'>
+                                <td data-ise-triggers-test-id=$test_id
+                                data-ise-triggers-test-name='$test_name'>
+                                    $test_name
+                                    <p class='triggers_actions_buttons triggers_tests_listing_remove_button_class'
+                                    id='triggers_tests_listing_remove_button'
+                                    title='Click to remove this test from this trigger'>
+                                        x
+                                    </p>
+                                </td>
+                            </tr>
+            ";
+        }
+        echo "
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class='small-6 columns' id='triggers_add_test_column'>
+                    <div class='row'>
+                        <h4>Tests to Add</h4>
+                    </div>
+                    <div class='row'>
+                        <select id='triggers_add_test_select'>
+                            <option value=''>- Select Test -</option>";
+
+        $sql_query = "SELECT * FROM test_case";
+        $result = $db->query($sql_query) or die($db->error);
+        while($row = $result->fetch_assoc()){
+            $name    = $row['name'];
+            $test_id = $row['test_id'];
+            echo "
+                            <option value='$name' data-ise-triggers-add-test-id=$test_id>
+                                $name
+                            </option>
+            ";
+        }
+        echo "          </select>
+
+                        <div id='triggers_tests_add_intro_text_id'>
+                            <p class='triggers_tests_add_remove_intro_text'>
+                                Select test from dropdown to add to trigger
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class='row' id='triggers_add_tests_new_test_div'>
+                        <ol id='triggers_add_test_ol'>
+                        </ol>
+                    </div>
+
+                    <div class='row' id=''>
+                        <div class='small-12 columns' id='trigger_tests_hr'>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <div class='row' id='triggers_remove_tests_div'>
+                        <h4>Tests to Remove</h4>
+                        <div id='triggers_tests_remove_intro_text_id'>
+                            <p class='triggers_tests_add_remove_intro_text'>Click&nbsp;&nbsp;</p>
+                            <p class='triggers_tests_listing_remove_button_class'>x</p>
+                            <p class='triggers_tests_add_remove_intro_text'> on the left to remove test</p>
+                        </div>
+                        <div class='small-12 columns' id=''>
+                            <ol id='triggers_remove_tests_ol'>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- <div class='row' id=''>
+                        <div class='small-12 columns' id='trigger_tests_hr'>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <a href='#' class='button small radius success disabled triggers_actions_buttons'
+                        id='triggers_test_mod_submit_button' title=''
+                        data-ise-trigger-tests-submit-button_trigger-id=$trigger_id>
+                            Submit Test Changes
+                        </a>
+                    </div> -->
+
+                </div>
+
+            </div>
+            <a class='close-reveal-modal' id='triggers_tests_modal_close_button'>&#215;</a>";
+    }
+?>

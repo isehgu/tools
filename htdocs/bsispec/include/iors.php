@@ -1,0 +1,260 @@
+<?php 	
+	include("cfg/functions.php");
+	
+	class IorsAdvSearch {
+		var $distinctvalues;
+		var $fieldname;
+			
+		function __construct($distinctvalues,$fieldname) {
+			$this->distinctvalues	=	$distinctvalues;
+			$this->fieldname		=	$fieldname;
+		}
+	
+		function printAsOption() { ?>
+			<option value="<?php echo $this->distinctvalues; ?>"><?php echo $this->fieldname; ?></option>
+		<?php }
+	}
+	
+	class IorsCustomRule {
+		var $rulename;
+		var $actiontype;
+		var $direction;
+		var $fieldtag;
+		var $matchcriteria;
+		var $fieldtype;
+		var $newvalue;
+		
+		function __construct($rulename,$actiontype,$direction,$fieldtag,$matchcriteria,$fieldtype,$newvalue) {
+			$this->rulename      =  $rulename;
+			$this->actiontype    =  $actiontype;
+			$this->direction     =  $direction;
+			$this->fieldtag      =  $fieldtag;
+			$this->matchcriteria =  $matchcriteria;
+			$this->fieldtype     =  $fieldtype;
+			$this->newvalue      =  $newvalue;
+		}
+		
+		function insertInternal(&$localdb) {
+			$sql="INSERT INTO iors_customrules VALUES (NULL, '".$this->rulename."','".$this->actiontype."','".$this->direction."','".$this->fieldtag."','".addslashes($this->matchcriteria)."','".$this->fieldtype."','".$this->newvalue."');";
+			$result=mysql_query($sql,$localdb);
+			if (!$result) logProb($sql."\n\r".mysql_error());	
+		}		
+	}
+	
+	class IorsBsi {
+		var $Bsi;
+		var $IrcPrimary;
+		var $IrcSecondary;
+
+		function __construct($bsi) {
+			$this->Bsi = $bsi;
+		}
+		
+		function getBsiType() {
+			if (preg_match('/ORA/',$this->Bsi)==1) return "ORA";
+			if (preg_match('/DCA/',$this->Bsi)==1) return "DCA";
+		}
+		
+		function getBsiInstanceNumber() {
+			preg_match('/.*-MAT-(\d+)$/',$this->Bsi,$number);
+			return $number[1];
+		}
+		
+		function printHTML() { ?>
+			<div class="bsi <?php echo $this->getBsiType(); ?>" id="<?php echo $this->Bsi; ?>">
+				<span class="bsitype"><?php echo $this->getBsiType(); ?></span>
+				<span class="bsinumber"><?php echo $this->getBsiInstanceNumber(); ?></span>
+			</div>
+		<?php }
+	}
+	
+	class IorsAdapter {
+		
+		function __construct($ia_props) {
+			$this->PropertySet = $ia_props;
+		}
+
+		function isServiceBureau() { return ($this->PropertySet['sessiontype']=="ServiceBureau"); }
+		
+		function insertInternal(&$localdb) {
+			$id=0;
+			foreach ($this->PropertySet as $name => $value) {
+				if ($id==0) $id="NULL";
+				$sql="INSERT INTO iors VALUES (".$id.", '".$name."', '".$value."')";
+				$result=mysql_query($sql,$localdb);
+				if (!$result) logProb($sql."\n\r".mysql_error());
+				else {
+					$thisid=mysql_insert_id();
+					if ($id=="NULL") {
+						$sql="INSERT INTO iors VALUES (".$thisid.", 'internal_id', '".$thisid."');";
+						$result=mysql_query($sql,$localdb);
+					}
+					$id=$thisid;
+				}
+			}
+		}
+		
+		function printHTML() { ?>
+			<div class="ia" id="<?php echo $this->PropertySet['internal_id']; ?>">
+				<div class="ia_hd"><strong><?php echo $this->PropertySet['cc_name']; ?></strong></div>
+				<div class="ia_fix">
+					<!-- Should also have cluster node Here -->
+					<div class="ia_label">Svc Grp: </div><div class="ia_data"><?php echo $this->PropertySet['bsi_name']; ?></div><br />
+					<div class="ia_label">Fix Port: </div><div class="ia_data"><?php echo $this->PropertySet['cc_port']; ?></div><br />
+					<div class="ia_label">CompID: </div><div class="ia_data"><?php echo $this->PropertySet['cc_compid']; ?></div><br />
+				</div>
+				<div class="ia_core_connection">
+					<div class="ia_label">Core Login: </div><div class="ia_data">
+						<?php echo "".$this->PropertySet['member']."-".$this->PropertySet['user'].""; ?></div><br />
+					<div class="ia_label">Core GW/Port: </div><div class="ia_data">
+						<?php echo "".$this->PropertySet['node'].":".$this->PropertySet['port'].""; ?></div><br />
+				</div>
+			</div>
+		<?php }	
+	} # end class IorsAdapter
+	
+	function updateCfg($component, $type, $value) { # assumes first record is INSERTed
+		$localdb=db_connect("local");
+		$sql="UPDATE cfg SET value=".$value." WHERE component LIKE ".$component." AND type=".$type.";";
+		$result=mysql_query($sql);
+		if (!$result) { logProb($sql."\n\r".mysql_error()); }
+	}
+	
+	function emptyTable($table) {
+		$localdb=db_connect("local");
+		$sql="TRUNCATE TABLE ".$table.";";
+		mysql_query($sql);
+	}
+	
+	function loadIORSAdvSearch(&$iorsadvsearch) {
+		$localdb=db_connect("local"); 
+		$sql="SELECT property_name, COUNT(DISTINCT property_value) as dcount FROM iors i WHERE property_name NOT LIKE 'autoPref%' GROUP BY property_name;";
+		$result=mysql_query($sql, $localdb);
+		while ($row=mysql_fetch_array($result)) {
+			array_push($iorsadvsearch, new IorsAdvSearch($row['dcount'], $row['property_name']));
+		}
+	}
+	
+	function loadIORSConfiguration(&$iorsadapters, &$iorsbsis) {
+		# check to see if the cfg entry has the correct date - if it's not the current date, load externally, then load internally
+		$localdb=db_connect("local"); 
+		$sql="SELECT value FROM cfg WHERE component LIKE 'IORS' AND type=1;"; # type=1 will be lastload
+		$result=mysql_query($sql, $localdb);
+		if (!$result) { logProb($sql."\n\r".mysql_error()); }
+		else {
+			$today=date("m/d/Y");
+			$row=mysql_fetch_array($result);
+			#if (datetimetommddyyyy($row['value'])!=$today) {
+				loadExternalIORSConfiguration();
+			#}
+		}
+		loadInternalIORSConfiguration($iorsadapters, $iorsbsis);		
+	}
+		
+	function loadInternalIORSConfiguration(&$iorsadapters, &$iorsbsis) {
+		$localdb=db_connect("local");
+		
+		$sql="SELECT * FROM iors ORDER BY id;";
+		$result=mysql_query($sql, $localdb);
+		
+		$current_id=-1; # NOT a DB representation, this ID is just for this function
+		while ($row=mysql_fetch_array($result)) {
+			if ($current_id!=$row['id']) {
+				$current_id=$row['id'];
+				$iorsadapters[$current_id]=new IorsAdapter(array());
+			}
+			$iorsadapters[$current_id]->PropertySet[$row['property_name']]=$row['property_value'];
+		}
+		
+		#load BSIs
+		$sql="SELECT DISTINCT property_value FROM iors WHERE property_name='bsi_name' ORDER BY property_value;";
+		$result=mysql_query($sql, $localdb);
+		while ($row=mysql_fetch_array($result)) {
+			array_push($iorsbsis, new IorsBsi($row['property_value']));
+		}	
+	}	
+	
+	function loadExternalIORSConfiguration() { # load from mssql into mysql
+		emptyTable("iors");
+		emptyTable("iors_customrules");
+		
+		$iorsdb=db_connect("iors");
+		$cfgdb=db_connect("cfg");
+		
+		$iorsadapters=array();
+		# Get all the IORS instances from CC database
+		$sql="SELECT instance_name, instance_value FROM config_instance2 WHERE config_name='FixMessagingConfig' AND instance_name LIKE 'IORS.BSI%' ORDER BY instance_name";
+		$result=mssql_query($sql, $cfgdb);
+		while ($row=mssql_fetch_array($result)) {
+			$xmlstr="<?xml version='1.0'?>".$row['instance_value'];
+			$cc=simplexml_load_string($xmlstr);
+			foreach ($cc->ServerSessionsConfigs[0]->ServerFixSessionConfig as $fsc) { # for each ServerSessionConfig
+				$ia_props=array();			
+				$ia_props['bsi_name']=$row['instance_name']; // GET BSI NAME
+				$ia_props['cc_name']=$fsc['key'];
+				$ia_props['cc_port']=$fsc->ListenerPort;
+				$ia_props['cc_compid']=$fsc->TargetCompID;
+				$ia_props['cc_fixversion']=$fsc->FixVersion;
+				$ia_props['cc_hbtinterval']=$fsc->HbtInterval;
+				$ia_props['cc_throttlingmode']=$fsc->ThrottlingMode;
+				$ia_props['cc_maxmessagerate']=$fsc->MaxMessageRate;
+				$ia_props['cc_verbose']=$fsc->Verbose;
+				$ia_props['cc_customrules']=$fsc->CustomRules;
+				$ia_props['cc_sessiontype']=$fsc->SessionType;
+		
+				# if the SessionType == "Single" - correlate to BSI database fixSessionName, gather information into PHP class
+				if ($fsc->SessionType=="Single") {
+					$sql_inner="SELECT * FROM adapter_instance_config WHERE adapter_instance_id=(SELECT adapter_instance_id FROM adapter_instance_config WHERE property_name='fixSessionName' AND property_value='".$ia_props['cc_name']."');";
+					$result_inner=mssql_query($sql_inner, $iorsdb);
+					while ($row_inner=mssql_fetch_array($result_inner)) {
+						$ia_props[$row_inner['property_name']]=$row_inner['property_value'];
+					}
+					$ia=new IorsAdapter($ia_props);
+					array_push($iorsadapters, $ia);
+				} elseif ($fsc->SessionType=="ServiceBureau") {
+					$sbmembers=explode(",",$fsc->MemberIds);
+					# handle service bureaus separately - for each MemberId, create a new adapter
+					foreach ($sbmembers as $sbm) {
+						$sql_inner="SELECT * FROM adapter_instance_config WHERE adapter_instance_id=(SELECT adapter_instance_id FROM adapter_instance_config WHERE property_name='fixSessionName' AND property_value='".$sbm."-".$ia_props['cc_name']."');";
+						$result_inner=mssql_query($sql_inner, $iorsdb);
+						while ($row_inner=mssql_fetch_array($result_inner)) {
+							$ia_props[$row_inner['property_name']]=$row_inner['property_value'];
+						}
+						$ia=new IorsAdapter($ia_props); # has to stay here because of the foreach
+						array_push($iorsadapters, $ia);
+					}
+				}
+			}
+		}
+		
+		$customrules=array();
+		# Get all the IORS instances from CC database - must get this from the overall configuration, not the instance(s)
+		$sql="SELECT instance_name, instance_value FROM config_instance2 WHERE config_name='FixMessagingConfig' AND instance_name='' ORDER BY instance_name";
+		$result=mssql_query($sql, $cfgdb);
+		while ($row=mssql_fetch_array($result)) {
+			$xmlstr="<?xml version='1.0'?>".$row['instance_value'];
+			$cc=simplexml_load_string($xmlstr);
+			foreach ($cc->CustomRulesConfigs[0]->CustomRuleConfig as $crc) { # for each CustomRuleConfig
+				$rulename=$crc['key'];
+				$actiontype=$crc->ActionType;
+				$direction=$crc->Direction;
+				$fieldtag=$crc->FieldTag;
+				$matchcriteria=$crc->MatchCriteria;
+				$fieldtype=$crc->FieldType;
+				$newvalue=$crc->NewValue;
+				array_push($customrules, new IorsCustomRule($rulename,$actiontype,$direction,$fieldtag,$matchcriteria,$fieldtype,$newvalue));
+			}
+		}
+		
+		$localdb=db_connect("local");
+		foreach ($iorsadapters as $ia) {
+			$ia->insertInternal($localdb);
+		}
+		
+		foreach ($customrules as $cr) {
+			$cr->insertInternal($localdb);
+		}
+				
+		updateCfg("'IORS'", 1, "NOW()");
+	}
+?>

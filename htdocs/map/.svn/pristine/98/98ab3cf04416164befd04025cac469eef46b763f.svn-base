@@ -1,0 +1,19 @@
+/****************************************************************/
+/* Task */
+/****************************************************************/
+.cancel_cross{
+  font-size:26px !important;
+  color:#E33100 !important;
+}
+.cancel_cross:hover{
+  cursor: pointer;
+  text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #E33100,0 0 30px #E33100,0 0 40px #E33100;
+}
+.disabled_cancel_cross{
+  font-size:26px !important;
+  color:#D8D8D8 !important;
+}
+.task_test_pending{
+  display: inline;
+  font-weight: normal;
+}

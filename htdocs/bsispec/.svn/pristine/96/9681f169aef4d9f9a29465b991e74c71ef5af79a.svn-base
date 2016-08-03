@@ -1,0 +1,10 @@
+SELECT id FROM iors  WHERE property_name='' AND property_value  'KEM' ;
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''KEM'' at line 1
+SELECT id FROM iors  WHERE property_name='' AND property_value  'KEM' ;
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''KEM'' at line 1
+SELECT id FROM iors  WHERE property_name='' AND property_value  '21995' ;
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''21995'' at line 1
+SELECT id FROM iors  WHERE property_name='' AND property_value  '21955' ;
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''21955'' at line 1
+SELECT property_name, property_value FROM iors  WHERE id= AND property_name NOT LIKE 'internal_id' ORDER BY property_name
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND property_name NOT LIKE 'internal_id' ORDER BY property_name' at line 1

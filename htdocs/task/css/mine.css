@@ -1,0 +1,38 @@
+
+#main_logo_div{
+  background-color:#000000;
+  border-radius: 20px;
+}
+IMG.main_logo_position{
+  display: block;
+  height: 93px;
+  width: 270px;
+  /*margin-left: auto;
+  margin-right: auto; 
+  margin-top: -25px;*/
+  margin-left: 30px;
+}
+
+input.myinput[type="text"] {
+   height: 12px;
+   /*font-size: 12px;
+   line-height: 14px; 
+   margin-top: 2px; */
+}
+
+.progress {
+	height: 24px;
+	margin-top: 2px;
+}
+
+.myform {
+	margin-top:2px;
+}
+
+form.checkbox {
+	margin-top: 0px;
+}
+/*
+table { table-layout: fixed; }
+table th, table td { overflow: hidden; }
+*/

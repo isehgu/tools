@@ -1,0 +1,182 @@
+body{
+    font-weight: 200;
+    padding-top: 100px;
+}
+
+#slogan {
+    font-size:30px;
+}
+#topnav{
+    padding-top:15px;
+    color:white;
+}
+#runbtn{
+    margin-top:0;
+    margin-right:5px;
+}
+@media (min-width:768px)
+{
+    .sidebar{
+        position: fixed;
+        top:100px;
+        left:0;
+        bottom:0px;
+        display:block;
+        z-index: 1000;
+        padding:10px 0px 10px 0px;
+        overflow-x:hidden;
+        overflow-y:auto;
+        border-right:1px solid #eee;
+        background-color:#f5f5f5;
+        border-radius:5px;
+
+    }
+}
+@media (max-width:768px)
+{
+    .sidebar{
+        display:none;
+    }
+}
+
+.nav-sidebar{
+
+}
+.nav>li{
+    position: relative !important;
+    display:block !important;
+    font-size:15px !important;
+}
+.sub-header{
+    margin-top:50px;
+    padding-bottom:10px;
+    
+}
+.check_box{
+    margin-bottom:10px;
+}
+.navbar-btn{
+    font-size:40px;
+}
+#progress,#queue,#history,#env{
+    padding-top:110px;
+}
+#test_selection{
+    padding-top:110px;
+}
+.inline_header{
+    display:inline;
+}
+#banner{
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 0px solid #000000;
+}
+#disney{
+    margin-bottom:0;
+    padding-bottom: 0;
+}
+
+#name_btn{
+    font-size:16px;
+}
+#greeting{
+    margin-left:15px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.dropdown-menu{
+    /*min-width: 0 !important;*/
+    right: auto;
+    left: 0;
+}
+#instruction{
+    font-size: 15px;
+}
+#instruction>li{
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+#lock_checkbox{
+	padding-left:44px !important;
+}
+#test_with_lock{
+	margin-bottom:40px;
+}
+#lock_reason_input{
+	padding-top:2px;
+}
+#th_header{
+    min-width:100px;
+}
+.search_input{
+    padding-right:0;
+}
+.approval_status_select{
+    width:170px;
+}
+.test_history_row{
+    /*text-align:center;*/
+}
+.time_display{
+    min-width:100px;
+}
+.test_clickable{
+    cursor: pointer;
+}
+.hstatus{
+    text-align:center;
+}
+.tap_report{
+    text-align:center;
+}
+.result_files{
+    margin-top:5px;
+    padding-top:5px;
+    border-top:1px solid #BABABA;
+    text-align:center;
+}
+.report_button_failed{
+    background-color:#d33c3c;
+    border-color:#d33c3c;
+    color:white;
+}
+.report_button_passed{
+    background-color:#02A509;
+    border-color:#02A509;
+    color:white;
+}
+.results_button{
+    background-color:#2D57DA;
+    border-color:#2D57DA;
+    color:white;
+}
+.results_button_disabled{
+    background-color:#B8B8B8;
+    border-color:#B8B8B8 !important;
+    color:black !important;
+}
+.comment_text{
+    font-size:16px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 3px solid #a399a3;
+    padding:5px;
+}
+.comment_info{
+    font-size:10px;
+    vertical-align: middle;
+    margin-top:15px;
+}
+.single_comment_box{
+    margin-bottom: 22px;
+}
+#complete_history_view{
+    margin-top: -175px !important;
+}
+#env_config{
+    margin-top:-75px !important;
+}

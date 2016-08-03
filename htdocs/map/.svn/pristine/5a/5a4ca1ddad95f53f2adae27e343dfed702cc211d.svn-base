@@ -1,0 +1,61 @@
+/****************************************************************/
+/* Toast */
+/****************************************************************/
+#toast_div{
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  text-align: center;
+  color: white;
+  border: 1px solid #60635F; /*#17BD00;*/
+  border-radius: 3px;
+  background-color: #60635F; /*#CDFCC7;*/
+  opacity: 0.9;
+  width: 300px;
+  /*height: 100px;*/
+  display: none;
+  padding-bottom: 15px;
+}
+
+.success_check{
+  font-size: 48px;
+  display: inline-block;
+  color: #17BD00;
+}
+
+
+/****************************************************************/
+/* Loading */
+/****************************************************************/
+#loading_div{
+  margin-top: 35px;
+  text-align: center;
+  opacity: 0;
+}
+
+@keyframes flickerAnimation { /* flame pulses */
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+    opacity:1;
+    animation: flickerAnimation 1s infinite;
+}
+
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity: 0; }
+  25%  { opacity: .25; }
+  50%  { opacity: 1; }
+  75%  { opacity: .25; }
+  100% { opacity: 0; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation 1s infinite;
+   -moz-animation: flickerAnimation 1s infinite;
+   -o-animation: flickerAnimation 1s infinite;
+    animation: flickerAnimation 1s infinite;
+
+    -webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
+    animation-delay: 1s;
+}

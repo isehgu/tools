@@ -1,0 +1,284 @@
+<style type="text/css">
+div#serverFilterBox {
+	padding-top: 10px;
+	float: left;
+	width: 74%;
+}
+div#serverNodeSearchBox {
+	padding-top: 10px;
+	float: right;
+	width: 23%;
+	text-align: right;
+}
+
+div#serverIPSearchBox {
+	padding-top: 10px;
+	float: right;
+	width: 23%;
+	text-align: right;
+}
+div#serverServiceSearchBox {
+	padding-top: 10px;
+	float: right;
+	width: 23%;
+	text-align: right;
+}
+div#serverDescriptionSearchBox {
+	padding-top: 10px;
+	float: right;
+	width: 23%;
+	text-align: right;
+}
+div#serverBackupNodeSearchBox {
+	padding-top: 10px;
+	float: right;
+	width: 23%;
+	text-align: right;
+}
+div#serverSerialSearchBox {
+	padding-top: 10px;
+	float: right;
+	width: 23%;
+	text-align: right;
+}
+div.serverClear {
+	float: none;
+	clear: both;
+}
+.s_clo, .s_res {
+	text-decoration: line-through;
+}
+</style>
+<?php if (isset($this->filter) && $this->filter === true): ?>
+<div id="serverFilterBox">
+	<form name="bt_filter" method="get" action="<?php echo $this->formAction; ?>">
+	  <input type="hidden" name="title" value="<?php echo $this->pageKey; ?>" />
+	  <input type="hidden" name="project" value="<?php echo $this->project; ?>" />
+	  <input type="hidden" name="bt_action" value="<?php echo $this->action; ?>" />
+	  <label for="bt_filters"><?php echo wfMsg('filter_title'); ?>: </label>
+
+	  
+	  <select name="bt_filter_application">
+	  <optgroup label="application" title="Application">
+	    <option value="any"<?php echo ($this->filterApplication == null) ? ' selected="true"' : ''; ?>>Any</option>
+		
+        <?php foreach ($this->serverApplication as $name => $application): ?> 
+        <option value="<?php echo $name; ?>"<?php echo ($this->filterApplication == $name) ? ' selected="true"' : ''; ?>><?php echo $application['name']; ?></option>
+        <?php endforeach; ?>
+	  </optgroup>
+	  </select>
+	  
+	  <select name="bt_filter_status">
+	  <optgroup label="status" title="Status">
+	    <option value="any"<?php echo ($this->filterStatus == null) ? ' selected="true"' : ''; ?>>Any</option>
+        <?php foreach ($this->serverStatus as $name => $status): ?> 
+        <option value="<?php echo $name; ?>"<?php echo ($this->filterStatus == $name) ? ' selected="true"' : ''; ?>><?php echo $status['name']; ?></option>
+        <?php endforeach; ?>
+	    <option value="archived"<?php echo ($this->filterStatus == 'archived') ? ' selected="true"' : ''; ?>>Archived</option>
+	  </optgroup>
+	  </select>
+	  
+	  <select name="bt_filter_OS">
+	  <optgroup label="os" title="OS">
+	    <option value="any"<?php echo ($this->filterOS == null) ? ' selected="true"' : ''; ?>>Any</option>
+		
+        <?php foreach ($this->serverOS as $name => $os): ?> 
+        <option value="<?php echo $name; ?>"<?php echo ($this->filterOS == $name) ? ' selected="true"' : ''; ?>><?php echo $os['name']; ?></option>
+        <?php endforeach; ?>
+	  </optgroup>
+	  </select>
+	  	  
+	  <select name="bt_filter_Processor">
+	  <optgroup label="processor" title="Processor">
+	    <option value="any"<?php echo ($this->filterProcessor == null) ? ' selected="true"' : ''; ?>>Any</option>
+		
+        <?php foreach ($this->serverProcessor as $name => $processor): ?> 
+        <option value="<?php echo $name; ?>"<?php echo ($this->filterProcessor == $name) ? ' selected="true"' : ''; ?>><?php echo $processor['name']; ?></option>
+        <?php endforeach; ?>
+	  </optgroup>
+	  </select>
+	  
+	  <select name="bt_filter_Memory">
+	  <optgroup label="memory" title="Memory">
+	    <option value="any"<?php echo ($this->filterMemory == null) ? ' selected="true"' : ''; ?>>Any</option>
+		
+        <?php foreach ($this->serverMemory as $name => $Memory): ?> 
+        <option value="<?php echo $name; ?>"<?php echo ($this->filterMemory == $name) ? ' selected="true"' : ''; ?>><?php echo $memory['name']; ?></option>
+        <?php endforeach; ?>
+	  </optgroup>
+	  </select>	  
+	  
+	  <select name="bt_filter_Net">
+	  <optgroup label="net" title="MS .NET">
+	    <option value="any"<?php echo ($this->filterNet == null) ? ' selected="true"' : ''; ?>>Any</option>
+		
+        <?php foreach ($this->serverNet as $name => $net): ?> 
+        <option value="<?php echo $name; ?>"<?php echo ($this->filterNet == $name) ? ' selected="true"' : ''; ?>><?php echo $net['name']; ?></option>
+        <?php endforeach; ?>
+	  </optgroup>
+	  </select>	  
+	  
+	  <select name="bt_filter_Cpp">
+	  <optgroup label="cpp" title="C++ Redistributable">
+	    <option value="any"<?php echo ($this->filterCpp == null) ? ' selected="true"' : ''; ?>>Any</option>
+		
+        <?php foreach ($this->serverCpp as $name => $cpp): ?> 
+        <option value="<?php echo $name; ?>"<?php echo ($this->filterCpp == $name) ? ' selected="true"' : ''; ?>><?php echo $cpp['name']; ?></option>
+        <?php endforeach; ?>
+	  </optgroup>
+	  </select>
+	  
+	  
+	  
+	  <input type="submit" name="bt_filter" id="bt_filter" value="<?php echo wfMsg('form_apply'); ?>" />
+	</form>
+</div>
+<?php endif; ?>
+
+
+<?php if (isset($this->search) && $this->search === true): ?>
+<div id="serverNodeSearchBox">
+	<form name="bt_search" method="get" action="<?php echo $this->formAction; ?>">
+	  <input type="hidden" name="title" value="<?php echo $this->pageKey; ?>" />
+	  <input type="hidden" name="project" value="<?php echo $this->project; ?>" />
+	  <input type="hidden" name="bt_action" value="<?php echo $this->action; ?>" />
+	  <label for="bt_search_node_string"><?php echo wfMsg('Node search'); ?> </label>
+	  <input type="text" name="bt_search_node_string" id="bt_search_node_string" value="<?php echo (isset($this->searchNodeString)) ? $this->searchNodeString : ''; ?>" /> 
+	  <input type="submit" name="bt_search" id="bt_search" value="<?php echo wfMsg('form_submit'); ?>" />
+	</form>
+</div>
+
+<div id="serverIPSearchBox">
+	<form name="bt_search" method="get" action="<?php echo $this->formAction; ?>">
+	  <input type="hidden" name="title" value="<?php echo $this->pageKey; ?>" />
+	  <input type="hidden" name="project" value="<?php echo $this->project; ?>" />
+	  <input type="hidden" name="bt_action" value="<?php echo $this->action; ?>" />
+	  <label for="bt_search_ip_string"><?php echo wfMsg('IP search'); ?> </label>
+	  <input type="text" name="bt_search_ip_string" id="bt_search_ip_string" value="<?php echo (isset($this->searchIPString)) ? $this->searchIPString : ''; ?>" /> 
+	  <input type="submit" name="bt_search" id="bt_search" value="<?php echo wfMsg('form_submit'); ?>" />
+	</form>
+</div>
+
+<div id="serverServiceSearchBox">
+	<form name="bt_search" method="get" action="<?php echo $this->formAction; ?>">
+	  <input type="hidden" name="title" value="<?php echo $this->pageKey; ?>" />
+	  <input type="hidden" name="project" value="<?php echo $this->project; ?>" />
+	  <input type="hidden" name="bt_action" value="<?php echo $this->action; ?>" />
+	  <label for="bt_search_service_string"><?php echo wfMsg('Service search'); ?> </label>
+	  <input type="text" name="bt_search_service_string" id="bt_search_service_string" value="<?php echo (isset($this->searchServiceString)) ? $this->searchServiceString : ''; ?>" /> 
+	  <input type="submit" name="bt_search" id="bt_search" value="<?php echo wfMsg('form_submit'); ?>" />
+	</form>
+</div>
+
+<div id="serverDescriptionSearchBox">
+	<form name="bt_search" method="get" action="<?php echo $this->formAction; ?>">
+	  <input type="hidden" name="title" value="<?php echo $this->pageKey; ?>" />
+	  <input type="hidden" name="project" value="<?php echo $this->project; ?>" />
+	  <input type="hidden" name="bt_action" value="<?php echo $this->action; ?>" />
+	  <label for="bt_search_description_string"><?php echo wfMsg('Description search'); ?> </label>
+	  <input type="text" name="bt_search_description_string" id="bt_search_description_string" value="<?php echo (isset($this->searchDescriptionString)) ? $this->searchDescriptionString : ''; ?>" /> 
+	  <input type="submit" name="bt_search" id="bt_search" value="<?php echo wfMsg('form_submit'); ?>" />
+	</form>
+</div>
+
+<div id="serverBackupNodeSearchBox">
+	<form name="bt_search" method="get" action="<?php echo $this->formAction; ?>">
+	  <input type="hidden" name="title" value="<?php echo $this->pageKey; ?>" />
+	  <input type="hidden" name="project" value="<?php echo $this->project; ?>" />
+	  <input type="hidden" name="bt_action" value="<?php echo $this->action; ?>" />
+	  <label for="bt_search_backupnode_string"><?php echo wfMsg('Backup Node search'); ?> </label>
+	  <input type="text" name="bt_search_backupnode_string" id="bt_search_backupnode_string" value="<?php echo (isset($this->searchBackupNodeString)) ? $this->searchBackupNodeString : ''; ?>" /> 
+	  <input type="submit" name="bt_search" id="bt_search" value="<?php echo wfMsg('form_submit'); ?>" />
+	</form>
+</div>
+
+<div id="serverSerialSearchBox">
+	<form name="bt_search" method="get" action="<?php echo $this->formAction; ?>">
+	  <input type="hidden" name="title" value="<?php echo $this->pageKey; ?>" />
+	  <input type="hidden" name="project" value="<?php echo $this->project; ?>" />
+	  <input type="hidden" name="bt_action" value="<?php echo $this->action; ?>" />
+	  <label for="bt_search_serial_string"><?php echo wfMsg('Serial search'); ?> </label>
+	  <input type="text" name="bt_search_serial_string" id="bt_search_serial_string" value="<?php echo (isset($this->searchSerialString)) ? $this->searchSerialString : ''; ?>" /> 
+	  <input type="submit" name="bt_search" id="bt_search" value="<?php echo wfMsg('form_submit'); ?>" />
+	</form>
+</div>
+<?php endif; ?>
+
+
+<div class="serverClear"></div>
+<h2><?php if ($this->auth === false || ($this->auth === true && $this->isLoggedIn === true)): ?>
+<span class="editsection">[<a href="<?php echo $this->addUrl; ?>"><?php echo wfMsg('add'); ?></a>]</span> 
+<?php else: ?>
+<span class="editsection"><?php echo wfMsg('login_msg'); ?></span>
+<?php endif; ?>
+<span class="mw-headline"><?php echo wfMsg('view_servers'); ?></span></h2>
+<table cellpadding="3" class="wikitable sortable" width="98%" style="font-size: 90%">
+  <tr>
+    <th valign="top" align="left" width="40"><b><?php echo wfMsg('id'); ?></b></th>
+    <th valign="top" align="left" width="80"><b><?php echo wfMsg('nodename'); ?></b></th>
+    <th valign="top" align="left" width="350"><b><?php echo wfMsg('ip'); ?></b></th>
+	<th valign="top" align="left" width="80"><b><?php echo wfMsg('application'); ?></b></th>
+    <th valign="top" align="left" width="80"><b><?php echo wfMsg('status'); ?></b></th>
+    <th valign="top" align="left" width="350"><b><?php echo wfMsg('service'); ?></b></th>
+    <th valign="top" align="left" width="70"><b><?php echo wfMsg('os'); ?></b></th>
+	
+	<th valign="top" align="left" width="70"><b><?php echo wfMsg('processor'); ?></b></th>
+	<th valign="top" align="left" width="70"><b><?php echo wfMsg('memory'); ?></b></th>
+	<th valign="top" align="left" width="100"><b><?php echo wfMsg('net'); ?></b></th>
+	<th valign="top" align="left" width="100"><b><?php echo wfMsg('cpp'); ?></b></th>
+	<th valign="top" align="left" width="100"><b><?php echo wfMsg('serial'); ?></b></th>
+	<th valign="top" align="left" width="80"><b><?php echo wfMsg('backup_node'); ?></b></th>
+
+    <th valign="top" align="center" width="100"><b><?php echo wfMsg('action'); ?></b></th>
+  </tr>
+  <?php while ($server = $this->servers->fetchObject()): ?>
+  <tr>
+    <td><?php if ($this->hasViewPerms): ?><a href="<?php echo $this->viewUrl . $server->server_id; ?>"># <?php echo $server->server_id; ?></a><?php else: ?># <?php echo $server->server_id; endif; ?></td>
+	
+	<td><?php echo htmlspecialchars($server->nodename); ?></td>
+	<td><?php echo htmlspecialchars($server->ip); ?></td>
+	<td><?php echo htmlspecialchars($server->application); ?></td>
+    <td style="background-color: #<?php echo $this->serverStatus[$server->status]['colour']; ?>"><?php echo $this->serverStatus[$server->status]['name']; ?></td>
+	<td><?php echo htmlspecialchars($server->service); ?></td>
+	<td><?php echo htmlspecialchars($server->os); ?></td>
+	<td><?php echo htmlspecialchars($server->processor); ?></td>
+	<td><?php echo htmlspecialchars($server->memory); ?></td>
+	<td><?php echo htmlspecialchars($server->net); ?></td>
+	<td><?php echo htmlspecialchars($server->cpp); ?></td>
+	<td><?php echo htmlspecialchars($server->serial); ?></td>
+	<td><?php echo htmlspecialchars($server->backup_node); ?></td>
+	
+    
+    <td><?php echo date("d-m-Y", strtotime($server->priority_date)); ?></td>
+    <td align="center">
+    <?php if ($this->isLoggedIn): ?>
+    	<?php if ($this->hasEditPerms): ?>[<a href="<?php echo $this->editUrl . $server->server_id; ?>"><?php echo wfMsg('edit'); ?></a>]&nbsp;<?php endif; ?>
+    	<?php if ($this->hasDeletePerms): ?>[<a href="<?php echo $this->deleteUrl . $server->server_id; ?>"><?php echo wfMsg('archive'); ?></a>]<?php endif; ?>
+    <?php endif; ?></td>
+  </tr>
+  <?php endwhile; ?>
+</table>
+<p> </p>
+<table border="0">
+  <tr>
+    <td><strong><?php echo wfMsg('os'); ?></strong>
+    <table cellpadding="3" style="font-size: 90%">
+        <tr>
+        <?php foreach ($this->serverOS as $name => $os): ?>  
+          <td width="80" bgcolor="#<?php echo $os['colour']; ?>"><?php echo $os['name']; ?></td>
+        <?php endforeach; ?>
+        </tr>
+      </table></td>
+    <td style="padding-left: 30px"><strong><?php echo wfMsg('status'); ?></strong>
+	<table cellpadding="3" style="font-size: 90%">
+        <tr>
+        <?php foreach ($this->serverStatus as $name => $status): ?>  
+          <td width="80" bgcolor="#<?php echo $status['colour']; ?>"><?php echo $status['name']; ?></td>
+        <?php endforeach; ?>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<p>
+<?php if ($this->isAllowed): ?>[<a href="/index.php?title=Special:Userrights">User groups</a>]<?php endif; ?>
+</p>

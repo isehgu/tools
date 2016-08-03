@@ -1,0 +1,90 @@
+/****************************************************************/
+/* User Section in top-bar */
+/****************************************************************/
+.top_bar_error{
+  color: red;
+  line-height: 45px;
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  /*background-color: #ff0000;*/
+ /* overflow: hidden;*/
+}
+
+input[type="text"].input-validation-error1{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+input[type="password"].input-validation-error1{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+input[type="text"].input-validation-error2{
+    /*border: 1px solid #ff0000;*/
+    /*background-color: #ffeeee;*/
+    border: 1px solid #ff0000;
+    background-color: transparent;
+    color: red;
+}
+input[type="password"].input-validation-error2{
+    /*border: 1px solid #ff0000;*/
+    /*background-color: #ffeeee;*/
+    border: 1px solid #ff0000;
+    background-color: transparent;
+    color: red;
+}
+
+input[type="text"].input-styling{
+    color: white;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    /*border-color: #008cba;*/
+    border-color: #A4A4A4;
+    outline:0;
+}
+
+input[type="password"].input-styling{
+    color: white;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    /*border-color: #008cba;*/
+    border-color: #A4A4A4;
+    outline:0;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    /*color: #00C0FF;*/
+    color: #A4A4A4;
+    text-align: center;
+}
+
+#top_bar_username_div, #top_bar_password_div, #top_bar_login_div {
+  padding-left: 5px;
+  /*display: block;*/
+}
+/*#top_bar_username_div, #top_bar_password_div{
+  max-width: 100px;
+}
+#top_bar_login_div{
+  min-width: 90px;
+  display: block;
+}
+#top_bar_register_div{
+  min-width: 90px;
+  display: block;
+}
+#user_login_form{
+  min-width: 560px;
+  max-width: 560px;
+}*/
+
+textarea:focus, input:focus{
+    outline: 0;
+}
+
+[data-abide] .error small.error, [data-abide] .error span.error,
+ [data-abide] span.error, [data-abide] small.error {
+  margin-top: 7px;
+  text-align: center;
+}

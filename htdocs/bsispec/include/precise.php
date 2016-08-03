@@ -1,0 +1,242 @@
+<?php 	
+	include("cfg/functions.php");
+	
+	class PreciseAdvSearch {
+		var $distinctvalues;
+		var $fieldname;
+			
+		function __construct($distinctvalues,$fieldname) {
+			$this->distinctvalues	=	$distinctvalues;
+			$this->fieldname		=	$fieldname;
+		}
+	
+		function printAsOption() { ?>
+			<option value="<?php echo $this->distinctvalues; ?>"><?php echo $this->fieldname; ?></option>
+		<?php }
+	}
+
+	class PreciseAmr {
+		var $member;
+		var $ird;
+		var $cmta;
+		var $account;
+		var $default_cmta_flag;
+		
+		function __construct($member,$ird,$cmta,$account,$default_cmta_flag) {
+			$this->member      			=  $member;
+			$this->ird    				=  $ird;
+			$this->cmta     			=  $cmta;
+			$this->account      		=  $account;
+			$this->default_cmta_flag 	=  $default_cmta_flag;
+		}
+		
+		function insertInternal(&$localdb) {
+			$sql="INSERT INTO precise_amr VALUES (NULL, '".$this->member."','".$this->ird."','".$this->cmta."','".$this->account."','".$this->default_cmta_flag."');";
+			$result=mysql_query($sql,$localdb);
+			if (!$result) logProb($sql."\n\r".mysql_error());	
+		}		
+	}
+	
+	class PreciseIrd {
+		var $member;
+		var $exchange;
+		var $irds;
+		
+		function __construct($member,$exchange,$irds) {
+			$this->member 	=  $member;
+			$this->exchange =  $exchange;
+			$this->irds     =  $irds;
+		}
+		
+		function insertInternal(&$localdb) {
+			$sql="INSERT INTO precise_ird VALUES (NULL, '".$this->member."','".$this->exchange."','".$this->irds."');";
+			$result=mysql_query($sql,$localdb);
+			if (!$result) logProb($sql."\n\r".mysql_error());	
+		}		
+	}
+	
+	class PreciseBsi {
+		var $Bsi;
+
+		function __construct($bsi) {
+			$this->Bsi = $bsi;
+		}
+		
+		function getBsiInstanceNumber() {
+			preg_match('/.*bsi.(\d+)$/',$this->Bsi,$number);
+			return $number[1];
+		}
+		
+		function printHTML() { ?>
+			<div class="bsi PRECISE" id="<?php echo $this->Bsi; ?>">
+				<span class="bsinumber"><?php echo $this->getBsiInstanceNumber(); ?></span>
+			</div>
+		<?php }
+	}
+	
+	class PreciseAdapter {
+		
+		function __construct($pa_props) {
+			$this->PropertySet = $pa_props;
+		}
+
+		function insertInternal(&$localdb) {
+			$id=0;
+			foreach ($this->PropertySet as $name => $value) {
+				if ($id==0) $id="NULL";
+				$sql="INSERT INTO precise VALUES (".$id.", '".$name."', '".$value."')";
+				$result=mysql_query($sql,$localdb);
+				if (!$result) logProb($sql."\n\r".mysql_error());
+				else {
+					$thisid=mysql_insert_id();
+					if ($id=="NULL") {
+						$sql="INSERT INTO precise VALUES (".$thisid.", 'internal_id', '".$thisid."');";
+						$result=mysql_query($sql,$localdb);
+					}
+					$id=$thisid;
+				}
+			}
+		}
+		
+		function printHTML() { ?>
+			<div class="pa" id="<?php echo $this->PropertySet['internal_id']; ?>">
+				<div class="pa_hd"><strong><?php echo $this->PropertySet['adapter_name']; ?></strong></div>
+				<div class="pa_core_connection">
+					<div class="pa_label">Svc Grp: </div><div class="pa_data"><?php echo $this->PropertySet['bsi_name']; ?></div><br />
+					<div class="pa_label">Core Login: </div><div class="pa_data">
+						<?php echo "".$this->PropertySet['member']."-".$this->PropertySet['user'].""; ?></div><br />
+					<div class="pa_label">Core GW/Port: </div><div class="pa_data">
+						<?php echo "".$this->PropertySet['node'].":".$this->PropertySet['port'].""; ?></div><br />
+				</div>
+			</div>
+		<?php }	
+	} # end class PreciseAdapter
+	
+	function updateCfg($component, $type, $value) { # assumes first record is INSERTed
+		$localdb=db_connect("local");
+		$sql="UPDATE cfg SET value=".$value." WHERE component LIKE ".$component." AND type=".$type.";";
+		$result=mysql_query($sql);
+		if (!$result) { logProb($sql."\n\r".mysql_error()); }
+	}
+	
+	function emptyTable($table) {
+		$localdb=db_connect("local");
+		$sql="TRUNCATE TABLE ".$table.";";
+		mysql_query($sql);
+	}
+	
+	function loadPreciseAdvSearch(&$preciseadvsearch) {
+		$localdb=db_connect("local"); 
+		$sql="SELECT property_name, COUNT(DISTINCT property_value) as dcount FROM precise p GROUP BY property_name;";
+		$result=mysql_query($sql, $localdb);
+		while ($row=mysql_fetch_array($result)) {
+			array_push($preciseadvsearch, new PreciseAdvSearch($row['dcount'], $row['property_name']));
+		}
+	}
+	
+	function loadPreciseConfiguration(&$preciseadapters, &$precisebsis) {
+		# check to see if the cfg entry has the correct date - if it's not the current date, load externally, then load internally
+		$localdb=db_connect("local"); 
+		$sql="SELECT value FROM cfg WHERE component LIKE 'PRECISE' AND type=1;"; # type=1 will be lastload
+		$result=mysql_query($sql, $localdb);
+		if (!$result) { logProb($sql."\n\r".mysql_error()); }
+		else {
+			$today=date("m/d/Y");
+			$row=mysql_fetch_array($result);
+			#if (datetimetommddyyyy($row['value'])!=$today) {
+				loadExternalPreciseConfiguration();
+			#}
+		}
+		loadInternalPreciseConfiguration($preciseadapters, $precisebsis);		
+	}
+		
+	function loadInternalPreciseConfiguration(&$preciseadapters, &$precisebsis) {
+		$localdb=db_connect("local");
+		
+		$sql="SELECT * FROM precise ORDER BY id;";
+		$result=mysql_query($sql, $localdb);
+		
+		$current_id=-1; # NOT a DB representation, this ID is just for this function
+		while ($row=mysql_fetch_array($result)) {
+			if ($current_id!=$row['id']) {
+				$current_id=$row['id'];
+				$preciseadapters[$current_id]=new PreciseAdapter(array());
+			}
+			$preciseadapters[$current_id]->PropertySet[$row['property_name']]=$row['property_value'];
+		}
+		
+		#load BSIs
+		$sql="SELECT DISTINCT property_value FROM precise WHERE property_name='bsi_name' ORDER BY property_value;";
+		$result=mysql_query($sql, $localdb);
+		while ($row=mysql_fetch_array($result)) {
+			array_push($precisebsis, new PreciseBsi($row['property_value']));
+		}	
+	}	
+	
+	function loadExternalPreciseConfiguration() { # load from mssql into mysql
+		emptyTable("precise");
+		emptyTable("precise_amr");
+		emptyTable("precise_ird");
+			
+		$precisedb=db_connect("precise");
+		$cfgdb=db_connect("cfg");
+		
+		$preciseadapters=array();
+		# Get all the Precise instances from Precise database
+		$current_id=-1; # NOT a DB representation, this ID is just for this function
+		$sql="SELECT aic.adapter_instance_id, aic.property_name, aic.property_value, sg.name as 'bsi', ai.name as 'member' ".
+				"FROM adapter_instance_config aic, adapter_instance ai, service_group sg ".
+				"WHERE aic.adapter_instance_id=ai.adapter_instance_id AND sg.service_group_id=ai.service_group_id ".
+				"ORDER BY sg.name, aic.adapter_instance_id, aic.property_name;";
+		$result=mssql_query($sql, $precisedb);
+		while ($row=mssql_fetch_array($result)) {
+			if ($current_id!=$row['adapter_instance_id']) {
+				$current_id=$row['adapter_instance_id'];
+				$preciseadapters[$current_id]=new PreciseAdapter(array());
+				# these fields come with every record in the join, so only add them as properties once
+				$preciseadapters[$current_id]->PropertySet['adapter_name']=$row['member'];
+				$preciseadapters[$current_id]->PropertySet['bsi_name']=$row['bsi'];
+			}
+			$preciseadapters[$current_id]->PropertySet[$row['property_name']]=$row['property_value'];
+		}
+		
+		$amrs=array();
+		# Get all the Precise AMR instances from Precise database
+		$sql="SELECT * FROM amr_account_config ORDER BY member";
+		$result=mssql_query($sql, $precisedb);
+		while ($row=mssql_fetch_array($result)) {	
+			$member      		=  $row['member'];
+			$ird    			=  $row['ird'];
+			$cmta     			=  $row['cmta'];
+			$account      		=  $row['account'];
+			$default_cmta_flag 	=  $row['default_cmta_flag'];
+			array_push($amrs, new PreciseAmr($member,$ird,$cmta,$account,$default_cmta_flag));
+		}
+
+		$irds=array();
+		# Get all the Precise IRD instances from Precise database
+		$sql="SELECT * FROM amr_ird_config ORDER BY member";
+		$result=mssql_query($sql, $precisedb);
+		while ($row=mssql_fetch_array($result)) {	
+			$member  	=  $row['member'];
+			$exchange	=  $row['exchange'];
+			$irds_field	=  $row['irds'];
+			array_push($irds, new PreciseIrd($member,$exchange,$irds_field));
+		}
+
+		$localdb=db_connect("local");
+		foreach ($preciseadapters as $pa) {
+			$pa->insertInternal($localdb);
+		}
+			
+		foreach ($amrs as $amr) {
+			$amr->insertInternal($localdb);
+		}
+		
+		foreach ($irds as $ird) {
+			$ird->insertInternal($localdb);
+		}
+			
+		updateCfg("'PRECISE'", 1, "NOW()");
+	}
+?>

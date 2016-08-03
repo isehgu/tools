@@ -1,0 +1,136 @@
+/****************************************************************/
+/* View Triggers Page */
+/****************************************************************/
+#triggers_login_message{
+  text-align: center;
+}
+
+#view_triggers_table tr:hover {
+  /*background-color: #DADADA;*/
+  background-color: rgba(0,140,186,0.6);;
+}
+#view_triggers_table tr:hover {
+  cursor: pointer;
+}
+.view_triggers_table_highlight{
+  background-color: #66DF56 !important;
+}
+
+#view_triggers_actions_wrapper{
+  text-align: left;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.triggers_actions_buttons{
+  float: right;
+}
+.triggers_actions_divs{
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.triggers_open_fields_styling{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.triggers_open_fields_selects_styling{
+  margin-bottom: 0px;
+}
+
+#triggers_click_to_view_tests_text{
+  font-size: 0.7rem;
+  margin-bottom: 0px;
+}
+
+#triggers_test_table tr:hover {
+  /*background-color: #DADADA;*/
+  background-color: rgba(0,140,186,0.6);;
+}
+#triggers_test_table tr:hover {
+  cursor: pointer;
+}
+
+#triggers_tests_modal_display{
+  padding-right: 40px;
+}
+#triggers_add_test_column{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+#triggers_tests_top_table{
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.triggers_tests_ol_div{
+  padding: 0;
+}
+.triggers_tests_listing_remove_button_class{
+  margin: 0px;
+  display: inline;
+
+  margin-right: 5px;
+  font-size: 1.2rem;
+  line-height: 1;
+  /*position: absolute;*/
+  /*top: 0.5rem;*/
+  /*right: 0.6875rem;*/
+  color: red;
+  font-weight: bold;
+  /*cursor: pointer;*/
+}
+.triggers_tests_listing_remove_button_class:hover{
+  cursor: pointer;
+}
+.triggers_tests_listing_remove_button_hide{
+  display: none;
+}
+.triggers_tests_remove_highlighting{
+  background-color: #FC5050 !important;
+}
+.triggers_tests_listing_remove_li_animation, .triggers_tests_listing_add_li_animation{
+  display: none;
+  font-size: 0.875em;
+}
+.triggers_tests_listing_remove_li, .triggers_tests_listing_add_li{
+  font-size: 0.875em;
+}
+.triggers_tests_add_remove_intro_text{
+  margin: 0px;
+  display: inline;
+  font-style: italic;
+}
+.triggers_action_buttons_row{
+  padding-right: 15px;
+}
+
+#trigger_tests_hr{
+  padding: 0px;
+}
+
+.code_track_textbox_div{
+  margin: 0px;
+  padding: 0px;
+}
+
+#code_track_textbox1, #code_track_textbox2, #code_track_textbox3{
+  text-align: center;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+#code_track_row{
+  width: 100%;
+  margin: 0px;
+}
+
+#git_branch_textbox_div{
+  padding: 0px;
+}
+
+#git_branch_textbox{
+  margin-bottom: 0px;
+}
+
+.inactive_trigger{
+  background-color: #FFE6E6 !important;
+}

@@ -1,0 +1,70 @@
+<style type="text/css">
+td.fieldBgColor {
+	background-color: #eee
+}
+</style>
+<h2><span class="editsection">[<a href="<?php echo $this->listUrl; ?>"><?php echo wfMsg('back'); ?></a>]</span> <span class="mw-headline">#<?php echo $this->server->server_id . ': ' . $this->server->nodename; ?></span></h2>
+<table width="100%"  border="0" cellspacing="3" cellpadding="2">
+
+   <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">IP</td>
+    <td><?php echo $this->server->ip; ?></td>
+  </tr> 
+    
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">Status</td>
+    <td style="background-color: #<?php echo $this->statusArray[$this->server->status]['colour']; ?>"><?php echo $this->statusArray[$this->server->status]['name']; ?></td>
+  </tr>
+  
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">Application</td>
+    <td style="background-color: #<?php echo $this->applicationArray[$this->server->application]['colour']; ?>"><?php echo $this->applicationArray[$this->server->application]['name']; ?></td>
+  </tr>
+  
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">Service</td>
+    <td><?php echo $this->server->service; ?></td>
+  </tr>
+  
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">Description</td>
+    <td><?php echo $this->server->description; ?></td>
+  </tr>
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">Backup Node</td>
+    <td><?php echo $this->server->backup_node; ?></td>
+  </tr>
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">OS</td>
+    <td><?php echo $this->server->os; ?></td>
+  </tr>
+  
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">Processor</td>
+    <td><?php echo $this->server->processor; ?></td>
+  </tr>  
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">Memory</td>
+    <td><?php echo $this->server->memory; ?></td>
+  </tr>  
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">MS .NET</td>
+    <td><?php echo $this->server->net; ?></td>
+  </tr>  
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">C++ Redistributable</td>
+    <td><?php echo $this->server->cpp; ?></td>
+  </tr>  
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">Serial Number</td>
+    <td><?php echo $this->server->serial; ?></td>
+  </tr>
+  <tr>
+    <td width="150" align="left" valign="top" class="fieldBgColor">Date </td>
+    <td><?php echo date("d-m-Y H:i:s", strtotime($this->server->date_created)); ?></td>
+  </tr>
+</table>
+<p>[<a href="<?php echo $this->listUrl; ?>"><?php echo wfMsg('back'); ?></a>]&nbsp;
+<?php if ($this->isLoggedIn): ?>[<a href="<?php echo $this->editUrl; ?>"><?php echo wfMsg('edit'); ?></a>]&nbsp;
+[<a href="<?php echo $this->deleteUrl; ?>"><?php echo wfMsg('archive'); ?></a>]<?php endif; ?>
+</p>

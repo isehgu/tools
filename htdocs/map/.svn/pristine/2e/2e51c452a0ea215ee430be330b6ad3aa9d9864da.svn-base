@@ -1,0 +1,558 @@
+<?php
+//version: 1.2.1
+//This file contains all shared functions used by php class, and base_function
+    require_once("models/config.php");
+
+    function f_dbConnect()
+    {
+        global $db;
+        $db_connection = 'tc01';
+
+        if($db_connection == 'tc01'){
+            $dbhost = 'tc-tac01';
+            $dbuser = 'admin';
+            $dbpwd  = 'changeme';
+            $dbname = 'map_db';
+            $dbport = '18906';
+        }
+        elseif($db_connection == 'asg.ise.com'){
+            $dbhost = 'localhost';
+            $dbuser = 'order_flow';
+            $dbpwd  = 'dummy';
+            $dbname = 'map_db';
+            $dbport = '3306';
+        }
+
+        $db = new mysqli($dbhost,$dbuser,$dbpwd,$dbname,$dbport);
+        if(!$db) echo "Connection failed: ".$db->connect_error; //if condition here can also be -- if !$mysqli
+
+    }
+///////////////////////////////////////////////////////////////////////////////////////////
+    //Return Template name base on template ID
+    function f_getTemplateFromId($template_id)
+    {
+        global $db;
+        $sql_query = "select template_name from template where template_id = $template_id";
+        $result = $db->query($sql_query) or die($db->error);
+        $row = $result->fetch_assoc();
+        return $row['template_name'];
+    }//end of f_getTemplateFromId()
+///////////////////////////////////////////////////////////////////////////////////////////
+    //Return a list of the latest 10 releases on this template in event history table
+    //this list contains all releases that had events occurred IN this
+    //specific template
+    function f_getReleaseIdListfromTemplateId($template_id)
+    {
+        global $db;
+        $list = array();
+        $sql_query = "select distinct release_id from event_history where (template_instance_id in (select instance_id from template_instance where template_id = $template_id) or template_id in (select template_id from event_history where template_instance_id = 0 and template_id = $template_id)) and release_id != 0 order by release_id desc limit 20";
+        $result = $db->query($sql_query) or die($db->error);
+        while($row = $result->fetch_assoc())
+        {
+            $list[] = $row['release_id'];
+        }
+        return $list;
+    }
+///////////////////////////////////////////////////////////////////////
+    //input: filename to read from
+    //output: returns first line of file
+    function f_get_last_event_id_from_file($filename){
+        if(file_exists($filename)){
+            $f = fopen($filename, 'r');
+            $line = fgets($f);
+            fclose($f);
+            return $line;
+        }
+        else{
+            return 0;
+        }
+    }
+///////////////////////////////////////////////////////////////////////
+    //input: filename to write to, ID to write
+    //output: none
+    function f_store_last_event_id_from_db_in_file($filename, $id){
+        file_put_contents($filename, $id);
+    }
+//////////////////////////////////////////////////////////////////////////////////////////
+    //Find release version base on release id
+    //Iteration 1 -- it's ONLY Core.
+    function f_getReleaseFromId($release_id)
+    {
+        global $db;
+        $sql_query = "select version from release_registration where release_id = $release_id";
+        $result = $db->query($sql_query) or die($db->error);
+        $row = $result->fetch_assoc(); //since release_id is unique, only one entry can be returned
+        $version = $row['version'];
+        return $version;
+    }//end of f_getReleaseFromId()
+///////////////////////////////////////////////////////////////////////////////////////////
+    //Find Events from event id
+    function f_getEventFromId($event_id)
+    {
+        global $db;
+        $sql_query = "select event_name from event_definition where event_id = $event_id";
+        $result = $db->query($sql_query) or die($db->error);
+        $row = $result->fetch_assoc(); //since release_id is unique, only one entry can be returned
+        $event_name = $row['event_name'];
+                $event_name = preg_replace('/_/',' ',$event_name);
+                $event_name = ucwords($event_name);
+        return $event_name;
+    }
+    //end of f_getEventFromId()
+///////////////////////////////////////////////////////////////////////////////////////////
+    //Find template name base on the template instance id
+    function f_getTemplateFromInstanceId($template_instance_id)
+    {
+        global $db;
+        $sql_query = "select template_name from template where template_id in (select template_id from template_instance where instance_id = $template_instance_id)";
+        $result = $db->query($sql_query) or die($db->error);
+        $row = $result->fetch_assoc(); //since release_id is unique, only one entry can be returned
+        $template_name = $row['template_name'];
+        return $template_name;
+    }
+    //end of f_getTemplateFromInstanceId($template_instance_id)
+///////////////////////////////////////////////////////////////////////////////////////////
+    //Get a list of unique template IDs that has instances acted on this release
+    function f_getTemplateIdListByReleaseId($release_id)
+    {
+        global $db;
+        $template_id_list = array();
+        $sql_query = "select template_id from template";
+        $result = $db->query($sql_query) or die($db->error);
+        while($row = $result->fetch_assoc())
+        {
+            $template_id_list[] = $row['template_id'];
+        }
+        return $template_id_list; //returning a list of template ids
+    }
+    //end of f_getTemplateIdListByRelease($release_id)
+///////////////////////////////////////////////////////////////////////
+    //input: template id, release id
+    //return a count of how many tests there are for that release in that template
+    function f_getTestCountByReleaseByTemplate($template_id,$release_id)
+    {
+        global $db;
+        $count = 0;
+        $sql_query_current = "select count(*) as count from test_execution as te,task_queue as tq where te.task_id = tq.task_id and tq.template_id = $template_id and tq.release_id = $release_id";
+        $sql_query_complete = "select count(*) as count from test_execution as te,completed_task as ct where te.task_id = ct.task_id and ct.template_id = $template_id and ct.release_id = $release_id";
+        $result = $db->query($sql_query_current) or die($db->error);
+        $row = $result->fetch_assoc();
+        $count += $row['count'];
+
+        //Now completed task
+        $result = $db->query($sql_query_complete) or die($db->error);
+        $row = $result->fetch_assoc();
+        $count += $row['count'];
+        return $count;
+    }
+    ///////////////////////////////////////////////////////////////////////
+    //input: test execution id
+    //return true if this test execution has reruns under same group id, false if it doesn't
+    function f_getRerunExist($test_execution_id)
+    {
+        global $db;
+        $sql_query = "select count(*) as run_count from test_execution as te where group_id = (select group_id from test_execution where id = $test_execution_id)";
+        $result = $db->query($sql_query) or die($db->error);
+        $row = $result->fetch_assoc();
+        //return true if test excution count is more than 1 under the same group id, otherwise false
+        if ($row['run_count'] > 1) return True;
+        else return False;
+    }
+    ///////////////////////////////////////////////////////////////////////
+    //input: test execution id
+    //return the corresponding test id
+    function f_getTestIdFromTestExecutionId($test_execution_id)
+    {
+        global $db;
+        $sql_query = "select test_id from test_execution where id = $test_execution_id";
+        $result = $db->query($sql_query) or die($db->error);
+        $row = $result->fetch_assoc();
+        return $row['test_id'];
+    }
+///////////////////////////////////////////////////////////////////////
+    //input: release id, template id, read-only (0 for false, 1 for true)
+    //Return an array of arrays in the form of label=>(test_id 1, 2, 3)
+    //for tests that are done (completed, cancelled, etc.), for the specified release in the specified template.
+    //The list will be in descending order, by test_id. So later tests
+    //come on top.
+    //This list will contain only the latest test excution ids under the same group_id.
+    //So if there are a few reruns under the same group_id, only the latest test execution id gets
+    //stored in the array.
+    //This is used in user_test_history display.
+    function f_getTestLabelListByReleaseByTemplate($release_id,$template_id)
+    {
+        global $db;
+        $label_list = array();
+        //$sql_query_current searches through ongoing tasks
+        //$sql_query_complete searches through completed tasks
+        $sql_query_current = "select te.label,te.id from test_execution as te,task_queue as tq where te.task_id = tq.task_id and tq.release_id = $release_id and tq.template_id = $template_id and te.status > 1 order by te.id desc";
+        $sql_query_complete = "select te.label,te.id from test_execution as te,completed_task as ct where te.task_id = ct.task_id and ct.release_id = $release_id and ct.template_id = $template_id order by te.id desc";
+        $result_current = $db->query($sql_query_current) or die($db->error);
+        $result_complete = $db->query($sql_query_complete) or die($db->error);
+
+        //Get the label from ongoing tasks first, then the completed tasks
+        //So they are in descending order
+        if($result_current->num_rows > 0)
+        {
+            while ($row = $result_current->fetch_assoc())
+            {
+                $label = '';
+                $test_id = '';
+                $label = $row['label'];
+                $test_execution_id = $row['id'];
+                //echo "$test_id | ";
+                $label_list[$label][] = $test_execution_id;
+            }//end of while on ongoing tasks
+        }
+
+
+        //Get labels and test execution ids from completed tasks
+        if($result_complete->num_rows > 0)
+        {
+            while ($row = $result_complete->fetch_assoc())
+            {
+                $label = '';
+                $test_id = '';
+                $label = $row['label'];
+                $test_execution_id = $row['id'];
+                if(!f_latestTest($test_execution_id)) continue; //if this is not the latest test execution, meaning if there are later reruns, then don't include this test execution id. we only want the latest
+                //echo "$test_id | ";
+                $label_list[$label][] = $test_execution_id;
+            }//end of while on ongoing tasks
+        }
+        /*test code
+        foreach($label_list as $key=>$values)
+        {
+            echo $key . ": ";
+            echo "<br>";
+            foreach($values as $value)
+            {
+                echo $value;
+                echo " | ";
+            }
+            echo "<br>";
+        }
+        */
+        return $label_list;
+    } //end of f_getTestLabelListByReleaseByTemplate($release_id,$template_id)
+///////////////////////////////////////////////////////////////////////
+    //input: test execution id
+    //return True, if the test excution id is the latest run of this test under the same group id
+    //return False, if there is later test execution id under the same group id
+    function f_latestTest($test_execution_id)
+    {
+        global $db;
+        $sql_query = "select max(te.id) as latest_id from test_execution as te where group_id = (select group_id from test_execution where id = $test_execution_id)";
+        $result = $db->query($sql_query) or die($db->error);
+        $row = $result->fetch_assoc();
+        //return true if the id is the latest, otherwise return false
+        if ($row['latest_id'] == $test_execution_id) return True;
+        else return False;
+    }//f_latestTest($test_execution_id)
+///////////////////////////////////////////////////////////////////////////////////////////
+    //Input: none
+    //get all template ID and store in a list, then return that list
+    function f_getTemplateIdList()
+    {
+        global $db;
+        $template_id_list = array();
+        $sql_query = "select template_id from template order by template_name";
+        $result = $db->query($sql_query) or die ($db->error);
+        while ($row = $result->fetch_assoc())
+        {
+            $template_id_list[] = $row['template_id'];
+        }
+        return $template_id_list;
+    }
+    //end of f_getTemplateIdList()
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //Return a list of templateInstanceIds base on Template ID
+    function f_getTemplateInstanceIdFromTemplateId($template_id)
+    {
+        global $db;
+        $sql_query = "select distinct instance_id from template_instance where template_id = $template_id";
+        $result = $db->query($sql_query) or die($db->error);
+        while($row = $result->fetch_assoc())
+        {
+            $list[] = $row['instance_id'];
+        }
+        return $list;
+    }
+    //end of f_getTemplateInstanceIdFromTemplateId($template_id)
+///////////////////////////////////////////////////////////////////////
+    //input: group_id from the test_execution table
+    //output: return an associative array containing the following info
+    //about the completed/killed/canceled test -- test_id,label, release_id,
+    //template_id
+    //Keep in mind, completed test can be tied to a completed task
+    //or an ongoing task
+    //usage: test_request_resubmit.php
+    function f_getCompletedTestFromGroupId($group_id)
+    {
+        global $db;
+        $test_detail = array();
+        $sql_query_completed_task = "select max(te.id) as execution_id,te.test_id,te.label,ct.release_id,ct.template_id from test_execution as te, completed_task as ct where te.task_id = ct.task_id and te.status > 1 and group_id = $group_id";
+        $sql_query_ongoing_task = "select max(te.id) as execution_id,te.test_id,te.label,tq.release_id,tq.template_id from test_execution as te, task_queue as tq where te.task_id = tq.task_id and te.status > 1 and group_id = $group_id";
+
+        $result = $db->query($sql_query_ongoing_task) or die($db->error);
+        $row = $result->fetch_assoc(); //get data from ongoing task
+        if(is_null($row['execution_id'])) //if test is not tied to an ongoing task
+        {
+            $result = $db->query($sql_query_completed_task) or die($db->error);
+            $row = $result->fetch_assoc();
+        }
+
+        //At this point $row should contain test data either from
+        //ongoing task, or completed task
+        $test_detail['test_id'] = $row['test_id'];
+        $test_detail['label'] = $row['label'];
+        $test_detail['release_id'] = $row['release_id'];
+        $test_detail['template_id'] = $row['template_id'];
+
+        return $test_detail;
+
+    }
+    ///////////////////////////////////////////////////////////////////////
+    //Input: template id
+    //Return true if the logged in user has rights to that template id. Otherwise return false
+    function f_verifyUserPermissionByTemplate($template_id)
+    {
+        global $loggedInUser;
+        $template_name = f_getTemplateFromId($template_id);
+        if(isUserLoggedIn() && $loggedInUser->checkPermission($template_name)) return True;
+        else return False;
+    }
+    ///////////////////////////////////////////////////////////////////////
+    //input: user id
+    //return an associative array of id=>template_name that this user has
+    //permission to
+    function f_getUserTemplates($uid)
+    {
+        global $db;
+        $user_template_list = array();
+        $content ='';
+        $sql_query = "select t.template_id, t.template_name from uc_permissions as up, uc_user_permission_matches as uupm, template t where t.template_name=up.name and uupm.user_id=$uid and up.id=uupm.permission_id order by name";
+        $result = $db->query($sql_query) or die($db->error);
+        while ($row = $result->fetch_assoc())
+        {
+            $template_id = '';
+            $template_name = '';
+            $template_id = $row['template_id'];
+            $template_name = $row['template_name'];
+            //$content .= $template_id . ":" . $template_name . " | ";
+            $user_template_list[$template_id] = $template_name;
+        }
+        //return $content;
+        return $user_template_list;
+    }
+
+    function f_is_user_logged_in()
+    {
+        return isUserLoggedIn();
+    }
+///////////////////////////////////////////////////////////////////////////////////////////
+    // Input:   None
+    // Returns: Dictionary mapping user ID to user name
+    //          key: User ID, Value: User Name
+    // Usage:   Call this function and capture the return value into a variable. Then use that
+    //          variable for all of your lookups. For example:
+    //              $user_mapping = f_get_user_mapping();
+    //              echo '$user_mapping[1]'; // where 1 is the user ID you provide
+    function f_get_user_mapping(){
+        global $db;
+        if(!$db){
+            f_dbConnect();
+        }
+
+        $sql_query = "SELECT id, display_name FROM uc_users";
+        $result = $db->query($sql_query) or die($db->error);
+        $user_mapping = array();
+        while($row = $result->fetch_assoc())
+            $user_mapping[ $row['id'] ] = $row['display_name'];
+        return $user_mapping;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // Input:   None
+    // Returns: Dictionary mapping release ID to release version
+    //          key: Release ID, Value: Release Version
+    // Usage:   Call this function and capture the return value into a variable. Then use that
+    //          variable for all of your lookups. For example:
+    //              $release_mapping = f_get_release_mapping();
+    //              echo '$release_mapping[1]'; // where 1 is the release ID you provide
+    function f_get_release_mapping(){
+        global $db;
+        if(!$db){
+            f_dbConnect();
+        }
+
+        $sql_query = "SELECT release_id, version FROM release_registration";
+        $result = $db->query($sql_query) or die($db->error);
+        $release_mapping = array();
+        while($row = $result->fetch_assoc())
+            $release_mapping[ $row['release_id'] ] = $row['version'];
+        return $release_mapping;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // Input:   None
+    // Returns: Dictionary mapping template ID to template name
+    //          key: Template ID, Value: Template Name
+    // Usage:   Call this function and capture the return value into a variable. Then use that
+    //          variable for all of your lookups. For example:
+    //              $template_mapping = f_get_template_mapping();
+    //              echo '$template_mapping[1]'; // where 1 is the template ID you provide
+    function f_get_template_mapping(){
+        global $db;
+        if(!$db){
+            f_dbConnect();
+        }
+
+        $sql_query = "SELECT template_id, template_name FROM template";
+        $result = $db->query($sql_query) or die($db->error);
+        $template_mapping = array();
+        while($row = $result->fetch_assoc())
+            $template_mapping[ $row['template_id'] ] = $row['template_name'];
+        return $template_mapping;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // Input:   None
+    // Returns: Dictionary mapping event ID to event name
+    //          key: Event ID, Value: Event Name
+    // Usage:   Call this function and capture the return value into a variable. Then use that
+    //          variable for all of your lookups. For example:
+    //              $event_mapping = f_get_event_mapping();
+    //              echo '$event_mapping[1]'; // where 1 is the Event ID you provide
+    function f_get_event_mapping(){
+        global $db;
+        if(!$db){
+            f_dbConnect();
+        }
+
+        $sql_query = "SELECT event_id, event_name FROM event_definition";
+        $result = $db->query($sql_query) or die($db->error);
+        $event_mapping = array();
+        while($row = $result->fetch_assoc())
+            $event_mapping[ $row['event_id'] ] = $row['event_name'];
+        return $event_mapping;
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // Input:   None
+    // Returns: Dictionary mapping template name to template ID
+    //          key: Template Name, Value: Template ID
+    // Usage:   Call this function and capture the return value into a variable. Then use that
+    //          variable for all of your lookups. For example:
+    //              $template_mapping_inv = f_get_template_mapping_inv();
+    //              echo '$template_mapping_inv['OAT']'; // where 'OAT' is the Template name you provide
+    function f_get_template_mapping_inv(){
+        global $db;
+        if(!$db){
+            f_dbConnect();
+        }
+
+        $sql_query = "SELECT template_id, template_name FROM template";
+        $result = $db->query($sql_query) or die($db->error);
+        $template_mapping = array();
+        while($row = $result->fetch_assoc())
+            $template_mapping[ $row['template_name'] ] = $row['template_id'];
+        return $template_mapping;
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // Input:   None
+    // Returns: Dictionary mapping event name to event ID
+    //          key: Event Name, Value: Event ID
+    // Usage:   Call this function and capture the return value into a variable. Then use that
+    //          variable for all of your lookups. For example:
+    //              $event_mapping_inv = f_get_event_mapping_inv();
+    //              echo '$event_mapping_inv['Release Promoted']'; // where 'Release Promoted' is the Event name you provide
+    function f_get_event_mapping_inv(){
+        global $db;
+        if(!$db){
+            f_dbConnect();
+        }
+
+        $sql_query = "SELECT event_id, event_name FROM event_definition";
+        $result = $db->query($sql_query) or die($db->error);
+        $event_mapping = array();
+        while($row = $result->fetch_assoc())
+            $event_mapping[ $row['event_name'] ] = $row['event_id'];
+        return $event_mapping;
+    }
+///////////////////////////////////////////////////////////////////////////////////////////
+
+    function f_getTestNameListByReleaseByTemplate($release_id, $template_id)
+    {
+        global $db;
+        $label_list = array();
+        //$sql_query_current searches through ongoing tasks
+        //$sql_query_complete searches through completed tasks
+        $sql_query_current = "select tc.name,te.label,te.id from test_execution as te,task_queue as tq, test_case as tc where te.task_id = tq.task_id and tq.release_id = $release_id and tq.template_id = $template_id and te.status > 1 and tc.test_id=te.test_id order by te.id desc";
+        $sql_query_complete = "select tc.name,te.label,te.id from test_execution as te,completed_task as ct, test_case as tc where te.task_id = ct.task_id and ct.release_id = $release_id and ct.template_id = $template_id and tc.test_id=te.test_id order by te.id desc";
+        $result_current = $db->query($sql_query_current) or die($db->error);
+        $result_complete = $db->query($sql_query_complete) or die($db->error);
+
+        //Get the label from ongoing tasks first, then the completed tasks
+        //So they are in descending order
+        if($result_current->num_rows > 0)
+        {
+            while ($row = $result_current->fetch_assoc())
+            {
+                $label = '';
+                $test_id = '';
+                $name = $row['name'];
+                $label = $row['label'];
+                $test_execution_id = $row['id'];
+                //echo "$test_id | ";
+                $label_list[$name][] = $test_execution_id;
+            }//end of while on ongoing tasks
+        }
+        //Get labels and test execution ids from completed tasks
+        if($result_complete->num_rows > 0)
+        {
+            while ($row = $result_complete->fetch_assoc())
+            {
+                $label = '';
+                $test_id = '';
+                $name = $row['name'];
+                $label = $row['label'];
+                $test_execution_id = $row['id'];
+                if(!f_latestTest($test_execution_id)) continue;
+                $label_list[$name][] = $test_execution_id;
+            }//end of while on ongoing tasks
+        }
+        return $label_list;
+    }
+
+    /**
+      * Simple function to replicate PHP 5 behaviour
+      */
+    function microtime_float()
+    {
+         list($usec, $sec) = explode(" ", microtime());
+         return ((float)$usec + (float)$sec);
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //$event_list is a hash that contains the latest event_name by template_id for
+    //the given release_id
+    function f_getLatestEventPerTemplateByRelease($release_id)
+    {
+        global $db;
+        $events_list = array();
+        $sql_query = "select template_id, event_name, max(id) from (select eh.template_id, ed.event_name, eh.id from event_history as eh, event_definition as ed where eh.release_id = $release_id and eh.event_id = ed.event_id order by eh.id desc,eh.template_id) as tmp group by template_id";
+        $result = $db->query($sql_query) or die($db->error);
+        //Display template only if there's event in that template for the specified release
+        //So to avoid have "BAT: "
+        while($row = $result->fetch_assoc())
+        {
+            $event_name = $row['event_name'];
+            $template_id = $row['template_id'];
+            $events_list[$template_id] = $event_name;
+        }//end of while
+        return $events_list;
+    }
+    //end of f_getLatestEventPerTemplateByRelease
+
+
+?>

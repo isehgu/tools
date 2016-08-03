@@ -1,0 +1,83 @@
+<?php
+/*This page would take $_POST['link_id'] from ajax call and echo back the content
+ *to display for the appropriate 2nd top bar links.
+ *Possible values for link_id --
+ *history_by_release
+ *history_by_template
+ *tasks_by_template
+ *tasks_by_release
+ *templates_display
+*/
+  require_once "base_function.php";
+  f_dbConnect();
+  $type = $_POST['link_id'];
+  //f_contentDisplay($type);
+  $content = '';
+  if ($type == 'history_by_release') {
+    f_contentDisplay($type);
+  }
+  elseif ($type == 'history_by_template') {
+    f_contentDisplay($type);
+  }
+  elseif ($type == "templates_display"){
+    $content = "
+                <div class='row'>
+                    <div style='padding-left: 0px;' class='small-4 small-centered columns'>
+                      <h1 class='font_syncopate'>Templates</h1>
+                    </div>
+                  </div>
+                  <br>
+                  <div class='row'>
+                    <div class='small-6 small-centered columns'>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th width='80'>Template</th>
+                            <th width='80'>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>";
+
+    $content = $content . f_displayTemplates();
+
+    $content = $content . "</tbody>
+                      </table>
+                    </div>
+                  </div>";
+  }
+  elseif ($type == "tasks_by_template"){
+    f_contentDisplay($type);
+  }
+  elseif ($type == "test_live"){
+    f_contentDisplay($type);
+  }
+  elseif ($type == "test_user_history"){
+    f_contentDisplay($type);
+  }
+  elseif ($type == "test_complete_history"){
+    f_contentDisplay($type);
+  }
+  elseif ($type == "test_request"){
+    f_contentDisplay($type);
+  }
+  elseif ($type == "manage_my_triggers"){
+    f_contentDisplay($type);
+  }
+  elseif ($type == "view_all_triggers"){
+    f_contentDisplay($type);
+  }
+  elseif ($type == "statistics_summary"){
+    f_contentDisplay($type);
+  }
+  elseif ($type == "statistics_detailed"){
+    f_contentDisplay($type);
+  }
+  elseif ($type == "events"){
+    f_debug_events($type);
+  }
+  else {
+    $content = "<h1 class='font_syncopate'>$type is under Construction</h1>";
+  }
+  echo $content;
+
+?>

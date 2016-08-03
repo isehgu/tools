@@ -1,0 +1,804 @@
+
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_BAT1' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>BAT1</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>mazad01_hphealth: Test Completed</li><li>production: Test Completed</li><li>010.001.060: Deploy Completed</li><li>010.000.040: Deploy Started</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_BAT1' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='69' data-ise-template-id='5' >
+            <td>mazad01_hphealth</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 11:10:51</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='5' >
+            <td>production</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 10:25:02</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='60' data-ise-template-id='5' >
+            <td>010.001.060</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-07 15:48:37</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='2' data-ise-template-id='5' >
+            <td>010.000.040</td>
+            <td>Deploy Started</td>
+            <td>2014-11-05 08:55:29</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_BAT2' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>BAT2</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>010.001.510: Deploy Completed</li><li>mazad01_hphealth: Test Completed</li><li>production: Test Completed</li><li>010.001.060: Deploy Completed</li><li>010.000.095: Deploy Completed</li><li>010.001.050: Deploy Completed</li><li>010.001.040: Deploy Completed</li><li>010.000.090: Deploy Completed</li><li>010.001.000: Deploy Started</li><li>010.000.080: Deploy Completed</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_BAT2' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='70' data-ise-template-id='6' >
+            <td>010.001.510</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-23 18:45:44</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='69' data-ise-template-id='6' >
+            <td>mazad01_hphealth</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 11:11:19</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='6' >
+            <td>production</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 10:25:44</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='60' data-ise-template-id='6' >
+            <td>010.001.060</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-12 16:28:39</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='59' data-ise-template-id='6' >
+            <td>010.000.095</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-06 20:14:39</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='58' data-ise-template-id='6' >
+            <td>010.001.050</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-02 17:33:04</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='37' data-ise-template-id='6' >
+            <td>010.001.040</td>
+            <td>Deploy Completed</td>
+            <td>2014-12-18 11:51:51</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='10' data-ise-template-id='6' >
+            <td>010.000.090</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-06 15:50:16</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='8' data-ise-template-id='6' >
+            <td>010.001.000</td>
+            <td>Deploy Started</td>
+            <td>2014-11-06 13:41:40</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='7' data-ise-template-id='6' >
+            <td>010.000.080</td>
+            <td>Deploy Completed</td>
+            <td>2014-10-23 17:19:24</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_BAT3' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>BAT3</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>mazad01_hphealth: Test Completed</li><li>production: Test Completed</li><li>010.001.060: Deploy Completed</li><li>010.001.040: Test Completed</li><li>010.001.030: Deploy Completed</li><li>010.000.080: Deploy Failed</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_BAT3' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='69' data-ise-template-id='7' >
+            <td>mazad01_hphealth</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 11:10:30</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='7' >
+            <td>production</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 10:25:16</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='60' data-ise-template-id='7' >
+            <td>010.001.060</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-14 16:48:53</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='37' data-ise-template-id='7' >
+            <td>010.001.040</td>
+            <td>Test Completed</td>
+            <td>2014-12-17 15:11:06</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='12' data-ise-template-id='7' >
+            <td>010.001.030</td>
+            <td>Deploy Completed</td>
+            <td>2014-12-17 13:56:03</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='7' data-ise-template-id='7' >
+            <td>010.000.080</td>
+            <td>Deploy Failed</td>
+            <td>2014-11-11 13:26:00</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_BDT-AT' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>BDT-AT</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>010.001.600: Deploy Completed</li><li>010.001.999: Deploy Failed</li><li>010.001.510: Deploy Completed</li><li>mazad01_hphealth: Test Completed</li><li>mazad01_hp-health: Task Created</li><li>dsapienza_gts_10_1_500_yaml: Test Completed</li><li>010.001.500: Deploy Completed</li><li>production: Test Completed</li><li>010.001.060: Deploy Completed</li><li>010.000.095: Deploy Started</li><li>010.001.050: Deploy Completed</li><li>010.001.040: Test Completed</li><li>010.001.030: Task Created</li><li>010.001.020: Task Created</li><li>010.000.090: Deploy Started</li><li>010.001.000: Task Created</li><li>010.000.080: Test Completed</li><li>010.000.070: Test Completed</li><li>010.000.050: Task Created</li><li>010.000.040: Task Created</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_BDT-AT' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='72' data-ise-template-id='2' >
+            <td>010.001.600</td>
+            <td>Deploy Completed</td>
+            <td>2015-02-11 15:15:08</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='71' data-ise-template-id='2' >
+            <td>010.001.999</td>
+            <td>Deploy Failed</td>
+            <td>2015-01-28 19:56:39</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='70' data-ise-template-id='2' >
+            <td>010.001.510</td>
+            <td>Deploy Completed</td>
+            <td>2015-02-11 14:58:21</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='69' data-ise-template-id='2' >
+            <td>mazad01_hphealth</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 11:10:13</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='68' data-ise-template-id='2' >
+            <td>mazad01_hp-health</td>
+            <td>Task Created</td>
+            <td>2015-01-21 16:29:06</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='67' data-ise-template-id='2' >
+            <td>dsapienza_gts_10_1_500_yaml</td>
+            <td>Test Completed</td>
+            <td>2015-01-17 00:16:04</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='66' data-ise-template-id='2' >
+            <td>010.001.500</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-21 21:44:59</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='2' >
+            <td>production</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 10:35:20</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='60' data-ise-template-id='2' >
+            <td>010.001.060</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-20 17:35:24</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='59' data-ise-template-id='2' >
+            <td>010.000.095</td>
+            <td>Deploy Started</td>
+            <td>2015-01-06 20:02:52</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='58' data-ise-template-id='2' >
+            <td>010.001.050</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-15 12:28:25</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='37' data-ise-template-id='2' >
+            <td>010.001.040</td>
+            <td>Test Completed</td>
+            <td>2015-01-15 17:06:25</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='12' data-ise-template-id='2' >
+            <td>010.001.030</td>
+            <td>Task Created</td>
+            <td>2014-12-15 00:00:55</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='11' data-ise-template-id='2' >
+            <td>010.001.020</td>
+            <td>Task Created</td>
+            <td>2014-12-13 11:08:46</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='10' data-ise-template-id='2' >
+            <td>010.000.090</td>
+            <td>Deploy Started</td>
+            <td>2014-11-14 13:52:18</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='8' data-ise-template-id='2' >
+            <td>010.001.000</td>
+            <td>Task Created</td>
+            <td>2014-12-13 14:10:27</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='7' data-ise-template-id='2' >
+            <td>010.000.080</td>
+            <td>Test Completed</td>
+            <td>2014-10-28 13:29:14</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='6' data-ise-template-id='2' >
+            <td>010.000.070</td>
+            <td>Test Completed</td>
+            <td>2014-10-28 09:34:56</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='3' data-ise-template-id='2' >
+            <td>010.000.050</td>
+            <td>Task Created</td>
+            <td>2014-12-14 11:29:22</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='2' data-ise-template-id='2' >
+            <td>010.000.040</td>
+            <td>Task Created</td>
+            <td>2014-12-14 12:59:07</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_LSS1' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>LSS1</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>mazad01_hphealth: Test Completed</li><li>mazad01_hp-health: Test Completed</li><li>production: Test Completed</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_LSS1' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='69' data-ise-template-id='9' >
+            <td>mazad01_hphealth</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 11:09:40</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='68' data-ise-template-id='9' >
+            <td>mazad01_hp-health</td>
+            <td>Test Completed</td>
+            <td>2015-01-21 16:29:18</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='9' >
+            <td>production</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 10:24:14</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_LSS2' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>LSS2</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>mazad01_hphealth: Test Completed</li><li>mazad01_hp-health: Task Created</li><li>dsapienza_gts_10_1_500_yaml: Task Created</li><li>production: Test Completed</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_LSS2' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='69' data-ise-template-id='10' >
+            <td>mazad01_hphealth</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 11:09:42</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='68' data-ise-template-id='10' >
+            <td>mazad01_hp-health</td>
+            <td>Task Created</td>
+            <td>2015-01-21 16:29:06</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='67' data-ise-template-id='10' >
+            <td>dsapienza_gts_10_1_500_yaml</td>
+            <td>Task Created</td>
+            <td>2015-01-17 00:14:19</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='10' >
+            <td>production</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 10:24:12</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_OAT' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>OAT</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>010.001.510: Test Completed</li><li>mazad01_hphealth: Task Created</li><li>mazad01_hp-health: Task Created</li><li>dsapienza_gts_10_1_500_yaml: Test Completed</li><li>010.001.500: Test Completed</li><li>production: Test Started</li><li>010.001.060: Deploy Completed</li><li>010.001.050: Test Completed</li><li>010.001.040: Test Completed</li><li>010.001.030: Deploy Completed</li><li>010.001.020: Task Created</li><li>010.000.090: Task Created</li><li>010.000.080: Test Completed</li><li>010.000.070: Deploy Failed</li><li>010.000.060: Deploy Completed</li><li>010.000.050: Deploy Completed</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_OAT' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='70' data-ise-template-id='4' >
+            <td>010.001.510</td>
+            <td>Test Completed</td>
+            <td>2015-02-13 09:21:52</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='69' data-ise-template-id='4' >
+            <td>mazad01_hphealth</td>
+            <td>Task Created</td>
+            <td>2015-01-22 11:08:00</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='68' data-ise-template-id='4' >
+            <td>mazad01_hp-health</td>
+            <td>Task Created</td>
+            <td>2015-01-21 16:29:06</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='67' data-ise-template-id='4' >
+            <td>dsapienza_gts_10_1_500_yaml</td>
+            <td>Test Completed</td>
+            <td>2015-01-17 00:16:28</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='66' data-ise-template-id='4' >
+            <td>010.001.500</td>
+            <td>Test Completed</td>
+            <td>2015-01-23 08:12:11</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='4' >
+            <td>production</td>
+            <td>Test Started</td>
+            <td>2015-01-22 10:25:23</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='60' data-ise-template-id='4' >
+            <td>010.001.060</td>
+            <td>Deploy Completed</td>
+            <td>2015-01-20 11:25:02</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='58' data-ise-template-id='4' >
+            <td>010.001.050</td>
+            <td>Test Completed</td>
+            <td>2015-01-07 11:42:08</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='37' data-ise-template-id='4' >
+            <td>010.001.040</td>
+            <td>Test Completed</td>
+            <td>2015-01-02 13:32:29</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='12' data-ise-template-id='4' >
+            <td>010.001.030</td>
+            <td>Deploy Completed</td>
+            <td>2014-12-17 13:57:54</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='11' data-ise-template-id='4' >
+            <td>010.001.020</td>
+            <td>Task Created</td>
+            <td>2014-12-13 14:03:51</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='10' data-ise-template-id='4' >
+            <td>010.000.090</td>
+            <td>Task Created</td>
+            <td>2014-11-17 07:49:44</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='7' data-ise-template-id='4' >
+            <td>010.000.080</td>
+            <td>Test Completed</td>
+            <td>2014-10-28 11:03:04</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='6' data-ise-template-id='4' >
+            <td>010.000.070</td>
+            <td>Deploy Failed</td>
+            <td>2014-10-28 09:47:12</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='5' data-ise-template-id='4' >
+            <td>010.000.060</td>
+            <td>Deploy Completed</td>
+            <td>2014-09-23 14:21:19</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='3' data-ise-template-id='4' >
+            <td>010.000.050</td>
+            <td>Deploy Completed</td>
+            <td>2014-09-19 11:57:15</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_PAT' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>PAT</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>010.001.999: Test Completed</li><li>010.001.510: Test Completed</li><li>mazad01_hphealth: Test Completed</li><li>010.001.500: Test Completed</li><li>production: Test Completed</li><li>010.001.060: Instance Unsuspended</li><li>010.001.050: Test Completed</li><li>010.001.040: Test Completed</li><li>010.001.030: Test Completed</li><li>010.000.090: Deploy Failed</li><li>010.000.080: Deploy Failed</li><li>010.000.050: Task Created</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_PAT' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='71' data-ise-template-id='3' >
+            <td>010.001.999</td>
+            <td>Test Completed</td>
+            <td>2015-02-06 14:50:27</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='70' data-ise-template-id='3' >
+            <td>010.001.510</td>
+            <td>Test Completed</td>
+            <td>2015-02-10 16:50:46</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='69' data-ise-template-id='3' >
+            <td>mazad01_hphealth</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 11:10:43</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='66' data-ise-template-id='3' >
+            <td>010.001.500</td>
+            <td>Test Completed</td>
+            <td>2015-01-16 15:51:24</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='3' >
+            <td>production</td>
+            <td>Test Completed</td>
+            <td>2015-01-22 10:25:01</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='60' data-ise-template-id='3' >
+            <td>010.001.060</td>
+            <td>Instance Unsuspended</td>
+            <td>2015-02-03 11:31:53</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='58' data-ise-template-id='3' >
+            <td>010.001.050</td>
+            <td>Test Completed</td>
+            <td>2015-01-07 12:01:34</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='37' data-ise-template-id='3' >
+            <td>010.001.040</td>
+            <td>Test Completed</td>
+            <td>2014-12-27 21:05:32</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='12' data-ise-template-id='3' >
+            <td>010.001.030</td>
+            <td>Test Completed</td>
+            <td>2014-12-18 09:23:25</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='10' data-ise-template-id='3' >
+            <td>010.000.090</td>
+            <td>Deploy Failed</td>
+            <td>2014-11-17 15:07:30</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='7' data-ise-template-id='3' >
+            <td>010.000.080</td>
+            <td>Deploy Failed</td>
+            <td>2014-10-28 17:23:11</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='3' data-ise-template-id='3' >
+            <td>010.000.050</td>
+            <td>Task Created</td>
+            <td>2014-09-19 11:37:49</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_SAE' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>SAE</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>mazad01_hphealth: Release Promoted</li><li>mazad01_hp-health: Release Promoted</li><li>dsapienza_gts_10_1_500_yaml: Release Promoted</li><li>production: Release Promoted</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_SAE' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='69' data-ise-template-id='11' >
+            <td>mazad01_hphealth</td>
+            <td>Release Promoted</td>
+            <td>2015-01-22 11:08:00</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='68' data-ise-template-id='11' >
+            <td>mazad01_hp-health</td>
+            <td>Release Promoted</td>
+            <td>2015-01-21 16:29:06</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='67' data-ise-template-id='11' >
+            <td>dsapienza_gts_10_1_500_yaml</td>
+            <td>Release Promoted</td>
+            <td>2015-01-17 00:14:18</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='11' >
+            <td>production</td>
+            <td>Release Promoted</td>
+            <td>2015-01-22 10:22:34</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_SIT' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>SIT</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            <li>010.001.600: Release Promoted</li><li>010.001.999: Release Promoted</li><li>010.001.510: Release Promoted</li><li>010.001.500: Release Promoted</li><li>production: Release Promoted</li><li>010.001.060: Test Completed</li><li>010.000.095: Release Promoted</li><li>010.001.050: Test Completed</li><li>010.001.040: Test Completed</li><li>010.001.030: Test Started</li><li>010.001.020: Release Promoted</li><li>010.000.090: Release Promoted</li><li>010.000.020: Release Promoted</li><li>010.001.000: Release Promoted</li><li>010.000.080: Release Promoted</li><li>010.000.070: Release Promoted</li><li>010.000.060: Release Promoted</li><li>010.000.050: Release Promoted</li><li>010.000.040: Release Promoted</li><li>010.000.030: Release Promoted</li>
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_SIT' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            <tr class='event_history_release_row' data-ise-release-id='72' data-ise-template-id='1' >
+            <td>010.001.600</td>
+            <td>Release Promoted</td>
+            <td>2015-01-29 13:27:28</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='71' data-ise-template-id='1' >
+            <td>010.001.999</td>
+            <td>Release Promoted</td>
+            <td>2015-01-28 19:52:33</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='70' data-ise-template-id='1' >
+            <td>010.001.510</td>
+            <td>Release Promoted</td>
+            <td>2015-01-22 20:41:31</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='66' data-ise-template-id='1' >
+            <td>010.001.500</td>
+            <td>Release Promoted</td>
+            <td>2015-01-16 17:42:46</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='63' data-ise-template-id='1' >
+            <td>production</td>
+            <td>Release Promoted</td>
+            <td>2015-01-13 13:15:48</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='60' data-ise-template-id='1' >
+            <td>010.001.060</td>
+            <td>Test Completed</td>
+            <td>2015-01-08 10:45:48</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='59' data-ise-template-id='1' >
+            <td>010.000.095</td>
+            <td>Release Promoted</td>
+            <td>2015-01-06 20:02:52</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='58' data-ise-template-id='1' >
+            <td>010.001.050</td>
+            <td>Test Completed</td>
+            <td>2015-01-05 23:16:04</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='37' data-ise-template-id='1' >
+            <td>010.001.040</td>
+            <td>Test Completed</td>
+            <td>2014-12-17 15:05:08</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='12' data-ise-template-id='1' >
+            <td>010.001.030</td>
+            <td>Test Started</td>
+            <td>2014-12-15 00:00:55</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='11' data-ise-template-id='1' >
+            <td>010.001.020</td>
+            <td>Release Promoted</td>
+            <td>2014-11-25 09:22:03</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='10' data-ise-template-id='1' >
+            <td>010.000.090</td>
+            <td>Release Promoted</td>
+            <td>2014-11-17 13:33:36</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='9' data-ise-template-id='1' >
+            <td>010.000.020</td>
+            <td>Release Promoted</td>
+            <td>2014-11-11 13:01:39</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='8' data-ise-template-id='1' >
+            <td>010.001.000</td>
+            <td>Release Promoted</td>
+            <td>2014-11-06 13:41:40</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='7' data-ise-template-id='1' >
+            <td>010.000.080</td>
+            <td>Release Promoted</td>
+            <td>2014-11-11 13:16:10</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='6' data-ise-template-id='1' >
+            <td>010.000.070</td>
+            <td>Release Promoted</td>
+            <td>2014-10-28 09:29:10</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='5' data-ise-template-id='1' >
+            <td>010.000.060</td>
+            <td>Release Promoted</td>
+            <td>2014-09-23 14:02:59</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='3' data-ise-template-id='1' >
+            <td>010.000.050</td>
+            <td>Release Promoted</td>
+            <td>2014-09-19 11:37:49</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='2' data-ise-template-id='1' >
+            <td>010.000.040</td>
+            <td>Release Promoted</td>
+            <td>2014-09-18 14:43:56</td>
+        </tr><tr class='event_history_release_row' data-ise-release-id='1' data-ise-template-id='1' >
+            <td>010.000.030</td>
+            <td>Release Promoted</td>
+            <td>2014-11-11 13:01:10</td>
+        </tr>
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            
+                    <div class='row wide-row'>
+                    <div class='small-12 small-centered columns'><!--Event History-->
+                      <div class='section_wrapper'>
+                        <div class='row'><!--start of header row-->
+                          <div id='section_header_WSS' class='small-12 columns section_header small-centered'>
+                            <div class='row'>
+                              <div class='small-6 columns header_text'>
+                                <h1 class='font_syncopate'>WSS</h1>
+                              </div>
+                              <div class='small-6 columns header_stat'>
+                                <ul>
+            
+                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end of header row-->
+                        <div class='row'><!--start of body row-->
+                            <div id='section_body_WSS' class='section_body'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Latest Event</th>
+                                            <th>Entry Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            
+                    </tbody>
+                                    </table>
+                                </div>
+                            </div><!--end of body row-->
+                        </div>
+                    </div><!--End of event history-->
+                </div>
+            

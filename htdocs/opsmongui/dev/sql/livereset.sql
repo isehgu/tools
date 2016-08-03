@@ -1,0 +1,4 @@
+UPDATE `cfg` SET `id` = 10,`keyA` = 'lastload',`keyB` = 'connection',`valueA` = '1',`valueB` = NULL,`timeA` = NULL,`timeB` = NULL, `locked` = 1 WHERE `cfg`.`id` = 10;
+UPDATE `cfg` SET `id` = 11,`keyA` = 'lastload',`keyB` = 'connection',`valueA` = '2',`valueB` = NULL,`timeA` = NULL,`timeB` = NULL, `locked` = 1 WHERE `cfg`.`id` = 11;
+UPDATE `cfg` SET `id` = 12,`keyA` = 'lastload',`keyB` = 'connection',`valueA` = '3',`valueB` = NULL,`timeA` = NULL,`timeB` = NULL, `locked` = 1 WHERE `cfg`.`id` = 12;
+UPDATE `cfg` SET `id` = 13,`keyA` = 'lastload',`keyB` = 'alert',`valueA` = NULL,`valueB` = NULL,`timeA` = NULL,`timeB` = NULL, `locked` = 1 WHERE `cfg`.`id` = 13;

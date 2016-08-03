@@ -1,0 +1,42 @@
+<?php
+  /*This interfaces accepts Suspend or Unsuspend requests for templates
+   *and template instances. Format the message as JSON and send to BE.
+   *It accepts two variables -- $_GET['type], and $_GET['action']
+   */
+
+  $type        = $_GET['type'];
+  $action      = $_GET['action'];
+  $template_id = $_GET['template_id'];
+  $action_num  = NULL;
+  $host        = 'tc-tac01.test.ise.com';
+  $port        = 18900;
+
+  if ($type == 'template'){
+    if ($action == 'suspend'){
+      $action_num = '1';
+    }
+    elseif ($action == 'unsuspend') {
+      $action_num = '0';
+    }
+  }
+
+  require_once "base_function.php";
+  f_dbConnect();
+
+  $message = array();
+  $message['MsgType']  = 'template_action';
+  $message['Template'] = array('TemplateInfo'=>array('ID'=>$template_id),
+                               'StatusChange'=>array('Status'=>$action_num,
+                               'Reason'=>'NULL'));
+  $send_msg = json_encode($message);
+  // echo $send_msg
+
+  $socket = socket_create(AF_INET,SOCK_STREAM,0) or die("Could not create socket\n");
+  $result = socket_connect($socket,$host,$port) or die("Could not connect to M.A.P. Server\n");
+
+  socket_write($socket,$send_msg,strlen($send_msg)) or die("Could not send json data to M.A.P. Server\n");
+  $result = socket_read($socket,1024) or die("Could not read from M.A.P. Server\n");
+  socket_close($socket);
+  if($result == 'ok'){echo 'ok';}
+  else {echo "Action unsuccessful: $result";}
+?>
